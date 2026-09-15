@@ -2707,7 +2707,6 @@ hyperion-cs.github.io
 ## Flowseal/zapret-discord-youtube #6784
 
 Source: https://github.com/Flowseal/zapret-discord-youtube/issues/6784
-Title: [Проблема]
 
 Found domains:
 services.msc
@@ -5459,7 +5458,6 @@ services.msc
 ## Flowseal/zapret-discord-youtube #9737
 
 Source: https://github.com/Flowseal/zapret-discord-youtube/issues/9737
-Title: [Проблема] При запуске запрета, работает все, но пропадает соединение в играх на примере gtfo и в холдайверс 2
 
 Found domains:
 services.msc
@@ -10387,6 +10385,24 @@ Title: [Проблема] easy antecheat
 Found domains:
 gist.github.com
 winws.exe
+
+## Flowseal/zapret-discord-youtube #17398
+
+Source: https://github.com/Flowseal/zapret-discord-youtube/issues/17398
+Title: Очень долго грузит медиа в стиме
+
+Found domains:
+winws.exe
+
+## Flowseal/zapret-discord-youtube #17447
+
+Source: https://github.com/Flowseal/zapret-discord-youtube/issues/17447
+Title: [Проблема] смерть запрета (частичная)
+
+Found domains:
+gist.github.com
+winws.exe
+mangaread.org
 
 ## remittor/zapret-openwrt #241
 
