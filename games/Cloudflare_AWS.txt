@@ -815,3 +815,5 @@ gamelift.ap-southeast-2.amazonaws.com
 gamelift.sa-east-1.amazonaws.com
 
 developers.cloudflare.com
+
+ncpa.cpl
