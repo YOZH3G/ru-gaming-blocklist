@@ -5667,7 +5667,6 @@ services.msc
 ## Flowseal/zapret-discord-youtube #9985
 
 Source: https://github.com/Flowseal/zapret-discord-youtube/issues/9985
-Title: Сейчас в тик-ток разгоняют, тему что в запрете после версии 1.93 появился стиллер
 
 Found domains:
 services.msc
@@ -10403,6 +10402,16 @@ Found domains:
 gist.github.com
 winws.exe
 mangaread.org
+
+## Flowseal/zapret-discord-youtube #17523
+
+Source: https://github.com/Flowseal/zapret-discord-youtube/issues/17523
+Title: [Проблема] Массовая неработица батников
+
+Found domains:
+gist.github.com
+winws.exe
+private-user-images.githubusercontent.com
 
 ## remittor/zapret-openwrt #241
 
