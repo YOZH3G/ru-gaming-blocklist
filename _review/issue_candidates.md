@@ -10413,6 +10413,14 @@ gist.github.com
 winws.exe
 private-user-images.githubusercontent.com
 
+## Flowseal/zapret-discord-youtube #17539
+
+Source: https://github.com/Flowseal/zapret-discord-youtube/issues/17539
+Title: Что делать?
+
+Found domains:
+winws.exe
+
 ## remittor/zapret-openwrt #241
 
 Source: https://github.com/remittor/zapret-openwrt/issues/241
