@@ -3,26 +3,25 @@
     "domains_file": "medvedeff-game-list-all.txt",
     "ips_file": "medvedeff-game-ipset.txt",
     "games_dir": "games",
-    "write_ips_to_game_files": true,
-    "append_only": true,
-    "review_file": "_review/issue_candidates.md"
+    "write_ips_to_game_files": false,
+    "review_file": "_review/issue_candidates.md",
+    "production_writes": false
   },
   "limits": {
     "http_timeout_seconds": 35,
     "sleep_between_github_requests_seconds": 0.35,
-    "max_issue_pages_per_query": 2,
-    "max_comments_per_issue": 40,
+    "max_issue_pages_per_query": 1,
+    "max_comments_per_issue": 0,
     "max_raw_files_per_repo": 80,
     "max_raw_file_size_bytes": 450000,
-    "max_discovered_repositories_per_query": 4
+    "max_discovered_repositories_per_query": 0
   },
   "game_map": {
     "ApexLegends_RocketLeague": [
       "apex legends",
       "apex",
       "rocket league",
-      "rocketleague",
-      "rl"
+      "rocketleague"
     ],
     "Arknights": [
       "arknights",
@@ -49,12 +48,6 @@
     "BlueArchive": [
       "blue archive",
       "bluearchive"
-    ],
-    "Cloudflare_AWS": [
-      "cloudflare",
-      "amazon aws",
-      "aws",
-      "amazonaws"
     ],
     "DeadByDaylight": [
       "dead by daylight",
@@ -89,7 +82,6 @@
     "LeagueOfLegends": [
       "league of legends",
       "leagueoflegends",
-      "lol",
       "riot lol"
     ],
     "MagicTheGathering": [
@@ -108,15 +100,6 @@
       "mortalkombat",
       "mk1"
     ],
-    "Other_Games": [
-      "game server",
-      "gameserver",
-      "gaming",
-      "игра",
-      "игры",
-      "игровой",
-      "игровые"
-    ],
     "PhotonEngine": [
       "photon engine",
       "photonengine",
@@ -130,7 +113,6 @@
     ],
     "Roblox": [
       "roblox",
-      "рб",
       "роблокс"
     ],
     "Steam": [
@@ -143,16 +125,8 @@
       "dota 2",
       "steamdeck"
     ],
-    "Ubisoft_Rainbow Six Siege": [
-      "ubisoft",
-      "rainbow six",
-      "rainbow six siege",
-      "r6 siege",
-      "r6s"
-    ],
     "VRChat": [
       "vrchat",
-      "vrc",
       "vrcdn"
     ],
     "Warframe": [
@@ -162,6 +136,13 @@
       "wuthering waves",
       "wutheringwaves",
       "kuro games"
+    ],
+    "Ubisoft_Rainbow_Six_Siege": [
+      "ubisoft",
+      "rainbow six",
+      "rainbow six siege",
+      "r6 siege",
+      "r6s"
     ]
   },
   "domain_game_hints": {
@@ -224,11 +205,6 @@
       "valvesoftware",
       "dota2"
     ],
-    "Ubisoft_Rainbow Six Siege": [
-      "ubisoft",
-      "ubi.com",
-      "rainbow6"
-    ],
     "VRChat": [
       "vrchat",
       "vrchat.cloud",
@@ -241,6 +217,11 @@
     "WutheringWaves": [
       "kurogames",
       "wutheringwaves"
+    ],
+    "Ubisoft_Rainbow_Six_Siege": [
+      "ubisoft",
+      "ubi.com",
+      "rainbow6"
     ]
   },
   "issue_search_terms": [
@@ -280,58 +261,30 @@
     {
       "repo": "Flowseal/zapret-discord-youtube",
       "scan_issues": true,
-      "scan_issue_comments": true,
-      "scan_raw_files": true,
-      "max_issue_pages_per_query": 2,
-      "max_comments_per_issue": 35
+      "scan_issue_comments": false,
+      "scan_raw_files": false,
+      "allow_review_candidates": true,
+      "max_issue_pages_per_query": 1,
+      "max_comments_per_issue": 0
     },
     {
       "repo": "youtubediscord/zapret",
       "scan_issues": true,
-      "scan_issue_comments": true,
-      "scan_raw_files": true,
-      "max_issue_pages_per_query": 2,
-      "max_comments_per_issue": 35
-    },
-    {
-      "repo": "remittor/zapret-openwrt",
-      "scan_issues": true,
-      "scan_issue_comments": true,
-      "scan_raw_files": true,
-      "max_issue_pages_per_query": 2,
-      "max_comments_per_issue": 35
-    },
-    {
-      "repo": "bol-van/zapret",
-      "scan_issues": true,
-      "scan_issue_comments": true,
-      "scan_raw_files": true,
+      "scan_issue_comments": false,
+      "scan_raw_files": false,
+      "allow_review_candidates": true,
       "max_issue_pages_per_query": 1,
-      "max_comments_per_issue": 20
+      "max_comments_per_issue": 0
     },
     {
       "repo": "gexoty/vrc-ip-list",
-      "scan_issues": true,
-      "scan_issue_comments": true,
-      "scan_raw_files": true,
-      "trust_all_domains_as_gaming": true,
-      "default_game": "VRChat"
-    },
-    {
-      "repo": "azzimoda/zapret-lists",
-      "scan_issues": true,
-      "scan_issue_comments": true,
-      "scan_raw_files": true,
-      "max_issue_pages_per_query": 1,
-      "max_comments_per_issue": 20
-    },
-    {
-      "repo": "IREK-szef/games-blocklist",
       "scan_issues": false,
       "scan_issue_comments": false,
       "scan_raw_files": true,
       "trust_all_domains_as_gaming": true,
-      "default_game": "Other_Games"
+      "default_game": "VRChat",
+      "allow_review_candidates": true,
+      "max_raw_files_per_repo": 20
     }
   ],
   "raw_sources": [
@@ -340,36 +293,28 @@
       "url": "https://raw.githubusercontent.com/gexoty/vrc-ip-list/main/domain-list",
       "kind": "domains",
       "trust_all_domains_as_gaming": true,
-      "default_game": "VRChat"
+      "default_game": "VRChat",
+      "allow_review_candidates": true
     },
     {
       "name": "gexoty VRChat IPs",
       "url": "https://raw.githubusercontent.com/gexoty/vrc-ip-list/main/ip-list",
       "kind": "ips",
       "trust_all_domains_as_gaming": true,
-      "default_game": "VRChat"
-    },
-    {
-      "name": "azzimoda zapret general list",
-      "url": "https://raw.githubusercontent.com/azzimoda/zapret-lists/main/list-general.txt",
-      "kind": "mixed"
+      "default_game": "VRChat",
+      "allow_review_candidates": true
     }
   ],
   "repository_discovery": {
-    "enabled": true,
-    "queries": [
-      "zapret hostlist ipset gaming",
-      "gaming blocklist domains ip cidr",
-      "roblox ipset zapret",
-      "fortnite hostlist ipset",
-      "vrchat domainlist iplist"
-    ],
+    "enabled": false,
+    "queries": [],
     "ignore_repositories": [
-      "medvedeff-true/ru-gaming-blocklist"
+      "medvedeff-true/ru-gaming-blocklist",
+      "YOZH3G/ru-gaming-blocklist"
     ],
-    "min_score": 4,
-    "scan_issues": true,
-    "scan_raw_files": true
+    "min_score": 999,
+    "scan_issues": false,
+    "scan_raw_files": false
   },
   "raw_file_filters": {
     "extensions": [
