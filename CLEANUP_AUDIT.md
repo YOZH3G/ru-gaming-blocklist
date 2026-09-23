@@ -61,3 +61,18 @@ Provenance for less obvious shared endpoints is documented in `evidence/shared-e
 ## Follow-up
 
 Future additions should be reviewed before promotion from `_review/` to production. Completeness is secondary to avoiding collateral routing/blocking.
+
+## Second endpoint pass — 2026-09-23
+
+After the cleanup was merged, a second evidence-driven pass restored specific real service endpoints without reverting to broad provider ranges.
+
+Results:
+
+- global domain list: 1,226 entries;
+- malformed stripped-`%2F` hostnames removed from Arma Reforger;
+- malformed concatenated Epic hostname removed;
+- verified launcher/download/API endpoints added for Arma Reforger, Battle.net, EA/Origin, Epic Games, Blue Archive, Mortal Kombat 1, Warframe, Wuthering Waves and VRChat;
+- no IP/CIDR expansion was made from dynamic CDN observations;
+- discovery and validation now both reject the recurring stripped-`%2F` artifact.
+
+See `evidence/endpoint-pass-2026-09-23.md` for provenance and non-promotion decisions.
