@@ -5,6 +5,7 @@ apex.prod.dm.origin.com
 apex.r2-pc.stryder.respawn.com
 apex.r3-pc.stryder.respawn.com
 apex.r5-pc.stryder.respawn.com
+apexlegends-a.akamaihd.net
 apexlegends.com
 apexstatic.cdn.origin.com
 api.epicgames.dev
@@ -32,13 +33,18 @@ gateway.ea.com
 gateway.messenger.ea.com
 gos.ea.com
 gosredirector.ea.com
+k8s-emapexpr-emapexpr-1ffefe0854-1697488794.us-east-1.elb.amazonaws.com
+k8s-restapex-restprod-e3fd68c4b8-803327928.us-east-1.elb.amazonaws.com
 matchmaking.respawn.com
 nucleus.ea.com
 origin.com
 pc.mp.d.apex-legends.com
 playapex.com
 prod.ea.com
+r2-pc.s3.amazonaws.com
 r5-assets.stryder.respawn.com
+r5-crossplay-1783943630.us-west-2.elb.amazonaws.com
+r5-crossplay-sub-1242730053.us-west-2.elb.amazonaws.com
 r5-crossplay.r5prod.stryder.respawn.com
 r5-pc-stats.stryder.respawn.com
 respawn.com
