@@ -51,7 +51,12 @@ eos-gateway-ingressv2-prod-c3-w2.befa.live.use1a.on.epicgames.com
 eos-gateway-prod.ak.epicgames.com
 eos-overlay-checkout-module-153a.eac-prod.on.epicgames.com
 epic-social-game.modules.ecommerce.epicgames.com
+epicgames-download1.akamaized.net
+epicgames-download2.akamaized.net
+epicgames-download3.akamaized.net
+epicgames-download4.akamaized.net
 epicgames.com
+epicgames.com.akamaized.net
 epicgames.dev
 epicgames.net
 epicgames.org
@@ -67,6 +72,8 @@ fngw-mcp-gc-livefn.ol.epicgames.com
 fngw-svc-gc-livefn.ol.epicgames.com
 followers-service-prod.social.live.on.epicgames.com
 fortnite-matchmaking-public-service-live-eu.ol.epicgames.com
+fortnite-storage-live.s3.amazonaws.com
+fortnite-vod.akamaized.net
 fortnite.com
 fortnitecontent-website-prod07.ol.epicgames.com
 fortnitewaitingroom-public-service-prod.ol.epicgames.com
