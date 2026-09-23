@@ -813,10 +813,18 @@ def write_results(harvested: Harvested, config: dict[str, Any], known_game_names
     ips_file = ROOT / output.get("ips_file", "medvedeff-game-ipset.txt")
     games_dir = ROOT / output.get("games_dir", "games")
     review_file = ROOT / output.get("review_file", "_review/issue_candidates.md")
-    write_ips_to_game_files = bool(output.get("write_ips_to_game_files", True))
+    write_ips_to_game_files = bool(output.get("write_ips_to_game_files", False))
+    production_writes = bool(output.get("production_writes", False))
 
     domains, ips = list(harvested.domains_global.keys()), list(harvested.ips_global.keys())
     log(f"Collected candidates: {len(domains)} domain(s), {len(ips)} IP/CIDR item(s)")
+
+    if not production_writes:
+        log("Production writes are disabled: collected data is review-only.")
+        review_added = write_review_candidates(review_file, harvested.review_candidates, dry_run=dry_run)
+        log(f"Review file: +{review_added} candidate item(s)")
+        return
+
     added_domains = append_unique(domains_file, domains, dry_run=dry_run)
     added_ips = append_unique(ips_file, ips, dry_run=dry_run)
     log(f"Global files: +{added_domains} domain(s), +{added_ips} IP/CIDR item(s)")
