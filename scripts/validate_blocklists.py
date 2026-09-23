@@ -31,6 +31,10 @@ def validate_domain(value: str) -> str | None:
         return "domain must be lowercase"
     if any(value.endswith(suffix) for suffix in BAD_SUFFIXES):
         return "looks like a filename/pseudo-domain"
+    # A recurring scraper artifact is an URL-encoded slash (%2F) with the percent
+    # sign stripped, e.g. 2fapi-ar-game.bistudio.com.
+    if value.startswith("2f") and value[2:].count(".") >= 2 and DOMAIN_RE.fullmatch(value[2:]):
+        return "looks like a stripped %2F URL-encoding artifact"
     if not DOMAIN_RE.fullmatch(value):
         return "invalid domain syntax"
     if is_bare_generic_domain(value):

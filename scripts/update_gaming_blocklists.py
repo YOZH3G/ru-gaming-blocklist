@@ -128,6 +128,12 @@ def clean_possible_domain(raw: str) -> str | None:
         return None
     if "_" in token or len(token) > 253:
         return None
+
+    # GitHub issue/config text frequently contains URL-encoded paths. DOMAIN_RE can
+    # otherwise start matching immediately after '%' in "%2Fapi.example.com" and
+    # produce the fake hostname "2fapi.example.com".
+    if token.startswith("2f") and token[2:].count(".") >= 2 and DOMAIN_RE.fullmatch(token[2:]):
+        return None
     labels = token.split(".")
     if len(labels) < 2:
         return None

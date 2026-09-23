@@ -1,1 +1,5 @@
+account.wbgames.com
+datarouter.apps.netherrealm.com
+k1-api.wbagora.com
 mortalkombat.com
+prod-network-api.wbagora.com

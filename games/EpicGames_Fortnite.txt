@@ -51,6 +51,7 @@ eos-gateway-ingressv2-prod-c3-w2.befa.live.use1a.on.epicgames.com
 eos-gateway-prod.ak.epicgames.com
 eos-overlay-checkout-module-153a.eac-prod.on.epicgames.com
 epic-social-game.modules.ecommerce.epicgames.com
+epicgames-download1-1251447533.file.myqcloud.com
 epicgames-download1.akamaized.net
 epicgames-download2.akamaized.net
 epicgames-download3.akamaized.net
@@ -117,7 +118,6 @@ priceengine-public-service-prod.ak.epicgames.com
 prm-dialogue-public-api-prod.edea.live.use1a.on.epicgames.com
 prod-push-service-prod-on.epicgames.com
 prod.ol.epicgames.com
-prod07.ol.epicgames.comaccounts.epicgames.com
 publickey-service-live.ecosec.on.epicgames.com
 rtcp.on.epicgames.com
 service.epicgames.com
