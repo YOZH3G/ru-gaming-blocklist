@@ -1,3 +1,8 @@
+api-and.warframe.com
+api-mob.warframe.com
+api-ps4.warframe.com
+api-swi.warframe.com
+api-xb1.warframe.com
 api.warframe.com
 arbiter-ps4.warframe.com
 arbiter-swi.warframe.com
@@ -21,6 +26,8 @@ origin-xb1.warframe.com
 origin.warframe.com
 store.warframe.com
 support.warframe.com
+warframe-web-assets.nyc3.cdn.digitaloceanspaces.com
 warframe.com
 wrfr.me
+www-static.warframe.com
 www.warframe.com
