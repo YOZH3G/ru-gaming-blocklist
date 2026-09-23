@@ -10421,6 +10421,16 @@ Title: Что делать?
 Found domains:
 winws.exe
 
+## Flowseal/zapret-discord-youtube #17621
+
+Source: https://github.com/Flowseal/zapret-discord-youtube/issues/17621
+Title: [Проблема] Good stealer, i really want ur death , die fucking brat.
+
+Found domains:
+gist.github.com
+winws.exe
+private-user-images.githubusercontent.com
+
 ## remittor/zapret-openwrt #241
 
 Source: https://github.com/remittor/zapret-openwrt/issues/241
