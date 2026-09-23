@@ -54,6 +54,7 @@ c7ak.roblox.com
 captcha.roblox.com
 catalog.api.roblox.com
 catalog.roblox.com
+cdn.arkoselabs.com
 cdn.foundation.roblox.com
 cdn.roblox.com
 chat.roblox.com
@@ -81,6 +82,7 @@ creatorforum.roblox.com
 crl.roblox.com
 cs.rbxcdn.com
 css.rbxcdn.com
+d1unuk07s6td74.cloudfront.net
 data.roblox.com
 de.roblox.com
 deploy.roblox.com
@@ -246,6 +248,9 @@ realtime.signalr.roblox.com
 refer.roblox.com
 reports.roblox.com
 rjobs.roblox.com
+roblox-api.arkoselabs.com
+roblox-load-generator-configuration.s3.us-east-2.amazonaws.com
+roblox-poc.global.ssl.fastly.net
 roblox-setup.cache.roblox.com
 roblox-setup.roblox.com
 roblox-update.cache.roblox.com
@@ -254,6 +259,7 @@ roblox.com
 robloxapp.com
 robloxassets.com
 robloxcdn.com
+robloxcorp.s.llnwi.net
 robloxdev.cn
 robloxdev.com
 robloxgames.com
