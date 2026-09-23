@@ -8,7 +8,14 @@ blizzard.com
 blizzard.de
 blizzardgames.cn
 blz-contentstack.com
+blzddist1-a.akamaihd.net
+blzddistkr1-a.akamaihd.net
+blzmedia-a.akamaihd.net
+blznav.akamaized.net
 blzstatic.cn
+bnetcmsus-a.akamaihd.net
+bnetproduct-a.akamaihd.net
+bnetshopus.akamaized.net
 eu.actual.battle.net
 eu.shop.battle.net
 firesidegatherings.com
