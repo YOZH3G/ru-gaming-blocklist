@@ -1,10 +1,5 @@
+1611202461.rsc.cdn77.org
 2a.bistudio.com
-2fapi-ar-game.bistudio.com
-2far-gcp-cdn.bistudio.com
-2fcdn.battleye.com
-2fcms-cdn.bistudio.com
-2freforger.armaplatform.com
-2fwww.reforger.armaplatform.com
 a.pvp.net
 aadcdn.msauth.net
 abtesting.roblox.com
@@ -15,6 +10,7 @@ account.battle.net
 account.epicgames.com
 account.mojang.com
 account.ubisoft.com
+account.wbgames.com
 accountinformation.roblox.com
 accountportal-website-prod07.ol.epicgames.com
 accounts.cdn.origin.com
@@ -49,9 +45,14 @@ apex.r5-pc.stryder.respawn.com
 apexlegends-a.akamaihd.net
 apexlegends.com
 apexstatic.cdn.origin.com
+api-and.warframe.com
 api-ar-game.bistudio.com
+api-mob.warframe.com
+api-ps4.warframe.com
+api-swi.warframe.com
 api-ubiservices.ubi.com
 api-uplay.ubi.com
+api-xb1.warframe.com
 api.account.riotgames.com
 api.account.riotgames.com.cdn.cloudflare.net
 api.epicgames.dev
@@ -129,6 +130,7 @@ battlefieldv.com
 battlelog-cdn.origin.com
 battlelog.bf1.cdn.origin.com
 battlenet.com
+battleye.b-cdn.net
 beyond-asiapacific.gryphline.com
 beyond-euandus.gryphline.com
 beyond.hg-cdn.com
@@ -156,6 +158,7 @@ blog.roblox.com
 bloxcon.roblox.com
 bluearchive.com
 bluearchive.jp
+bluearchive.nexon.com
 blz-contentstack.com
 blzddist1-a.akamaihd.net
 blzddistkr1-a.akamaihd.net
@@ -218,6 +221,7 @@ cdn1.epicgames.com
 cdn1.unrealengine.com
 cdn2.epicgames.com
 cdn2.unrealengine.com
+cdp.cloud.unity3d.com
 cf.dyn.riotcdn.net.cdn.cloudflare.net
 chat.roblox.com
 chatmoderation.roblox.com
@@ -238,6 +242,7 @@ clientsettings.api.roblox.com
 clientsettings.roblox.com
 clientsettingscdn.roblox.com
 cloud.steampowered.com
+cloud.unity3d.com
 cloudflare.epicgamescdn.com
 cloudsync.juno.ea.com
 cmp1-fra2.steamserver.net
@@ -295,6 +300,7 @@ data.riotgames.com
 data.riotgames.com.cdn.cloudflare.net
 data.roblox.com
 dataportal.ea.com
+datarouter.apps.netherrealm.com
 datarouter.ol.epicgames.com
 datastorage-public-service-live.ol.epicgames.com
 datastorage-public-service-liveegs.live.use1a.on.epicgames.com
@@ -425,6 +431,7 @@ eos-gateway-prod.ak.epicgames.com
 eos-overlay-checkout-module-153a.eac-prod.on.epicgames.com
 ephemeralcounters.api.roblox.com
 epic-social-game.modules.ecommerce.epicgames.com
+epicgames-download1-1251447533.file.myqcloud.com
 epicgames-download1.akamaized.net
 epicgames-download2.akamaized.net
 epicgames-download3.akamaized.net
@@ -438,6 +445,7 @@ epicgamescdn.com
 essential.gg
 et.epicgames.com
 eu.actual.battle.net
+eu.cdn.blizzard.com
 eu.e4mc.link
 eu.edge.rms.si.riotgames.com
 eu.edge.rms.si.riotgames.com.cdn.cloudflare.net
@@ -560,6 +568,9 @@ help.steampowered.com
 help.vrchat.com
 hg-cdn.com
 home.roblox.com
+hw-pcdownload-akamai.aki-game.net
+hw-pcdownload-aws.aki-game.net
+hw-pcdownload-qcloud.aki-game.net
 hypixel.net
 i.roblox.com
 images.rbxcdn.com
@@ -567,6 +578,7 @@ images.steamusercontent.com
 imagesak.roblox.com
 infrastructure.roblox.com
 interactions-service-prod.ol.epicgames.com
+internal.unity3d.com
 inventory.api.roblox.com
 inventory.roblox.com
 ip-data-service-prod.ecosec.on.epicgames.com
@@ -585,8 +597,10 @@ jp.e4mc.link
 js.rbxcdn.com
 jsak.roblox.com
 juno.ea.com
+k1-api.wbagora.com
 k8s-emapexpr-emapexpr-1ffefe0854-1697488794.us-east-1.elb.amazonaws.com
 k8s-restapex-restprod-e3fd68c4b8-803327928.us-east-1.elb.amazonaws.com
+kr.cdn.blizzard.com
 kurogame-service.com
 kurogames.com
 l3cdn.riotgames.com
@@ -612,6 +626,8 @@ legacy.lolesports.com
 legal.ubi.com
 lers-eu.pp.sgp.pvp.net
 lers-eu.pp.sgp.pvp.net.cdn.cloudflare.net
+level3.blizzard.com
+level3.ssl.blizzard.com
 libraries.minecraft.net
 library-service.live.use1a.on.epicgames.com
 lightswitch-public-service-prod.ak.epicgames.com
@@ -688,12 +704,14 @@ ns-jp.photonengine.io
 ns-us.photonengine.io
 ns.photonengine.io
 nucleus.ea.com
+nxm-clw-cdn.dn.nexoncdn.co.kr
 o5.em8221.devforum.roblox.com
 oc.e4mc.link
 ol.epicgames.com
 on.epicgames.com
 ord38.telemetry.origin.com
 orderprocessor-public-service-ecomprod01.ol.epicgames.com
+origin-a.akamaihd.net
 origin-ps4.warframe.com
 origin-swi.warframe.com
 origin-xb1.warframe.com
@@ -712,6 +730,7 @@ party-service-prod06.ol.epicgames.com
 pc.crashsight.wetest.net
 pc.ea.com
 pc.mp.d.apex-legends.com
+perf-events.cloud.unity3d.com
 perf.store.on.epicgames.com
 perforce.roblox.com
 permissions.sgp.pvp.net
@@ -744,10 +763,11 @@ priceengine-public-service-prod.ak.epicgames.com
 privatemessages.roblox.com
 prm-dialogue-public-api-prod.edea.live.use1a.on.epicgames.com
 probe.ea.com
+prod-alicdn-gamestarter.kurogame.com
+prod-network-api.wbagora.com
 prod-push-service-prod-on.epicgames.com
 prod.ea.com
 prod.ol.epicgames.com
-prod07.ol.epicgames.comaccounts.epicgames.com
 profile.xboxlive.com
 progression.ubisoft.com
 proxy.novafusion.ea.com
@@ -1104,6 +1124,7 @@ upload.crashes.roblox.com
 uploads.roblox.com
 us-east1.rbxcdn.com
 us.actual.battle.net
+us.cdn.blizzard.com
 us.e4mc.link
 user.auth.xboxlive.com
 usermoderation.roblox.com
@@ -1143,6 +1164,7 @@ vrchat.net
 vrchatassets.com
 vrcpm.vrchat.cloud
 vxc.roblox.com
+warframe-web-assets.nyc3.cdn.digitaloceanspaces.com
 warframe.com
 web-static.hg-cdn.com
 web.roblox.com
@@ -1174,7 +1196,9 @@ worldofwarcraft.com
 worldwide.l3cdn.riotgames.com
 wrfr.me
 ws-vortex.ubi.com
+wutheringwaves.kurogames.com
 wwsw.roblox.com
+www-static.warframe.com
 www.biligame.com
 www.corp.roblox.com
 www.curseforge.com
