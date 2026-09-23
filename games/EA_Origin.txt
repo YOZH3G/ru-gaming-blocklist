@@ -53,6 +53,7 @@ launcher.eac-cdn.com
 loginregistration.ea.com
 nucleus.ea.com
 ord38.telemetry.origin.com
+origin-a.akamaihd.net
 origin.com
 pc.ea.com
 platoons.ea.com
