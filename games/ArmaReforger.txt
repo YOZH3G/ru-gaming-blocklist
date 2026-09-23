@@ -6,6 +6,7 @@
 2freforger.armaplatform.com
 2fwww.reforger.armaplatform.com
 api-ar-game.bistudio.com
+ar-api-origin.bistudio.com.cdn.cloudflare.net
 ar-gcp-cdn.bistudio.com
 armaplatform.com
 armareforgerplatform.com
