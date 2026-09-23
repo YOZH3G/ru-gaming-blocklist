@@ -1,51 +1,44 @@
-<div align="center">
+# RU Gaming Blocklist
 
-# Текстовые списки доменов и IP игровых сервисов заблокированных в РФ
+Консервативные списки доменов и IP/CIDR игровых сервисов для маршрутизации, firewall/ipset, DNS-фильтров и решений на базе Zapret.
 
-Списки можно использовать с **Zapret**, DNS-фильтрами, маршрутизацией, firewall/ipset и другими похожими инструментами.
+Этот репозиторий — форк [medvedeff-true/ru-gaming-blocklist](https://github.com/medvedeff-true/ru-gaming-blocklist), переработанный с приоритетом **минимизации ложных срабатываний**.
 
-</div>
+## Принцип
 
----
+Production-списки больше не пополняются напрямую результатами GitHub Search.
 
-> [!NOTE]
-> Репозиторий обновляется автоматически через **GitHub Actions** и ищет новые домены/ip по github, если они появились.
-> Быстрое обновление запускается **раз в 3 часа**, а полный расширенный поиск **раз в 2 дня**.
+Автоматический сборщик используется только как источник кандидатов для `_review/`. Запись найденного напрямую в глобальные или игровые production-списки по умолчанию отключена.
 
-> [!TIP]
-> Эти списки уже встроены **из коробки** и используются совместно с игровым режимом в моём [Zapret GUI](https://github.com/medvedeff-true/Zapret-GUI).
+В production допускаются:
 
-## Состав на данный момент
-- Apex Legends / Rocket League
-- Arknights
-- Arma Reforger
-- Battlefield
-- Battle.net
-- Blue Archive
-- Cloudflare / AWS
-- Dead by Daylight
-- EA Origin
-- Epic Games / Fortnite
-- Fallout 76 (AWS)
-- Gears of War
-- Goose Goose Duck
-- League of Legends
-- Magic: The Gathering
-- Minecraft
-- Mortal Kombat
-- Photon Engine
-- Riot Games / Valorant
-- Roblox
-- Steam
-- Ubisoft / Rainbow Six Siege
-- VRChat
-- Warframe
-- Wuthering Waves
-- Other Games
+- домены, достаточно уверенно связанные с самой игрой, издателем или игровым backend;
+- IP/CIDR, для которых можно подтвердить сетевую принадлежность игровому оператору (например, через ASN/BGP);
+- узкие исключения, имеющие документированную причину.
 
-# Формат
-`medvedeff-game-list-all.txt`  - домены
+Общие диапазоны AWS, Cloudflare, Google, Akamai и других CDN/cloud-провайдеров не добавляются только потому, что игра ими пользуется: такой маршрут затронул бы большое количество постороннего трафика.
 
-`medvedeff-game-ipset.txt` - IP / CIDR
+## Файлы
 
-`games/` - разбивка по играм и сервисам
+- `medvedeff-game-list-all.txt` — объединённый production-список доменов;
+- `medvedeff-game-ipset.txt` — проверенные IP/CIDR;
+- `games/` — списки по играм и сервисам;
+- `_review/` — непроверенные автоматические кандидаты;
+- `scripts/validate_blocklists.py` — CI-проверка production-списков;
+- `sources.json` — конфигурация discovery/collector.
+
+## Игры и сервисы
+
+Apex Legends / Rocket League, Arknights, Arma Reforger, Battle.net, Battlefield, Blue Archive, Dead by Daylight, EA / Origin, Epic Games / Fortnite, Goose Goose Duck, League of Legends, Minecraft, Mortal Kombat, Photon Engine, Riot Games / Valorant, Roblox, Steam, Ubisoft / Rainbow Six Siege, VRChat, Warframe и Wuthering Waves.
+
+## Автоматизация
+
+Быстрый collector запускается раз в 3 часа, полный — раз в 2 дня. Их задача — обнаружение кандидатов. Перед любым автоматическим коммитом запускается валидатор.
+
+CI отклоняет, среди прочего:
+
+- невалидные домены и псевдодомены вроде имён `.exe`, `.sys`, `.zip`;
+- private/reserved IP;
+- чрезмерно широкие IP-префиксы;
+- известную общую инфраструктуру в production;
+- дубликаты.
