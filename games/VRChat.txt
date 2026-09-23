@@ -4,6 +4,7 @@ ask.vrchat.com
 assets.vrchat.com
 cdn.vrchat.com
 creators.vrchat.com
+dbinj8iahsbec.cloudfront.net
 dev-api.vrchat.cloud
 docs.vrchat.com
 exitgames.com
@@ -22,6 +23,7 @@ ns.photonengine.io
 pipeline.vrchat.cloud
 redirect.vrchat.com
 status.vrchat.com
+vod-progressive.akamaized.net
 vrcdn.cloud
 vrcdn.live
 vrcdn.video
