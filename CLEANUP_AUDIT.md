@@ -18,8 +18,8 @@ Examples of pollution observed during the audit included pseudo-domains/file nam
 
 ### After
 
-- global domain list: 1,128 domains, rebuilt from cleaned per-game lists;
-- global IP/CIDR list: 33 high-confidence network prefixes;
+- global domain list: 1,202 domains after restoring specific evidence-backed shared endpoints;
+- global IP/CIDR list: 35 prefixes;
 - `Cloudflare_AWS.txt` removed;
 - `Other_Games.txt` removed;
 - historical review queue reset;
@@ -30,21 +30,19 @@ Examples of pollution observed during the audit included pseudo-domains/file nam
 
 ## IP policy
 
-IP/CIDR entries are retained only when network ownership can be reasonably tied to the gaming operator.
+The lists are action-neutral: consumers may use them either as include lists or as excludes. IP/CIDR therefore describes infrastructure associated with the game, not whether the address should be bypassed.
 
-The initial verified set is intentionally conservative and includes prefixes associated with:
+Network ownership remains strong evidence, but it is not the only acceptable evidence. Narrow third-party IPs may be retained when operational evidence ties them to a game. Very broad cloud/CDN prefixes are still excluded because they are not specific enough for a neutral game list.
 
-- Riot Games (AS6507);
-- Roblox (AS22697);
-- Valve (AS32590).
-
-Generic AWS, Cloudflare, Google, Akamai and similar infrastructure is not treated as game-owned IP space.
+The current verified owned-network baseline includes Riot Games (AS6507), Roblox (AS22697), and Valve (AS32590).
 
 ## Domain policy
 
-Per-game files are now filtered to domains tied to the game, publisher, platform backend, or a narrowly justified service dependency.
+Per-game files contain domains tied to the game, publisher, anti-cheat, platform backend, or an evidenced service dependency.
 
-Generic infrastructure and unrelated third-party domains are excluded from production even when they appeared near a game name in GitHub issues or configuration snippets.
+Shared infrastructure is allowed when the hostname itself is specific enough (for example a Riot/Vanguard ELB, Steam Akamai hostname, or Ubisoft S3 bucket) or when a concrete source supports the association. Bare provider roots such as `cloudfront.net`, `amazonaws.com` or `cloudflare.com` remain excluded.
+
+Provenance for less obvious shared endpoints is documented in `evidence/shared-endpoints.json`.
 
 ## Automation changes
 
