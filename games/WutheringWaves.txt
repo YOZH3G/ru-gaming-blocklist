@@ -1,3 +1,8 @@
+hw-pcdownload-akamai.aki-game.net
+hw-pcdownload-aws.aki-game.net
+hw-pcdownload-qcloud.aki-game.net
 kurogame-service.com
 kurogames.com
 mc.kurogames.com
+prod-alicdn-gamestarter.kurogame.com
+wutheringwaves.kurogames.com
