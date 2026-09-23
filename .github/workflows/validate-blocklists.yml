@@ -1,0 +1,29 @@
+name: Validate gaming blocklists
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+      - "cleanup/**"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v5
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+
+      - name: Validate production lists
+        run: python scripts/validate_blocklists.py

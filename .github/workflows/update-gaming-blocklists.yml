@@ -35,7 +35,10 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          python scripts/update_gaming_blocklists.py             --config sources.json             --mode fast
+          python scripts/update_gaming_blocklists.py --config sources.json --mode fast
+
+      - name: Validate production lists
+        run: python scripts/validate_blocklists.py
 
       - name: Commit and push changes
         run: |

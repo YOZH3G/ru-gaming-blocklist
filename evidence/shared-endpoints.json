@@ -1,0 +1,51 @@
+{
+  "policy": {
+    "description": "Shared infrastructure is allowed when the endpoint is specific enough to the game/service or supported by concrete operational evidence. Bare provider roots and overly broad cloud CIDRs remain excluded.",
+    "confidence_levels": [
+      "explicit_report",
+      "trusted_specialized_source",
+      "specific_hostname_retained_from_upstream"
+    ]
+  },
+  "entries": [
+    {
+      "game": "RiotGames_Valorant",
+      "source": "https://github.com/Flowseal/zapret-discord-youtube/issues/9718#issuecomment-3833857646",
+      "confidence": "explicit_report",
+      "note": "User reports these Riot/Vanguard hostnames in a working exclude configuration. Shared provider IPs from the same comment are not automatically promoted because they are non-exclusive/ephemeral.",
+      "endpoints": [
+        "lolstatic-a.akamaihd.net"
+      ]
+    },
+    {
+      "game": "VRChat",
+      "source": "https://github.com/gexoty/vrc-ip-list",
+      "confidence": "trusted_specialized_source",
+      "note": "Dedicated VRChat list used as a configured source; only specific shared hostnames are promoted, not provider-wide roots or broad /16 IP ranges.",
+      "endpoints": [
+        "dbinj8iahsbec.cloudfront.net",
+        "vod-progressive.akamaized.net"
+      ]
+    },
+    {
+      "game": "Roblox",
+      "source": "https://github.com/bol-van/zapret/discussions/1928",
+      "confidence": "explicit_report",
+      "note": "Community Roblox routing/blocking discussion and Roblox CSP corroborate several third-party endpoints.",
+      "endpoints": [
+        "d1unuk07s6td74.cloudfront.net",
+        "roblox-load-generator-configuration.s3.us-east-2.amazonaws.com",
+        "roblox-poc.global.ssl.fastly.net",
+        "robloxcorp.s.llnwi.net",
+        "roblox-api.arkoselabs.com",
+        "cdn.arkoselabs.com"
+      ]
+    },
+    {
+      "game": "multiple",
+      "source": "https://github.com/medvedeff-true/ru-gaming-blocklist",
+      "confidence": "specific_hostname_retained_from_upstream",
+      "note": "Provider-hosted endpoints whose hostname itself contains an unambiguous game/vendor identifier are retained after semantic review. Generic provider roots remain excluded."
+    }
+  ]
+}
