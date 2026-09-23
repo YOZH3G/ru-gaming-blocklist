@@ -11,17 +11,19 @@ BAD_SUFFIXES = {
     ".exe", ".dll", ".sys", ".msc", ".bin", ".zip", ".rar", ".7z", ".log",
     ".ini", ".cfg", ".lua", ".php", ".aspx", ".js", ".dat", ".tmp",
 }
-GENERIC_INFRA = {
+GENERIC_ROOTS = {
     "google.com", "googleapis.com", "gstatic.com", "youtube.com",
     "github.com", "githubusercontent.com",
-    "cloudflare.com", "cloudflare.net", "cloudfront.net", "amazonaws.com",
+    "cloudflare.com", "cloudflare.net", "cloudfront.net",
+    "amazonaws.com", "s3.amazonaws.com",
+    "akamaihd.net", "akamaized.net",
     "discord.com", "discord.gg", "discord.media", "discordapp.com", "discordapp.net",
-    "one.one", "windows.net",
+    "one.one", "windows.net", "blob.core.windows.net", "azureedge.net", "azurefd.net",
 }
 
 
-def is_generic_domain(domain: str) -> bool:
-    return any(domain == root or domain.endswith("." + root) for root in GENERIC_INFRA)
+def is_bare_generic_domain(domain: str) -> bool:
+    return domain in GENERIC_ROOTS
 
 
 def validate_domain(value: str) -> str | None:
@@ -31,8 +33,8 @@ def validate_domain(value: str) -> str | None:
         return "looks like a filename/pseudo-domain"
     if not DOMAIN_RE.fullmatch(value):
         return "invalid domain syntax"
-    if is_generic_domain(value):
-        return "generic infrastructure domain is not allowed in production"
+    if is_bare_generic_domain(value):
+        return "bare generic infrastructure root is not allowed in production"
     return None
 
 
