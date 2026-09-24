@@ -10,6 +10,7 @@ account.battle.net
 account.epicgames.com
 account.mojang.com
 account.ubisoft.com
+account.wardogs.com
 account.wbgames.com
 accountinformation.roblox.com
 accountportal-website-prod07.ol.epicgames.com
@@ -35,6 +36,7 @@ akamaized.epicgames.com
 altdevforum.roblox.com
 analytic-1-0-13.live.virginia.dbd.bhvronline.com
 anticheat.epicgames.com
+anybrain.gg
 ap.e4mc.link
 apac.rbxcdn.com
 apex.dm.origin.com
@@ -171,6 +173,7 @@ bnetshopus.akamaized.net
 brill.live.bhvrdbd.com
 broker.e4mc.link
 bronze.roblox.com
+bulkhead.com
 c0.rbxcdn.com
 c0ak.rbxcdn.com
 c0ak.roblox.com
@@ -257,6 +260,7 @@ community.fastly.steamstatic.com
 community.roblox.com
 community.steampowered.com
 community.steamstatic.com
+community.wardogs.com
 companion.battlefield.com
 companion.ea.com
 config.ea.com
@@ -414,6 +418,7 @@ edgenext.cdn.steampipe.steamcontent.com
 education.roblox.com
 ef-webview.gryphline.com
 ekg.riotgames.com
+elytra.ac
 en.help.roblox.com
 endfield.gryphline.com
 engagement.roblox.com
@@ -487,6 +492,7 @@ files.minecraftforge.net
 files.vrchat.cloud
 files.vrchat.com
 firesidegatherings.com
+firstlook.gg
 fn-hotconfigs.ogs.live.on.epicgames.com
 fn-service-discovery-live-public.ogs.live.on.epicgames.com
 fn-service-habanero-live-public.ogs.live.on.epicgames.com
@@ -637,6 +643,7 @@ links-public-service-live.ol.epicgames.com
 lion.secure.dyn.riotcdn.net
 live-feed.cdn.ubisoft.com
 live.patcher.ubisoft.com
+live.wardogs.bulkhead.pragmaengine.com
 lms.roblox.com
 lobby.ubisoft.com
 locale.roblox.com
@@ -745,6 +752,7 @@ playartifact.com
 player-lifecycle-euc.publishing.riotgames.com
 player-preferences-usw2.pp.sgp.pvp.net
 player-preferences-usw2.pp.sgp.pvp.net.cdn.cloudflare.net
+player.gg
 playfabapi.com
 playhearthstone.com
 playit.gg
@@ -752,6 +760,7 @@ playvalorant.com
 pointbalancing.roblox.com
 points.roblox.com
 poweredbysteam.net
+pragmaengine.com
 premiumfeatures.roblox.com
 presence-public-service-prod.ak.epicgames.com
 presence-public-service-prod.ol.epicgames.com
@@ -1018,6 +1027,7 @@ t8.rbxcdn.com
 t9.rbxcdn.com
 tag-management-public-service-prod.identity.live.on.epicgames.com
 talent.roblox.com
+team17.com
 telemetry.ea.com
 telemetry.gos.ea.com
 telemetry.origin.com
@@ -1151,6 +1161,7 @@ verify.roblox.com
 versioncompatibility.api.roblox.com
 versioncompatibility.roblox.com
 videos.rbxcdn.com
+vivox.com
 vod-progressive.akamaized.net
 voice.roblox.com
 vpn.cn.roblox.com
@@ -1164,6 +1175,7 @@ vrchat.net
 vrchatassets.com
 vrcpm.vrchat.cloud
 vxc.roblox.com
+wardogs.com
 warframe-web-assets.nyc3.cdn.digitaloceanspaces.com
 warframe.com
 web-static.hg-cdn.com
