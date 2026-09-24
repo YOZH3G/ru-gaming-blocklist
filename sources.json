@@ -143,6 +143,11 @@
       "rainbow six siege",
       "r6 siege",
       "r6s"
+    ],
+    "Wardogs": [
+      "wardogs",
+      "wardogs bulkhead",
+      "pragma wardogs"
     ]
   },
   "domain_game_hints": {
@@ -222,6 +227,12 @@
       "ubisoft",
       "ubi.com",
       "rainbow6"
+    ],
+    "Wardogs": [
+      "wardogs",
+      "bulkhead.pragmaengine",
+      "firstlook.gg",
+      "elytra.ac"
     ]
   },
   "issue_search_terms": [
@@ -255,7 +266,9 @@
     "игры",
     "игровые",
     "домены игры",
-    "ip игры"
+    "ip игры",
+    "wardogs",
+    "pragmaengine"
   ],
   "repositories": [
     {
@@ -356,7 +369,9 @@
       "photon",
       "warframe",
       "ubisoft",
-      "battlefield"
+      "battlefield",
+      "wardogs",
+      "pragmaengine"
     ]
   }
 }
