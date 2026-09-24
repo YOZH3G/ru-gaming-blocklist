@@ -11,6 +11,8 @@ BAD_SUFFIXES = {
     ".exe", ".dll", ".sys", ".msc", ".bin", ".zip", ".rar", ".7z", ".log",
     ".ini", ".cfg", ".lua", ".php", ".aspx", ".js", ".dat", ".tmp",
 }
+BROAD_AUXILIARY_FILES = {"Cloudflare_AWS.txt"}
+
 GENERIC_ROOTS = {
     "google.com", "googleapis.com", "gstatic.com", "youtube.com",
     "github.com", "githubusercontent.com",
@@ -26,7 +28,7 @@ def is_bare_generic_domain(domain: str) -> bool:
     return domain in GENERIC_ROOTS
 
 
-def validate_domain(value: str) -> str | None:
+def validate_domain(value: str, allow_generic_root: bool = False) -> str | None:
     if value != value.lower():
         return "domain must be lowercase"
     if any(value.endswith(suffix) for suffix in BAD_SUFFIXES):
@@ -37,21 +39,21 @@ def validate_domain(value: str) -> str | None:
         return "looks like a stripped %2F URL-encoding artifact"
     if not DOMAIN_RE.fullmatch(value):
         return "invalid domain syntax"
-    if is_bare_generic_domain(value):
+    if not allow_generic_root and is_bare_generic_domain(value):
         return "bare generic infrastructure root is not allowed in production"
     return None
 
 
-def validate_ip(value: str) -> str | None:
+def validate_ip(value: str, allow_broad: bool = False) -> str | None:
     try:
         net = ipaddress.ip_network(value, strict=False)
     except ValueError:
         return "invalid IP/CIDR"
     if not net.is_global:
         return "non-global/reserved/private network"
-    if net.version == 4 and net.prefixlen < 16:
+    if not allow_broad and net.version == 4 and net.prefixlen < 16:
         return "IPv4 prefix is too broad (< /16)"
-    if net.version == 6 and net.prefixlen < 32:
+    if not allow_broad and net.version == 6 and net.prefixlen < 32:
         return "IPv6 prefix is too broad (< /32)"
     return None
 
@@ -59,6 +61,7 @@ def validate_ip(value: str) -> str | None:
 def validate_file(path: Path, kind: str) -> list[str]:
     errors: list[str] = []
     seen: set[str] = set()
+    broad_auxiliary = path.name in BROAD_AUXILIARY_FILES
     for number, raw in enumerate(path.read_text(encoding="utf-8").splitlines(), 1):
         value = raw.strip()
         if not value or value.startswith("#"):
@@ -68,8 +71,8 @@ def validate_file(path: Path, kind: str) -> list[str]:
             continue
         seen.add(value)
 
-        domain_error = validate_domain(value)
-        ip_error = validate_ip(value)
+        domain_error = validate_domain(value, allow_generic_root=broad_auxiliary)
+        ip_error = validate_ip(value, allow_broad=broad_auxiliary)
 
         if kind == "domains":
             if domain_error:
