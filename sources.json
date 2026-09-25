@@ -148,6 +148,12 @@
       "wardogs",
       "wardogs bulkhead",
       "pragma wardogs"
+    ],
+    "Cloudflare_AWS": [
+      "cloudflare",
+      "amazon aws",
+      "aws",
+      "amazonaws"
     ]
   },
   "domain_game_hints": {
@@ -373,8 +379,5 @@
       "wardogs",
       "pragmaengine"
     ]
-  },
-  "auxiliary_profiles": [
-    "Cloudflare_AWS"
-  ]
+  }
 }
