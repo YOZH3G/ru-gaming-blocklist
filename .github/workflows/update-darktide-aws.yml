@@ -1,6 +1,11 @@
 name: Update Darktide AWS ranges
 
 on:
+  pull_request:
+    paths:
+      - "games/Darktide.txt"
+      - "scripts/update_darktide_aws.py"
+      - ".github/workflows/update-darktide-aws.yml"
   schedule:
     - cron: "17 4 * * *"
   workflow_dispatch:
@@ -28,7 +33,12 @@ jobs:
       - name: Validate production lists
         run: python scripts/validate_blocklists.py
 
-      - name: Commit changes
+      - name: Verify committed snapshot on pull request
+        if: github.event_name == 'pull_request'
+        run: git diff --exit-code -- games/Darktide.txt
+
+      - name: Commit scheduled changes
+        if: github.event_name != 'pull_request'
         run: |
           if git diff --quiet -- games/Darktide.txt; then
             echo "Darktide AWS ranges are already current."
