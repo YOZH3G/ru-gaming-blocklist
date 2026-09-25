@@ -1,0 +1,3 @@
+api.bethesda.net
+bethesda.net
+fallout.bethesda.net
