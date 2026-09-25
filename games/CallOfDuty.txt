@@ -1,5 +1,6 @@
 activision.com
 callofduty.com
+cod-assets.cdn.callofduty.com
 codm.activision.com
 datax.activision.com
 demonware.net
