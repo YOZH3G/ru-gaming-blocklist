@@ -69,7 +69,7 @@ Updater:
 - `scripts/update_fallout76_aws.py`
 - `.github/workflows/update-fallout76-aws.yml`
 
-The workflow runs daily and also verifies pull-request snapshots against the live AWS feed.
+Initial snapshot from AWS `createDate=2026-09-25-03-57-06`: **172 EC2 CIDRs**.\n\nThe workflow runs daily and also verifies pull-request snapshots against the live AWS feed.
 
 ## Static domains
 
