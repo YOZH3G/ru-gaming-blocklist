@@ -1,6 +1,7 @@
 bluearchive.com
 bluearchive.jp
 bluearchive.nexon.com
+d2vaidpni345rp.cloudfront.net
 nexon.com
 nxm-clw-cdn.dn.nexoncdn.co.kr
 public.api.nexon.com

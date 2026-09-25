@@ -19,6 +19,7 @@ irc2.warframe.com
 irc3.warframe.com
 irc4.warframe.com
 irc5.warframe.com
+metrics.warframe.com
 mobile.warframe.com
 origin-ps4.warframe.com
 origin-swi.warframe.com
@@ -28,6 +29,8 @@ store.warframe.com
 support.warframe.com
 warframe-web-assets.nyc3.cdn.digitaloceanspaces.com
 warframe.com
+wiki.warframe.com
 wrfr.me
 www-static.warframe.com
+www.digitalextremes.com
 www.warframe.com

@@ -1,3 +1,4 @@
+ak.hypergryph.com
 as.gryphline.com
 asia.cschannel.anticheatexpert.com
 beyond-asiapacific.gryphline.com
@@ -26,6 +27,7 @@ gryphline.com
 hg-cdn.com
 launcher.gryphline.com
 launcher.hg-cdn.com
+launcher.hypergryph.com
 native-log-collect.gryphline.com
 notification.gryphline.com
 pc.crashsight.wetest.net
@@ -33,3 +35,4 @@ tqos-yun.anticheatexpert.com
 u8.gryphline.com
 web-static.hg-cdn.com
 www.biligame.com
+www.hypergryph.com

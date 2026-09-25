@@ -33,6 +33,8 @@ Production-списки больше не пополняются напряму�
 - `games/Fallout76_AWS.txt` — единый обновляемый Fallout 76-профиль: Bethesda/p76prod domains + AWS EC2 EU ranges;
 - `_review/` — непроверенные автоматические кандидаты;
 - `scripts/validate_blocklists.py` — CI-проверка production-списков;
+- `scripts/update_priority_profiles.py` — authoritative/manifest/conservative updater для приоритетных профилей;
+- `scripts/rebuild_aggregates.py` — пересборка глобальных domain/IP агрегатов;
 - `evidence/shared-endpoints.json` — provenance для спорной/shared-инфраструктуры;
 - `sources.json` — конфигурация discovery/collector.
 
@@ -42,7 +44,23 @@ Apex Legends / Rocket League, Arknights, Arma Reforger, Battle.net, Battlefield,
 
 ## Автоматизация
 
-Быстрый collector запускается раз в 3 часа, полный — раз в 2 дня. Их задача — обнаружение кандидатов. Перед любым автоматическим коммитом запускается валидатор.
+Быстрый collector запускается раз в 3 часа, полный — раз в 2 дня. Их задача — обнаружение кандидатов.
+
+Отдельно работает managed-updater для профилей с достаточно сильным machine-readable upstream:
+
+- Cloudflare/AWS — официальные provider feeds;
+- Steam — текущие маршруты Valve AS32590;
+- Valorant / League of Legends — Riot AS6507 с purpose BGP communities;
+- Roblox — AS22697;
+- Battle.net — Blizzard AS57976;
+- Wuthering Waves — официальный launcher manifest;
+- Warframe, MTG Arena, Blue Archive и Arknights — консервативный first-party discovery/verification.
+
+После обновления `scripts/rebuild_aggregates.py` детерминированно пересобирает глобальные агрегаты. Широкие shared/regional AWS-профили Cloudflare_AWS, Darktide и Fallout76_AWS не попадают в глобальный IP-агрегат.
+
+Методика и источники: `evidence/managed-updaters-2026-09-25.md`.
+
+Перед любым автоматическим коммитом запускается валидатор.
 
 CI отклоняет, среди прочего:
 
