@@ -171,7 +171,7 @@ def update_conservative_domains(
     successes = 0
     for url in urls:
         try:
-            text = fetch_text(url)
+            text = fetch_text(url, timeout=15)
         except Exception as exc:
             print(f"WARN: {filename} source failed: {url}: {exc}")
             continue
