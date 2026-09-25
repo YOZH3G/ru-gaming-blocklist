@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import gzip
 import ipaddress
 import json
 import re
@@ -24,7 +25,10 @@ def fetch_text(url: str, timeout: int = 45) -> str:
 
 
 def fetch_json(url: str, timeout: int = 45):
-    return json.loads(fetch_text(url, timeout))
+    data = fetch_bytes(url, timeout)
+    if data.startswith(b"\x1f\x8b"):
+        data = gzip.decompress(data)
+    return json.loads(data.decode("utf-8-sig", errors="strict"))
 
 
 def is_network(value: str) -> bool:
