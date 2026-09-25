@@ -21,6 +21,7 @@ accounts.launcher-website-prod07.ol.epicgames.com
 accounts.ubisoft.com
 accountsettings.roblox.com
 achievements-public-service-prod06.ol.epicgames.com
+activision.com
 activisionblizzard.com
 activity.ea.com
 actual.battle.net
@@ -99,6 +100,7 @@ assets.unrealengine.com
 assets.vrchat.com
 atlas.gos.ea.com
 atlas.telemetry.gos.ea.com
+auth.cid.capcom.com
 auth.essential.gg
 auth.mojang.com
 auth.riotgames.com
@@ -178,6 +180,7 @@ brill.live.bhvrdbd.com
 broker.e4mc.link
 bronze.roblox.com
 bulkhead.com
+c.cid.capcom.com
 c0.rbxcdn.com
 c0ak.rbxcdn.com
 c0ak.roblox.com
@@ -200,6 +203,7 @@ c7-cf.roblox.com
 c7.rbxcdn.com
 c7ak.roblox.com
 caldera-service-prod.ecosec.on.epicgames.com
+callofduty.com
 captcha.roblox.com
 catalog-public-service-prod.ak.epicgames.com
 catalog-public-service-prod06.ol.epicgames.com
@@ -236,6 +240,7 @@ chatrealtime.roblox.com
 chatsite.roblox.com
 checkout.steampowered.com
 chi1-origin.roblox.com
+cid.capcom.com
 cl.e4mc.link
 clan.akamai.steamstatic.com
 clan.fastly.steamstatic.com
@@ -258,6 +263,8 @@ cmp2-sto1.steamserver.net
 cms-assets.unrealengine.com
 cms-cache.ubisoft.com
 cms-cdn.bistudio.com
+cod-assets.cdn.callofduty.com
+codm.activision.com
 communities.epicgames.com
 community.cloudflare.steamstatic.com
 community.fastly.steamstatic.com
@@ -313,10 +320,12 @@ datarouter.apps.netherrealm.com
 datarouter.ol.epicgames.com
 datastorage-public-service-live.ol.epicgames.com
 datastorage-public-service-liveegs.live.use1a.on.epicgames.com
+datax.activision.com
 dbinj8iahsbec.cloudfront.net
 de.e4mc.link
 de.roblox.com
 deadbydaylight.com
+demonware.net
 deploy.roblox.com
 desktop-config.juno.ea.com
 dev-altdevforum.roblox.com
@@ -794,6 +803,7 @@ probe.ea.com
 prod-alicdn-gamestarter.kurogame.com
 prod-network-api.wbagora.com
 prod-push-service-prod-on.epicgames.com
+prod.demonware.net
 prod.ea.com
 prod.ol.epicgames.com
 profile.xboxlive.com
@@ -877,6 +887,7 @@ rtm.pnt.ea.com
 rtm.tnt-ea.com
 ru.api.riotgames.com
 ru.help.roblox.com
+s.activision.com
 s.team
 sales.roblox.com
 sanctions-framework.ubisoft.com
@@ -1000,6 +1011,7 @@ store.steampowered.com
 store.ubi.com
 store.ubisoft.com
 store.warframe.com
+streetfighter.com
 stryder.respawn.com
 stuck.hypixel.net
 studio.roblox.com
@@ -1243,6 +1255,7 @@ www.minecraft.net
 www.reforger.armaplatform.com
 www.riotgames.com
 www.roblox.com
+www.streetfighter.com
 www.ubisoft.com
 www.uplay.com
 www.warframe.com

@@ -14,6 +14,8 @@ on:
       - "games/MagicTheGathering.txt"
       - "games/BlueArchive.txt"
       - "games/Arknights.txt"
+      - "games/StreetFighter6.txt"
+      - "games/CallOfDuty.txt"
       - "scripts/update_priority_profiles.py"
       - "scripts/rebuild_aggregates.py"
       - "scripts/updaters/**"
@@ -69,6 +71,8 @@ jobs:
             games/MagicTheGathering.txt
             games/BlueArchive.txt
             games/Arknights.txt
+            games/StreetFighter6.txt
+            games/CallOfDuty.txt
             medvedeff-game-list-all.txt
             medvedeff-game-ipset.txt
 
@@ -87,6 +91,8 @@ jobs:
             games/MagicTheGathering.txt \
             games/BlueArchive.txt \
             games/Arknights.txt \
+            games/StreetFighter6.txt \
+            games/CallOfDuty.txt \
             medvedeff-game-list-all.txt \
             medvedeff-game-ipset.txt
 
