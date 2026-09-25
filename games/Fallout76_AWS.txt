@@ -1,3 +1,4 @@
 api.bethesda.net
 bethesda.net
 fallout.bethesda.net
+p76prod.systems
