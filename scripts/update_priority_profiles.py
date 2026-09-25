@@ -35,6 +35,10 @@ RIOT_LOL_EXCLUDES = {
     "valorant.secure.dyn.riotcdn.net",
     "wildrift.secure.dyn.riotcdn.net",
 }
+RIOT_LOL_FORCE = {
+    "legacy.lolesports.com",
+    "lolesports.com",
+}
 
 WUWA_INDEXES = (
     "https://prod-alicdn-gamestarter.kurogame.com/launcher/game/G153/50004_obOHXFrFanqsaIEOmuKroCcbZkQRBC7c/index.json",
@@ -60,8 +64,15 @@ MTGA_SOURCES = (
     "https://magic.wizards.com/en/mtgarena/getting-started",
     "https://mtgarena-support.wizards.com/",
 )
-MTGA_SUFFIXES = ("wizards.com", "mtgarena.com", "magic-the-gathering-arena.com")
-MTGA_EXTRA = {"api.platform.wizards.com", "mtgarena.downloads.wizards.com"}
+MTGA_ALLOWED = {
+    "api.platform.wizards.com",
+    "magic-the-gathering-arena.com",
+    "magic.wizards.com",
+    "mtgarena-support.wizards.com",
+    "mtgarena.com",
+    "mtgarena.downloads.wizards.com",
+    "wizards.com",
+}
 
 BLUE_ARCHIVE_SOURCES = (
     "https://bluearchive.nexon.com/",
@@ -120,6 +131,7 @@ def update_riot() -> list[str]:
 
     valorant_domains = [d for d in valorant_domains if d not in RIOT_VALORANT_EXCLUDES]
     lol_domains = [d for d in lol_domains if d not in RIOT_LOL_EXCLUDES]
+    lol_domains = sorted(set(lol_domains) | RIOT_LOL_FORCE)
 
     valorant_prefixes = community_prefixes(6507, "6507:8002")
     lol_prefixes = community_prefixes(6507, "6507:8001")
@@ -222,8 +234,8 @@ def main() -> int:
     status.append(update_conservative_domains(
         "MagicTheGathering.txt",
         MTGA_SOURCES,
-        suffixes=MTGA_SUFFIXES,
-        always_add=MTGA_EXTRA,
+        exact_allowed=MTGA_ALLOWED,
+        always_add=MTGA_ALLOWED,
     ))
 
     # 9. Blue Archive: retain the verified NGS/Nexon set and one game-specific config CDN.
