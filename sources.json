@@ -259,11 +259,24 @@
     "MagicTheGathering": [
       "mtgarena",
       "magic-the-gathering-arena",
-      "wizards.com"
+      "wizards.com",
+      "api.platform.wizards.com",
+      "mtgarena.downloads.wizards.com"
     ],
     "Darktide": [
       "playdarktide",
       "fatshark"
+    ],
+    "BlueArchive": [
+      "x-update.ngs.nexon.com",
+      "x-init.ngs.nexon.com",
+      "public.api.nexon.com",
+      "d2vaidpni345rp.cloudfront.net"
+    ],
+    "Arknights": [
+      "ak.hypergryph.com",
+      "launcher.hypergryph.com",
+      "hypergryph.com"
     ]
   },
   "issue_search_terms": [
@@ -310,7 +323,12 @@
     "playdarktide",
     "p76prod",
     "fallout 76 aws",
-    "fallout76 aws"
+    "fallout76 aws",
+    "as32590",
+    "as22697",
+    "as57976",
+    "6507:8001",
+    "6507:8002"
   ],
   "repositories": [
     {
