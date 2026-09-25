@@ -1,5 +1,7 @@
+api.platform.wizards.com
 magic-the-gathering-arena.com
 magic.wizards.com
+mtgarena-support.wizards.com
 mtgarena.com
 mtgarena.downloads.wizards.com
 wizards.com

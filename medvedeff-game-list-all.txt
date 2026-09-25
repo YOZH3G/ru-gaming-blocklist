@@ -31,6 +31,7 @@ adserver.roblox.com
 adspolicy.roblox.com
 affiliates.roblox.com
 ak.epicgames.com
+ak.hypergryph.com
 akamai.steamstatic.com
 akamaized.epicgames.com
 altdevforum.roblox.com
@@ -65,6 +66,7 @@ api.kws.ol.epicgames.com
 api.minecraftservices.com
 api.mojang.com
 api.origin.com
+api.platform.wizards.com
 api.rbxcdn.com
 api.roblox.com
 api.steampowered.com
@@ -299,6 +301,7 @@ curseforge.com
 d10tpo454pj4rl.cloudfront.net
 d1unuk07s6td74.cloudfront.net
 d1vg7zoieyuev1.cloudfront.net
+d2vaidpni345rp.cloudfront.net
 data-asset-directory-public-service-prod.ol.epicgames.com
 data-p.gryphline.com
 data.ea.com
@@ -580,6 +583,7 @@ help.vrchat.com
 hg-cdn.com
 home.roblox.com
 hw-pcdownload-akamai.aki-game.net
+hw-pcdownload-aliyun.aki-game.net
 hw-pcdownload-aws.aki-game.net
 hw-pcdownload-qcloud.aki-game.net
 hypixel.net
@@ -624,6 +628,7 @@ launcher-website-prod07.ol.epicgames.com
 launcher.eac-cdn.com
 launcher.gryphline.com
 launcher.hg-cdn.com
+launcher.hypergryph.com
 launcher.leagueoflegends.com
 launcher.mojang.com
 launcher.riotclientservices.com
@@ -687,6 +692,7 @@ mesh-public-service-live.ol.epicgames.com
 messagerouter.api.roblox.com
 metrics.ol.epicgames.com
 metrics.roblox.com
+metrics.warframe.com
 midas-android.roblox.com
 midas-webpay.roblox.com
 midas.roblox.com
@@ -703,6 +709,7 @@ modules-cdn.eac-prod.on.epicgames.com
 mojang.com
 mortalkombat.com
 msr-public-ubiservices.ubi.com
+mtgarena-support.wizards.com
 mtgarena.com
 mtgarena.downloads.wizards.com
 na.e4mc.link
@@ -747,6 +754,7 @@ party-service-prod06.ol.epicgames.com
 pc.crashsight.wetest.net
 pc.ea.com
 pc.mp.d.apex-legends.com
+pcdownload-huoshan.aki-game.net
 perf-events.cloud.unity3d.com
 perf.store.on.epicgames.com
 perforce.roblox.com
@@ -1212,6 +1220,7 @@ wex-public-service-liveplatform-prod.ol.epicgames.com
 wex-public-service-prod.ol.epicgames.com
 wiki.roblox.com
 wiki.vrchat.com
+wiki.warframe.com
 wildrift.secure.dyn.riotcdn.net
 wire.roblox.com
 wizards.com
@@ -1226,8 +1235,10 @@ www-static.warframe.com
 www.biligame.com
 www.corp.roblox.com
 www.curseforge.com
+www.digitalextremes.com
 www.ea.com
 www.epicgames.com
+www.hypergryph.com
 www.minecraft.net
 www.reforger.armaplatform.com
 www.riotgames.com
