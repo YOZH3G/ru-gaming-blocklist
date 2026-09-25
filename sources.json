@@ -148,6 +148,12 @@
       "wardogs",
       "wardogs bulkhead",
       "pragma wardogs"
+    ],
+    "Cloudflare_AWS": [
+      "cloudflare",
+      "amazon aws",
+      "aws",
+      "amazonaws"
     ]
   },
   "domain_game_hints": {
