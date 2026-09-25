@@ -373,5 +373,8 @@
       "wardogs",
       "pragmaengine"
     ]
-  }
+  },
+  "auxiliary_profiles": [
+    "Cloudflare_AWS"
+  ]
 }
