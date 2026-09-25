@@ -2,3 +2,4 @@ auth.cid.capcom.com
 c.cid.capcom.com
 cid.capcom.com
 streetfighter.com
+www.streetfighter.com
