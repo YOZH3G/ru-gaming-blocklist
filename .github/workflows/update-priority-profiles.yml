@@ -1,0 +1,80 @@
+name: Update prioritized gaming profiles
+
+on:
+  pull_request:
+    paths:
+      - "games/Cloudflare_AWS.txt"
+      - "games/Steam.txt"
+      - "games/RiotGames_Valorant.txt"
+      - "games/LeagueOfLegends.txt"
+      - "games/Roblox.txt"
+      - "games/BattleNet.txt"
+      - "games/WutheringWaves.txt"
+      - "games/Warframe.txt"
+      - "games/MagicTheGathering.txt"
+      - "games/BlueArchive.txt"
+      - "games/Arknights.txt"
+      - "scripts/update_priority_profiles.py"
+      - "scripts/rebuild_aggregates.py"
+      - "scripts/updaters/**"
+      - ".github/workflows/update-priority-profiles.yml"
+  schedule:
+    - cron: "7 5 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v5
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+
+      - name: Update prioritized profiles
+        run: python scripts/update_priority_profiles.py
+
+      - name: Rebuild global aggregates
+        run: python scripts/rebuild_aggregates.py
+
+      - name: Validate production lists
+        run: python scripts/validate_blocklists.py
+
+      - name: Verify committed snapshot on pull request
+        if: github.event_name == 'pull_request'
+        run: |
+          git diff --exit-code -- \
+            games/Cloudflare_AWS.txt \
+            games/Steam.txt \
+            games/RiotGames_Valorant.txt \
+            games/LeagueOfLegends.txt \
+            games/Roblox.txt \
+            games/BattleNet.txt \
+            games/WutheringWaves.txt \
+            games/Warframe.txt \
+            games/MagicTheGathering.txt \
+            games/BlueArchive.txt \
+            games/Arknights.txt \
+            medvedeff-game-list-all.txt \
+            medvedeff-game-ipset.txt
+
+      - name: Commit scheduled changes
+        if: github.event_name != 'pull_request'
+        run: |
+          if git diff --quiet -- games/ medvedeff-game-list-all.txt medvedeff-game-ipset.txt; then
+            echo "Managed gaming profiles are already current."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add games/ medvedeff-game-list-all.txt medvedeff-game-ipset.txt
+          git commit -m "Update managed gaming profiles"
+          git push
