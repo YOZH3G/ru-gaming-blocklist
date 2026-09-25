@@ -133,3 +133,20 @@ This keeps the list useful and maintainable without turning it into a generic ho
 Street Fighter 6 domains are eligible for `medvedeff-game-list-all.txt`.
 
 Call of Duty domains and current Demonware AS60229 prefixes are eligible for the normal global aggregates because Demonware is first-party Activision gaming infrastructure rather than an arbitrary shared public-cloud region.
+
+## Initial live snapshot — 2026-09-25
+
+The first managed-updater run resolved current Demonware AS60229 to exactly:
+
+- `185.34.106.0/24`
+- `185.34.107.0/24`
+
+Therefore the initial production profiles contain:
+
+- Street Fighter 6: **5 domains, 0 CIDRs**;
+- Call of Duty: **8 domains, 2 CIDRs**.
+
+After deterministic aggregate rebuild:
+
+- `medvedeff-game-list-all.txt`: **1274 domains**;
+- `medvedeff-game-ipset.txt`: **336 IP/CIDR entries**.
