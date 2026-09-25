@@ -36,7 +36,7 @@ Production-списки больше не пополняются напряму�
 
 ## Игры и сервисы
 
-Apex Legends / Rocket League, Arknights, Arma Reforger, Battle.net, Battlefield, Blue Archive, Dead by Daylight, EA / Origin, Epic Games / Fortnite, Goose Goose Duck, League of Legends, Minecraft, Mortal Kombat, Photon Engine, Riot Games / Valorant, Roblox, Steam, Ubisoft / Rainbow Six Siege, VRChat, WARDOGS, Warframe и Wuthering Waves.
+Apex Legends / Rocket League, Arknights, Arma Reforger, Battle.net, Battlefield, Blue Archive, Dead by Daylight, EA / Origin, Epic Games / Fortnite, Fallout 76, Gears of War, Goose Goose Duck, League of Legends, Magic: The Gathering Arena, Minecraft, Mortal Kombat, Photon Engine, Riot Games / Valorant, Roblox, Steam, Ubisoft / Rainbow Six Siege, VRChat, WARDOGS, Warframe и Wuthering Waves.
 
 ## Автоматизация
 
@@ -63,3 +63,9 @@ CI отклоняет, среди прочего:
 `games/Wardogs.txt` содержит подтверждённые first-party/backend/anti-cheat/voice endpoints и два консервативно выбранных сетевых диапазона. Общая AWS/Cloudflare инфраструктура не дублируется туда автоматически.
 
 Методика и источники: `evidence/wardogs.md`.
+
+## Восстановленные legacy-списки
+
+`Fallout76_AWS.txt`, `GearsOfWar.txt` и `MagicTheGathering.txt` восстановлены по evidence-based методике вместо возврата старых файлов строка-в-строку.
+
+Методика и источники: `evidence/legacy-list-restoration-2026-09-25.md`.
