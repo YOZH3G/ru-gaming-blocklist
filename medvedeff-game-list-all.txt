@@ -57,6 +57,7 @@ api-uplay.ubi.com
 api-xb1.warframe.com
 api.account.riotgames.com
 api.account.riotgames.com.cdn.cloudflare.net
+api.bethesda.net
 api.epicgames.dev
 api.essential.gg
 api.k.social.ea.com
@@ -133,6 +134,7 @@ battlelog-cdn.origin.com
 battlelog.bf1.cdn.origin.com
 battlenet.com
 battleye.b-cdn.net
+bethesda.net
 beyond-asiapacific.gryphline.com
 beyond-euandus.gryphline.com
 beyond.hg-cdn.com
@@ -477,6 +479,7 @@ events.roblox.com
 exitgames.com
 experimentation-apex.data.ea.com
 ext-uplay.ubi.com
+fallout.bethesda.net
 far-cry.ubisoft.com
 fastly-download.epicgames.com
 fastly.steamstatic.com
@@ -547,6 +550,7 @@ gcs.api.ecommerce.epicgames.com
 gcs.ea.com
 gcsc1144.exitgames.com
 gctok1018.exitgames.com
+gearsofwar.com
 geoip.roblox.com
 geoip.services.roblox.com
 gl-utils-public.hg-cdn.com
@@ -660,6 +664,8 @@ lolstatic-a.akamaihd.net
 lolstatic.com
 m.roblox.com
 madden24.service.easports.com
+magic-the-gathering-arena.com
+magic.wizards.com
 mail.roblox.com
 makearmanotwar.com
 matchmaking.api.roblox.com
@@ -696,6 +702,8 @@ modules-cdn.eac-prod.on.epicgames.com
 mojang.com
 mortalkombat.com
 msr-public-ubiservices.ubi.com
+mtgarena.com
+mtgarena.downloads.wizards.com
 na.e4mc.link
 na.vg.ac.pvp.net
 native-log-collect.gryphline.com
@@ -1203,6 +1211,7 @@ wiki.roblox.com
 wiki.vrchat.com
 wildrift.secure.dyn.riotcdn.net
 wire.roblox.com
+wizards.com
 workshop.steampowered.com
 worldofwarcraft.com
 worldwide.l3cdn.riotgames.com
