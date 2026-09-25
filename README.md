@@ -21,14 +21,15 @@ Production-списки больше не пополняются напряму�
 
 Голые общие корни и чрезмерно широкие сети AWS, Cloudflare, Google, Akamai и других провайдеров не добавляются в обычные игровые production-списки: они затрагивают слишком много постороннего трафика. Конкретный игровой hostname внутри общей CDN допускается.
 
-Исключение — явно помеченные **широкие вспомогательные профили**. Сейчас это `games/Cloudflare_AWS.txt`: он предназначен для opt-in использования теми, кому широкое совпадение shared cloud/CDN инфраструктуры действительно помогает. Он не включается в глобальные агрегаты.
+Исключение — явно помеченные **широкие профили**. `games/Cloudflare_AWS.txt` является общим opt-in auxiliary-профилем, а `games/Darktide.txt` — широким game-specific профилем из-за динамической AWS/GameLift инфраструктуры. Их широкие CIDR не включаются в глобальный IP-агрегат.
 
 ## Файлы
 
 - `medvedeff-game-list-all.txt` — объединённый production-список доменов;
 - `medvedeff-game-ipset.txt` — проверенные IP/CIDR;
 - `games/` — списки по играм и сервисам;
-- `games/Cloudflare_AWS.txt` — широкий opt-in профиль Cloudflare/AWS, не входящий в глобальные агрегаты;
+- `games/Cloudflare_AWS.txt` — широкий opt-in профиль Cloudflare/AWS;
+- `games/Darktide.txt` — единый обновляемый Darktide-профиль: first-party domains + AWS EC2 EU ranges;
 - `_review/` — непроверенные автоматические кандидаты;
 - `scripts/validate_blocklists.py` — CI-проверка production-списков;
 - `evidence/shared-endpoints.json` — provenance для спорной/shared-инфраструктуры;
@@ -36,7 +37,7 @@ Production-списки больше не пополняются напряму�
 
 ## Игры и сервисы
 
-Apex Legends / Rocket League, Arknights, Arma Reforger, Battle.net, Battlefield, Blue Archive, Dead by Daylight, EA / Origin, Epic Games / Fortnite, Fallout 76, Gears of War, Goose Goose Duck, League of Legends, Magic: The Gathering Arena, Minecraft, Mortal Kombat, Photon Engine, Riot Games / Valorant, Roblox, Steam, Ubisoft / Rainbow Six Siege, VRChat, WARDOGS, Warframe и Wuthering Waves.
+Apex Legends / Rocket League, Arknights, Arma Reforger, Battle.net, Battlefield, Blue Archive, Darktide, Dead by Daylight, EA / Origin, Epic Games / Fortnite, Fallout 76, Gears of War, Goose Goose Duck, League of Legends, Magic: The Gathering Arena, Minecraft, Mortal Kombat, Photon Engine, Riot Games / Valorant, Roblox, Steam, Ubisoft / Rainbow Six Siege, VRChat, WARDOGS, Warframe и Wuthering Waves.
 
 ## Автоматизация
 
@@ -69,3 +70,13 @@ CI отклоняет, среди прочего:
 `Fallout76_AWS.txt`, `GearsOfWar.txt` и `MagicTheGathering.txt` восстановлены по evidence-based методике вместо возврата старых файлов строка-в-строку.
 
 Методика и источники: `evidence/legacy-list-restoration-2026-09-25.md`.
+
+## Darktide
+
+`games/Darktide.txt` — единый список для z2k и других потребителей. В нём совмещены стабильные first-party домены и динамически обновляемые AWS EC2 CIDR для регионов Frankfurt (`eu-central-1`), Stockholm (`eu-north-1`) и London (`eu-west-2`).
+
+AWS-часть обновляется ежедневно из официального `ip-ranges.json` скриптом `scripts/update_darktide_aws.py`. При изменении AWS feed workflow `.github/workflows/update-darktide-aws.yml` коммитит только фактически изменившийся `games/Darktide.txt`.
+
+Широкие AWS CIDR Darktide не добавляются в `medvedeff-game-ipset.txt`; сам профиль доступен через `game_map -> Darktide`.
+
+Методика и источники: `evidence/darktide.md`.
