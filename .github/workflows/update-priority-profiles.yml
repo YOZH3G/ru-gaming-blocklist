@@ -48,6 +48,28 @@ jobs:
       - name: Validate production lists
         run: python scripts/validate_blocklists.py
 
+      - name: Upload generated snapshot
+        if: github.event_name == 'pull_request'
+        uses: actions/upload-artifact@v4
+        with:
+          name: managed-profile-snapshot
+          if-no-files-found: error
+          retention-days: 3
+          path: |
+            games/Cloudflare_AWS.txt
+            games/Steam.txt
+            games/RiotGames_Valorant.txt
+            games/LeagueOfLegends.txt
+            games/Roblox.txt
+            games/BattleNet.txt
+            games/WutheringWaves.txt
+            games/Warframe.txt
+            games/MagicTheGathering.txt
+            games/BlueArchive.txt
+            games/Arknights.txt
+            medvedeff-game-list-all.txt
+            medvedeff-game-ipset.txt
+
       - name: Verify committed snapshot on pull request
         if: github.event_name == 'pull_request'
         run: |
