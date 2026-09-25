@@ -96,6 +96,19 @@ ARKNIGHTS_SOURCES = (
 )
 ARKNIGHTS_SUFFIXES = ("hypergryph.com", "hg-cdn.com", "gryphline.com")
 
+SF6_SOURCES = (
+    "https://www.streetfighter.com/6/",
+    "https://c.cid.capcom.com/info/servicelist/en/",
+    "https://cid.capcom.com/en/guide/game/connect/",
+)
+SF6_ALLOWED = {
+    "auth.cid.capcom.com",
+    "c.cid.capcom.com",
+    "cid.capcom.com",
+    "streetfighter.com",
+    "www.streetfighter.com",
+}
+
 
 def update_cloudflare_aws() -> str:
     path = ROOT / "games" / "Cloudflare_AWS.txt"
@@ -253,6 +266,18 @@ def main() -> int:
         suffixes=ARKNIGHTS_SUFFIXES,
         always_add={"ak.hypergryph.com", "launcher.hypergryph.com"},
     ))
+
+    # Street Fighter 6: first-party control-plane only. No broad Capcom/cloud IP inference.
+    status.append(update_conservative_domains(
+        "StreetFighter6.txt",
+        SF6_SOURCES,
+        exact_allowed=SF6_ALLOWED,
+        always_add=SF6_ALLOWED,
+    ))
+
+    # Call of Duty: Demonware is Activision's first-party online backend.
+    # Keep curated CoD domains and replace the dynamic IP portion with current AS60229 routes.
+    status.append(update_asn_profile("CallOfDuty.txt", 60229))
 
     print("\n".join(status))
     return 0
