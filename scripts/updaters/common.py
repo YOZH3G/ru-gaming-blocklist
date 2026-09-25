@@ -149,7 +149,10 @@ def extract_hosts(value) -> set[str]:
         if host:
             hosts.add(host.lower())
     for host in HOST_RE.findall(text):
-        hosts.add(host.lower())
+        host = host.lower()
+        if host.startswith("u002f"):
+            continue
+        hosts.add(host)
     return hosts
 
 
