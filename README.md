@@ -21,7 +21,7 @@ Production-списки больше не пополняются напряму�
 
 Голые общие корни и чрезмерно широкие сети AWS, Cloudflare, Google, Akamai и других провайдеров не добавляются в обычные игровые production-списки: они затрагивают слишком много постороннего трафика. Конкретный игровой hostname внутри общей CDN допускается.
 
-Исключение — явно помеченные **широкие профили**. `games/Cloudflare_AWS.txt` является общим opt-in auxiliary-профилем, а `games/Darktide.txt` — широким game-specific профилем из-за динамической AWS/GameLift инфраструктуры. Их широкие CIDR не включаются в глобальный IP-агрегат.
+Исключение — явно помеченные **широкие профили**. `games/Cloudflare_AWS.txt` является общим opt-in auxiliary-профилем, а `games/Darktide.txt` и `games/Fallout76_AWS.txt` — широкими game-specific профилями из-за динамической AWS-инфраструктуры. Их широкие CIDR не включаются в глобальный IP-агрегат.
 
 ## Файлы
 
@@ -30,6 +30,7 @@ Production-списки больше не пополняются напряму�
 - `games/` — списки по играм и сервисам;
 - `games/Cloudflare_AWS.txt` — широкий opt-in профиль Cloudflare/AWS;
 - `games/Darktide.txt` — единый обновляемый Darktide-профиль: first-party domains + AWS EC2 EU ranges;
+- `games/Fallout76_AWS.txt` — единый обновляемый Fallout 76-профиль: Bethesda/p76prod domains + AWS EC2 EU ranges;
 - `_review/` — непроверенные автоматические кандидаты;
 - `scripts/validate_blocklists.py` — CI-проверка production-списков;
 - `evidence/shared-endpoints.json` — provenance для спорной/shared-инфраструктуры;
@@ -80,3 +81,13 @@ AWS-часть обновляется ежедневно из официальн
 Широкие AWS CIDR Darktide не добавляются в `medvedeff-game-ipset.txt`; сам профиль доступен через `game_map -> Darktide`.
 
 Методика и источники: `evidence/darktide.md`.
+
+## Fallout 76
+
+`games/Fallout76_AWS.txt` теперь поддерживается по той же модели, что и Darktide: стабильные Bethesda/Fallout backend-домены плюс динамически обновляемые AWS EC2 CIDR.
+
+Для Fallout 76 используются не Darktide-регионы, а регионы, непосредственно наблюдавшиеся в production client logs: Frankfurt (`eu-central-1`) и Ireland (`eu-west-1`). AWS-часть ежедневно пересобирается скриптом `scripts/update_fallout76_aws.py` из официального `ip-ranges.json`.
+
+Широкие AWS CIDR Fallout 76 не добавляются в `medvedeff-game-ipset.txt`.
+
+Методика и источники: `evidence/fallout76-aws.md`.
