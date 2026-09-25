@@ -72,16 +72,10 @@ jobs:
             medvedeff-game-list-all.txt
             medvedeff-game-ipset.txt
 
-      - name: Synchronize generated snapshot on owner pull request
-        if: github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name == github.repository
+      - name: Verify committed snapshot on pull request
+        if: github.event_name == 'pull_request'
         run: |
-          if git diff --quiet -- games/ medvedeff-game-list-all.txt medvedeff-game-ipset.txt; then
-            echo "Managed snapshot is already synchronized."
-            exit 0
-          fi
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add \
+          git diff --exit-code -- \
             games/Cloudflare_AWS.txt \
             games/Steam.txt \
             games/RiotGames_Valorant.txt \
@@ -95,8 +89,6 @@ jobs:
             games/Arknights.txt \
             medvedeff-game-list-all.txt \
             medvedeff-game-ipset.txt
-          git commit -m "Sync managed gaming profile snapshot"
-          git push origin HEAD:${{ github.head_ref }}
 
       - name: Commit scheduled changes
         if: github.event_name != 'pull_request'
