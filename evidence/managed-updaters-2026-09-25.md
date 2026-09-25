@@ -255,3 +255,34 @@ The following broad shared/regional AWS profiles are excluded from the global IP
 - `Fallout76_AWS.txt`
 
 First-party networks such as Valve AS32590, Riot AS6507 purpose-tagged routes, Roblox AS22697, and Blizzard AS57976 remain eligible for the global IP aggregate.
+
+## Initial live snapshot — 2026-09-25
+
+The first fully validated live run produced:
+
+| Profile | Domains | Dynamic networks |
+| --- | ---: | ---: |
+| Cloudflare_AWS | 90 | 441 |
+| Steam | 97 | 78 |
+| RiotGames_Valorant | 75 | 10 |
+| LeagueOfLegends | 52 | 6 |
+| Roblox | 443 | 64 |
+| BattleNet | 32 | 178 |
+
+Riot's two network sets are therefore no longer duplicated copies of a generic AS6507 list: they are separately selected from the documented `6507:8002` (Valorant) and `6507:8001` (League of Legends) communities.
+
+The first manifest/conservative pass also promoted the following newly confirmed entries:
+
+- Wuthering Waves: `hw-pcdownload-aliyun.aki-game.net`, `pcdownload-huoshan.aki-game.net`;
+- Warframe: `metrics.warframe.com`, `wiki.warframe.com`, `www.digitalextremes.com`;
+- MTG Arena: `api.platform.wizards.com`, `mtgarena-support.wizards.com`;
+- Blue Archive: `d2vaidpni345rp.cloudfront.net`;
+- Arknights: `ak.hypergryph.com`, `launcher.hypergryph.com`, `www.hypergryph.com`.
+
+The MTG Arena discovery path uses an explicit allowlist rather than accepting every `*.wizards.com` hostname visible on an official web page. Escaped URL artifacts such as `u002f...` are explicitly rejected by the common extractor.
+
+After the initial run:
+
+- `medvedeff-game-list-all.txt`: **1261 domains**;
+- `medvedeff-game-ipset.txt`: **334 IP/CIDR entries**;
+- WARDOGS ranges `54.115.0.0/16` and `85.236.96.0/21` remain present in the global IP aggregate.
