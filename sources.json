@@ -159,6 +159,18 @@
       "darktide",
       "warhammer 40000 darktide",
       "warhammer 40k darktide"
+    ],
+    "StreetFighter6": [
+      "street fighter 6",
+      "streetfighter 6",
+      "sf6"
+    ],
+    "CallOfDuty": [
+      "call of duty",
+      "callofduty",
+      "cod",
+      "warzone",
+      "black ops"
     ]
   },
   "domain_game_hints": {
@@ -277,6 +289,18 @@
       "ak.hypergryph.com",
       "launcher.hypergryph.com",
       "hypergryph.com"
+    ],
+    "StreetFighter6": [
+      "streetfighter.com",
+      "cid.capcom.com",
+      "auth.cid.capcom.com"
+    ],
+    "CallOfDuty": [
+      "callofduty.com",
+      "activision.com",
+      "demonware.net",
+      "prod.demonware.net",
+      "cod-assets.cdn.callofduty.com"
     ]
   },
   "issue_search_terms": [
@@ -328,7 +352,15 @@
     "as22697",
     "as57976",
     "6507:8001",
-    "6507:8002"
+    "6507:8002",
+    "street fighter 6",
+    "streetfighter 6",
+    "sf6",
+    "call of duty",
+    "callofduty",
+    "warzone",
+    "demonware",
+    "as60229"
   ],
   "repositories": [
     {
@@ -437,7 +469,12 @@
       "mtga",
       "darktide",
       "playdarktide",
-      "p76prod"
+      "p76prod",
+      "streetfighter",
+      "sf6",
+      "callofduty",
+      "demonware",
+      "warzone"
     ]
   }
 }
