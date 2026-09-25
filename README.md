@@ -40,7 +40,7 @@ Production-списки больше не пополняются напряму�
 
 ## Игры и сервисы
 
-Apex Legends / Rocket League, Arknights, Arma Reforger, Battle.net, Battlefield, Blue Archive, Darktide, Dead by Daylight, EA / Origin, Epic Games / Fortnite, Fallout 76, Gears of War, Goose Goose Duck, League of Legends, Magic: The Gathering Arena, Minecraft, Mortal Kombat, Photon Engine, Riot Games / Valorant, Roblox, Steam, Ubisoft / Rainbow Six Siege, VRChat, WARDOGS, Warframe и Wuthering Waves.
+Apex Legends / Rocket League, Arknights, Arma Reforger, Battle.net, Battlefield, Blue Archive, Call of Duty, Darktide, Dead by Daylight, EA / Origin, Epic Games / Fortnite, Fallout 76, Gears of War, Goose Goose Duck, League of Legends, Magic: The Gathering Arena, Minecraft, Mortal Kombat, Photon Engine, Riot Games / Valorant, Roblox, Steam, Street Fighter 6, Ubisoft / Rainbow Six Siege, VRChat, WARDOGS, Warframe и Wuthering Waves.
 
 ## Автоматизация
 
@@ -54,7 +54,8 @@ Apex Legends / Rocket League, Arknights, Arma Reforger, Battle.net, Battlefield,
 - Roblox — AS22697;
 - Battle.net — Blizzard AS57976;
 - Wuthering Waves — официальный launcher manifest;
-- Warframe, MTG Arena, Blue Archive и Arknights — консервативный first-party discovery/verification.
+- Warframe, MTG Arena, Blue Archive, Arknights и Street Fighter 6 — консервативный first-party discovery/verification;
+- Call of Duty — first-party Demonware AS60229 + curated Activision/CoD domains.
 
 После обновления `scripts/rebuild_aggregates.py` детерминированно пересобирает глобальные агрегаты. Широкие shared/regional AWS-профили Cloudflare_AWS, Darktide и Fallout76_AWS не попадают в глобальный IP-агрегат.
 
@@ -109,3 +110,13 @@ AWS-часть обновляется ежедневно из официальн
 Широкие AWS CIDR Fallout 76 не добавляются в `medvedeff-game-ipset.txt`.
 
 Методика и источники: `evidence/fallout76-aws.md`.
+
+## Street Fighter 6
+
+`games/StreetFighter6.txt` — консервативный domain-only профиль. Он включает first-party Street Fighter/Buckler и CAPCOM ID endpoints, необходимые для связанного аккаунта и online-функций. Общие Capcom/cloud IP ranges автоматически не импортируются.
+
+## Call of Duty
+
+`games/CallOfDuty.txt` содержит first-party Call of Duty/Activision/Demonware domains и автоматически обновляемые текущие prefixes Demonware `AS60229 / AS-DEMONWARE`. Это backend/control-plane инфраструктура Call of Duty, а не попытка перечислить все возможные third-party dedicated server hosting ranges.
+
+Методика и источники для обоих профилей: `evidence/street-fighter-6-call-of-duty.md`.
