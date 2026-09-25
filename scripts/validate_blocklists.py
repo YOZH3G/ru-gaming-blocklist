@@ -11,7 +11,7 @@ BAD_SUFFIXES = {
     ".exe", ".dll", ".sys", ".msc", ".bin", ".zip", ".rar", ".7z", ".log",
     ".ini", ".cfg", ".lua", ".php", ".aspx", ".js", ".dat", ".tmp",
 }
-BROAD_AUXILIARY_FILES = {"Cloudflare_AWS.txt"}
+BROAD_PROFILE_FILES = {"Cloudflare_AWS.txt", "Darktide.txt"}
 
 GENERIC_ROOTS = {
     "google.com", "googleapis.com", "gstatic.com", "youtube.com",
@@ -61,7 +61,7 @@ def validate_ip(value: str, allow_broad: bool = False) -> str | None:
 def validate_file(path: Path, kind: str) -> list[str]:
     errors: list[str] = []
     seen: set[str] = set()
-    broad_auxiliary = path.name in BROAD_AUXILIARY_FILES
+    broad_profile = path.name in BROAD_PROFILE_FILES
     for number, raw in enumerate(path.read_text(encoding="utf-8").splitlines(), 1):
         value = raw.strip()
         if not value or value.startswith("#"):
@@ -71,8 +71,8 @@ def validate_file(path: Path, kind: str) -> list[str]:
             continue
         seen.add(value)
 
-        domain_error = validate_domain(value, allow_generic_root=broad_auxiliary)
-        ip_error = validate_ip(value, allow_broad=broad_auxiliary)
+        domain_error = validate_domain(value, allow_generic_root=broad_profile)
+        ip_error = validate_ip(value, allow_broad=broad_profile)
 
         if kind == "domains":
             if domain_error:

@@ -154,6 +154,11 @@
       "amazon aws",
       "aws",
       "amazonaws"
+    ],
+    "Darktide": [
+      "darktide",
+      "warhammer 40000 darktide",
+      "warhammer 40k darktide"
     ]
   },
   "domain_game_hints": {
@@ -254,6 +259,10 @@
       "mtgarena",
       "magic-the-gathering-arena",
       "wizards.com"
+    ],
+    "Darktide": [
+      "playdarktide",
+      "fatshark"
     ]
   },
   "issue_search_terms": [
@@ -295,7 +304,9 @@
     "gears of war",
     "gearsofwar",
     "mtg arena",
-    "mtga"
+    "mtga",
+    "darktide",
+    "playdarktide"
   ],
   "repositories": [
     {
@@ -401,7 +412,9 @@
       "pragmaengine",
       "fallout76",
       "gearsofwar",
-      "mtga"
+      "mtga",
+      "darktide",
+      "playdarktide"
     ]
   }
 }

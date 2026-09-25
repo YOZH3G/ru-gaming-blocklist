@@ -484,6 +484,7 @@ far-cry.ubisoft.com
 fastly-download.epicgames.com
 fastly.steamstatic.com
 fastpatch-rules.r5prod.stryder.respawn.com
+fatshark.se
 fc5.ubisoft.com
 feapp.euw1.lol.pvp.net
 feapp.ru.lol.pvp.net
@@ -757,6 +758,7 @@ pipeline.vrchat.cloud
 platoons.ea.com
 playapex.com
 playartifact.com
+playdarktide.com
 player-lifecycle-euc.publishing.riotgames.com
 player-preferences-usw2.pp.sgp.pvp.net
 player-preferences-usw2.pp.sgp.pvp.net.cdn.cloudflare.net
