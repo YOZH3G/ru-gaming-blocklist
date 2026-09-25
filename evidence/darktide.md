@@ -36,7 +36,7 @@ Filter:
 Initial snapshot source date:
 
 - AWS `createDate`: `2026-09-25-03-57-06`
-- EC2 CIDRs selected: **180**
+- EC2 CIDRs selected: **179**
 
 The repository does not preserve obsolete ranges merely because they appeared in an older Darktide workaround. When AWS removes a prefix from the selected region/service set, the next update removes it from `Darktide.txt`; new prefixes are added automatically.
 
