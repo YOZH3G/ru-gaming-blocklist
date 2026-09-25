@@ -239,6 +239,21 @@
       "bulkhead.pragmaengine",
       "firstlook.gg",
       "elytra.ac"
+    ],
+    "Fallout76_AWS": [
+      "fallout.bethesda.net",
+      "api.bethesda.net",
+      "bethesda.net"
+    ],
+    "GearsOfWar": [
+      "gearsofwar.com",
+      "xboxlive.com",
+      "xbox.com"
+    ],
+    "MagicTheGathering": [
+      "mtgarena",
+      "magic-the-gathering-arena",
+      "wizards.com"
     ]
   },
   "issue_search_terms": [
@@ -274,7 +289,13 @@
     "домены игры",
     "ip игры",
     "wardogs",
-    "pragmaengine"
+    "pragmaengine",
+    "fallout 76",
+    "fallout76",
+    "gears of war",
+    "gearsofwar",
+    "mtg arena",
+    "mtga"
   ],
   "repositories": [
     {
@@ -377,7 +398,10 @@
       "ubisoft",
       "battlefield",
       "wardogs",
-      "pragmaengine"
+      "pragmaengine",
+      "fallout76",
+      "gearsofwar",
+      "mtga"
     ]
   }
 }
