@@ -4,6 +4,8 @@ import ipaddress
 import json
 import re
 import urllib.request
+from datetime import datetime, timedelta, timezone
+from urllib.parse import quote
 from pathlib import Path
 from urllib.parse import urlparse
 
@@ -70,14 +72,22 @@ def bgp_state(asn: int) -> list[dict]:
 
 
 def announced_prefixes(asn: int) -> set[str]:
-    result = set()
-    for route in bgp_state(asn):
-        path = route.get("path") or []
-        prefix = route.get("target_prefix")
-        if prefix and path and int(path[-1]) == asn:
-            result.add(str(ipaddress.ip_network(prefix, strict=False)))
+    # The dedicated RIPEstat endpoint is far lighter than requesting the full
+    # BGP state for large content ASNs. A short recent window plus the default
+    # visibility threshold keeps this focused on globally visible routes.
+    start = (datetime.now(timezone.utc) - timedelta(hours=6)).replace(microsecond=0).isoformat()
+    url = (
+        "https://stat.ripe.net/data/announced-prefixes/data.json"
+        f"?resource=AS{asn}&starttime={quote(start)}&min_peers_seeing=10"
+    )
+    payload = fetch_json(url)
+    result = {
+        str(ipaddress.ip_network(item["prefix"], strict=False))
+        for item in payload.get("data", {}).get("prefixes", [])
+        if item.get("prefix")
+    }
     if not result:
-        raise RuntimeError(f"No current originated prefixes found for AS{asn}")
+        raise RuntimeError(f"No recent globally visible prefixes found for AS{asn}")
     return result
 
 
