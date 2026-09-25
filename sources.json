@@ -248,7 +248,8 @@
     "Fallout76_AWS": [
       "fallout.bethesda.net",
       "api.bethesda.net",
-      "bethesda.net"
+      "bethesda.net",
+      "p76prod.systems"
     ],
     "GearsOfWar": [
       "gearsofwar.com",
@@ -306,7 +307,10 @@
     "mtg arena",
     "mtga",
     "darktide",
-    "playdarktide"
+    "playdarktide",
+    "p76prod",
+    "fallout 76 aws",
+    "fallout76 aws"
   ],
   "repositories": [
     {
@@ -414,7 +418,8 @@
       "gearsofwar",
       "mtga",
       "darktide",
-      "playdarktide"
+      "playdarktide",
+      "p76prod"
     ]
   }
 }

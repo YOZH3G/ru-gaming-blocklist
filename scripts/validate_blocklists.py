@@ -11,7 +11,7 @@ BAD_SUFFIXES = {
     ".exe", ".dll", ".sys", ".msc", ".bin", ".zip", ".rar", ".7z", ".log",
     ".ini", ".cfg", ".lua", ".php", ".aspx", ".js", ".dat", ".tmp",
 }
-BROAD_PROFILE_FILES = {"Cloudflare_AWS.txt", "Darktide.txt"}
+BROAD_PROFILE_FILES = {"Cloudflare_AWS.txt", "Darktide.txt", "Fallout76_AWS.txt"}
 
 GENERIC_ROOTS = {
     "google.com", "googleapis.com", "gstatic.com", "youtube.com",

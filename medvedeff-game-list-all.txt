@@ -738,6 +738,7 @@ overlay.ubisoft.com
 overwatchleague.com
 p2p-sto1.discovery.steamserver.net
 p2p-sto2.discovery.steamserver.net
+p76prod.systems
 partner.steamgames.com
 partner.steampowered.com
 partners.roblox.com
