@@ -58,10 +58,10 @@ WARFRAME_EXTRA_ALLOWED = {"warframe-web-assets.nyc3.cdn.digitaloceanspaces.com",
 
 MTGA_SOURCES = (
     "https://magic.wizards.com/en/mtgarena/getting-started",
-    "https://mtgarena.downloads.wizards.com/Live/Windows64/MTGAInstaller.exe",
+    "https://mtgarena-support.wizards.com/",
 )
 MTGA_SUFFIXES = ("wizards.com", "mtgarena.com", "magic-the-gathering-arena.com")
-MTGA_EXTRA = {"api.platform.wizards.com"}
+MTGA_EXTRA = {"api.platform.wizards.com", "mtgarena.downloads.wizards.com"}
 
 BLUE_ARCHIVE_SOURCES = (
     "https://bluearchive.nexon.com/",
@@ -81,8 +81,7 @@ BLUE_ARCHIVE_ALLOWED = {
 
 ARKNIGHTS_SOURCES = (
     "https://ak.hypergryph.com/download",
-    "https://launcher.hypergryph.com/game/latest/GzD1CpaWgmSq1wew/1/1",
-    "https://launcher.hypergryph.com/launcher/get_latest_launcher?appcode=abYeZZ16BPluCFyT&channel=1",
+    "https://ak.hypergryph.com/news/0717",
 )
 ARKNIGHTS_SUFFIXES = ("hypergryph.com", "hg-cdn.com", "gryphline.com")
 
