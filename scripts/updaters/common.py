@@ -92,13 +92,28 @@ def flatten_strings(value):
             yield from flatten_strings(item)
 
 
+def flatten_communities(value):
+    if isinstance(value, str):
+        yield value
+    elif isinstance(value, dict):
+        for item in value.values():
+            yield from flatten_communities(item)
+    elif isinstance(value, (list, tuple, set)):
+        seq = list(value)
+        if len(seq) == 2 and all(isinstance(x, int) or (isinstance(x, str) and x.isdigit()) for x in seq):
+            yield f"{seq[0]}:{seq[1]}"
+        else:
+            for item in seq:
+                yield from flatten_communities(item)
+
+
 def community_prefixes(asn: int, community: str) -> set[str]:
     result = set()
     for route in bgp_state(asn):
         path = route.get("path") or []
         if not path or int(path[-1]) != asn:
             continue
-        communities = set(flatten_strings(route.get("community") or []))
+        communities = set(flatten_communities(route.get("community") or []))
         if community in communities:
             prefix = route.get("target_prefix")
             if prefix:
