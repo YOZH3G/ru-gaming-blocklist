@@ -129,3 +129,9 @@ AWS-часть обновляется ежедневно из официальн
 Широкие AWS/EC2 ranges не импортируются, хотя текущий Battle Server размещён в Amazon EC2.
 
 Методика и источники: `evidence/company-of-heroes-2.md`.
+
+## Company of Heroes 2
+
+`games/CompanyOfHeroes2.txt` is a moderately broad runtime profile: current/legacy RelicLink endpoints, the in-game Company of Heroes web surface, SEGA telemetry observed directly in CoH2 logs, Relic account integration, and the exact Battle Server IP published by Relic. Broad AWS/Relic/SEGA provider roots are still excluded.
+
+Methodology and sources: `evidence/company-of-heroes-2.md`.
