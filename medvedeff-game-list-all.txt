@@ -278,6 +278,7 @@ community.wardogs.com
 companion.battlefield.com
 companion.ea.com
 companyofheroes.com
+compute-1.amazonaws.com
 config.ea.com
 config.roblox.com
 confluence.roblox.com
@@ -467,6 +468,7 @@ epicgames.org
 epicgamescdn.com
 essential.gg
 et.epicgames.com
+eu-central-1.compute.amazonaws.com
 eu.actual.battle.net
 eu.cdn.blizzard.com
 eu.e4mc.link
