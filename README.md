@@ -82,7 +82,11 @@ CI отклоняет, среди прочего:
 
 ## WARDOGS
 
-`games/Wardogs.txt` содержит подтверждённые first-party/backend/anti-cheat/voice endpoints и два консервативно выбранных сетевых диапазона. Общая AWS/Cloudflare инфраструктура не дублируется туда автоматически.
+`games/Wardogs.txt` содержит подтверждённые first-party/backend/anti-cheat/voice endpoints, два стабильных сетевых диапазона и узкие IP, подтверждённые практическими наблюдениями игроков.
+
+Восемь наблюдавшихся EC2 `/32` ежедневно проверяются против официального AWS feed как `EC2 + eu-west-1`. Для `api.epicgames.dev` updater ежедневно разрешает текущие IPv4 A-records и принимает их только если они входят в официальные Cloudflare IPv4 ranges.
+
+Весь `eu-west-1` и весь Cloudflare в обычный WARDOGS-профиль пока не добавляются.
 
 Методика и источники: `evidence/wardogs.md`.
 
