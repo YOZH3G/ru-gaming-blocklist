@@ -148,3 +148,33 @@ The broader pass still rejects:
 - the enclosing AWS EC2 region or Amazon ASN.
 
 This keeps the profile meaningfully wider without turning it into a shared-provider list.
+
+## AWS hostname coverage
+
+CoH2 also uses AWS EC2-hosted game infrastructure beyond the single Battle Server IP published by Relic.
+
+A 2024 network observation explicitly attributes active `RelicCoH2.exe` connections to:
+
+- `ec2-3-91-171-227.compute-1.amazonaws.com`
+- `ec2-3-68-121-189.eu-central-1.compute.amazonaws.com`
+
+Source:
+
+- https://www.hardwareluxx.de/community/threads/i7-12700k.1359643/page-2
+
+This is consistent with older RelicLink evidence where `coh2-lobby.reliclink.com` resolved through an AWS ELB hostname in `us-east-1`:
+
+- `reliclink0-coh2-569330339.us-east-1.elb.amazonaws.com`
+
+Source:
+
+- https://steamcommunity.com/app/231430/discussions/3/558749190619945683/
+
+To widen practical coverage without adding the entire AWS namespace, the production profile includes the observed EC2 suffixes:
+
+- `compute-1.amazonaws.com` — us-east-1 EC2 public DNS style;
+- `eu-central-1.compute.amazonaws.com` — Frankfurt EC2 public DNS style.
+
+The generic root `amazonaws.com` is intentionally not promoted because it would match unrelated AWS services and regions across the Internet.
+
+The same evidence is not sufficient to import all EC2 CIDRs for `us-east-1` and `eu-central-1`: the profile therefore keeps the exact Relic-published Battle Server `/32` as its only IP entry.
