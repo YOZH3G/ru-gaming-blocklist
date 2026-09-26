@@ -115,6 +115,10 @@ COH2_SUPPORT_API = "https://help.relic.com/api/v2/help_center/en-us/articles/360
 COH2_STATIC_DOMAINS = {
     "coh2-api.reliclink.com",
     "coh2-lobby.reliclink.com",
+    "coh2.lobby.reliclink.com",
+    "companyofheroes.com",
+    "garry.sgaas.net",
+    "ingame.companyofheroes.com",
     "sso.relic.com",
 }
 
