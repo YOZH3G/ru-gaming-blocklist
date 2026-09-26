@@ -315,7 +315,9 @@
       "coh2.lobby.reliclink.com",
       "companyofheroes.com",
       "ingame.companyofheroes.com",
-      "garry.sgaas.net"
+      "garry.sgaas.net",
+      "compute-1.amazonaws.com",
+      "eu-central-1.compute.amazonaws.com"
     ]
   },
   "issue_search_terms": [
@@ -381,7 +383,9 @@
     "coh2",
     "reliclink",
     "ingame.companyofheroes.com",
-    "garry.sgaas.net"
+    "garry.sgaas.net",
+    "compute-1.amazonaws.com",
+    "eu-central-1.compute.amazonaws.com"
   ],
   "repositories": [
     {
