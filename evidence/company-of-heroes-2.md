@@ -1,6 +1,6 @@
 # Company of Heroes 2 profile — 2026-09-26
 
-`games/CompanyOfHeroes2.txt` is a narrow, evidence-based mixed domain + IP profile.
+`games/CompanyOfHeroes2.txt` is a mixed domain + IP profile combining evidence-backed CoH2 endpoints with documented community routing additions.
 
 ## Production entries
 
@@ -181,7 +181,7 @@ The same evidence is not sufficient to import all EC2 CIDRs for `us-east-1` and 
 
 ## Optional broad community profile — 2026-09-27
 
-`games/CompanyOfHeroes2_Broad.txt` is a standalone opt-in profile. It contains all entries from `CompanyOfHeroes2.txt` plus nine distinct IPv4 `/24` networks and the generic `amazonaws.com` suffix supplied in a user report as a configuration said to help CoH2 connectivity:
+`games/CompanyOfHeroes2.txt` also contains nine distinct IPv4 `/24` networks and the generic `amazonaws.com` suffix supplied in a user report as a configuration said to help CoH2 connectivity:
 
 - `3.70.251.0/24`
 - `3.73.152.0/24`
@@ -197,4 +197,4 @@ The supplied list repeated `3.230.230.0/24` and `18.207.66.0/24`; each appears o
 
 A public [CoH2 Steam discussion](https://steamcommunity.com/app/231430/discussions/0/600777026050236308/) lists `3.91.171.0/24` and `3.227.250.0/24` in a working Zapret configuration, but also contains reports that the same approach did not work for other players. The remaining ranges have not been independently tied to CoH2 endpoints. AWS `/24` ranges are shared and may change occupants.
 
-The report used `*.amazonaws.com`. This repository stores bare suffixes, so the profile uses `amazonaws.com`; suffix-matching consumers will match all its subdomains. This can affect unrelated AWS traffic. Exact-match consumers need their own wildcard syntax. Both domains and networks from this optional profile are excluded from global aggregates.
+The report used `*.amazonaws.com`. This repository stores bare suffixes, so the profile uses `amazonaws.com`; suffix-matching consumers will match all its subdomains. This can affect unrelated AWS traffic. Exact-match consumers need their own wildcard syntax. The community-added `amazonaws.com` root and the nine community `/24` networks are excluded from global aggregates on a per-entry basis; the evidence-backed CoH2 domains and Relic-published Battle Server `/32` remain eligible.
