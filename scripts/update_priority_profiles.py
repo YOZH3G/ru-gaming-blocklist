@@ -3,6 +3,7 @@ from __future__ import annotations
 import ipaddress
 import json
 import re
+import socket
 from pathlib import Path
 
 from updaters.common import (
@@ -124,6 +125,22 @@ COH2_STATIC_DOMAINS = {
     "sso.relic.com",
 }
 
+WARDOGS_OBSERVED_AWS_EU_WEST_1 = {
+    "52.50.63.173",
+    "52.209.230.193",
+    "52.215.132.236",
+    "54.73.85.151",
+    "54.75.198.69",
+    "54.247.140.91",
+    "99.80.68.196",
+    "108.133.35.6",
+}
+WARDOGS_STATIC_NETWORKS = {
+    "54.115.0.0/16",
+    "85.236.96.0/21",
+}
+WARDOGS_CLOUDFLARE_HOST = "api.epicgames.dev"
+
 
 def update_cloudflare_aws() -> str:
     path = ROOT / "games" / "Cloudflare_AWS.txt"
@@ -237,6 +254,67 @@ def update_company_of_heroes_2() -> str:
     )
 
 
+def update_wardogs() -> str:
+    path = ROOT / "games" / "Wardogs.txt"
+    domains, _ = split_entries(path)
+
+    aws = fetch_json(AWS_RANGES)
+    aws_prefixes = [
+        ipaddress.ip_network(item["ip_prefix"], strict=False)
+        for item in aws.get("prefixes", [])
+        if item.get("service") == "EC2"
+        and item.get("region") == "eu-west-1"
+        and item.get("ip_prefix")
+    ]
+
+    if not aws_prefixes:
+        raise RuntimeError("AWS feed returned no eu-west-1 EC2 prefixes for WARDOGS validation")
+
+    observed_networks = set()
+    for value in sorted(WARDOGS_OBSERVED_AWS_EU_WEST_1):
+        address = ipaddress.ip_address(value)
+        if not any(address in prefix for prefix in aws_prefixes):
+            raise RuntimeError(
+                f"Observed WARDOGS endpoint {value} is no longer in AWS EC2 eu-west-1"
+            )
+        observed_networks.add(f"{value}/32")
+
+    cf_prefixes = [
+        ipaddress.ip_network(value, strict=False)
+        for value in fetch_text(CF_V4).split()
+    ]
+
+    resolved = {
+        item[4][0]
+        for item in socket.getaddrinfo(
+            WARDOGS_CLOUDFLARE_HOST,
+            443,
+            family=socket.AF_INET,
+            type=socket.SOCK_STREAM,
+        )
+    }
+    if not resolved:
+        raise RuntimeError(f"DNS returned no IPv4 addresses for {WARDOGS_CLOUDFLARE_HOST}")
+
+    cloudflare_networks = set()
+    for value in resolved:
+        address = ipaddress.ip_address(value)
+        if not address.is_global or not any(address in prefix for prefix in cf_prefixes):
+            raise RuntimeError(
+                f"{WARDOGS_CLOUDFLARE_HOST} resolved outside official Cloudflare IPv4 space: {value}"
+            )
+        cloudflare_networks.add(f"{value}/32")
+
+    networks = WARDOGS_STATIC_NETWORKS | observed_networks | cloudflare_networks
+    changed = write_mixed(path, domains, networks)
+    return (
+        f"Wardogs: {len(domains)} domains + {len(networks)} networks "
+        f"({len(observed_networks)} observed AWS eu-west-1 /32 + "
+        f"{len(cloudflare_networks)} live Epic API Cloudflare /32) "
+        f"({'changed' if changed else 'current'})"
+    )
+
+
 def update_conservative_domains(
     filename: str,
     urls: tuple[str, ...],
@@ -338,6 +416,11 @@ def main() -> int:
     # Company of Heroes 2: official Relic support publishes a mutable BattleServer IP.
     # Refresh exactly that /32 and keep only first-party RelicLink/Relic Account domains.
     status.append(update_company_of_heroes_2())
+
+    # WARDOGS: retain narrow observed server endpoints.
+    # Validate reported AWS addresses against the official eu-west-1 EC2 feed and
+    # refresh api.epicgames.dev's current Cloudflare A records daily.
+    status.append(update_wardogs())
 
     print("\n".join(status))
     return 0
