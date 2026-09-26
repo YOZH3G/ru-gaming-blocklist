@@ -265,6 +265,9 @@ cms-cache.ubisoft.com
 cms-cdn.bistudio.com
 cod-assets.cdn.callofduty.com
 codm.activision.com
+coh2-api.reliclink.com
+coh2-lobby.reliclink.com
+coh2.lobby.reliclink.com
 communities.epicgames.com
 community.cloudflare.steamstatic.com
 community.fastly.steamstatic.com
@@ -274,6 +277,7 @@ community.steamstatic.com
 community.wardogs.com
 companion.battlefield.com
 companion.ea.com
+companyofheroes.com
 config.ea.com
 config.roblox.com
 confluence.roblox.com
@@ -554,6 +558,7 @@ games.roblox.com
 gameserver.roblox.com
 gameservices.ea.com
 gamesite.roblox.com
+garry.sgaas.net
 gateway.ea.com
 gateway.messenger.ea.com
 gc.svc.live.fngw.ol.epicgames.com
@@ -601,6 +606,7 @@ images.rbxcdn.com
 images.steamusercontent.com
 imagesak.roblox.com
 infrastructure.roblox.com
+ingame.companyofheroes.com
 interactions-service-prod.ol.epicgames.com
 internal.unity3d.com
 inventory.api.roblox.com
@@ -949,6 +955,7 @@ social-ban-public-service-prod.ol.epicgames.com
 social.cdn.ubisoft.com
 social.ea.com
 ssl-lvlt.cdn.ea.com
+sso.relic.com
 start.ui.xboxlive.com
 static-assets-prod.epicgames.com
 static-assets-prod.unrealengine.com

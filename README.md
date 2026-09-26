@@ -40,7 +40,7 @@ Production-списки больше не пополняются напряму�
 
 ## Игры и сервисы
 
-Apex Legends / Rocket League, Arknights, Arma Reforger, Battle.net, Battlefield, Blue Archive, Call of Duty, Darktide, Dead by Daylight, EA / Origin, Epic Games / Fortnite, Fallout 76, Gears of War, Goose Goose Duck, League of Legends, Magic: The Gathering Arena, Minecraft, Mortal Kombat, Photon Engine, Riot Games / Valorant, Roblox, Steam, Street Fighter 6, Ubisoft / Rainbow Six Siege, VRChat, WARDOGS, Warframe и Wuthering Waves.
+Apex Legends / Rocket League, Arknights, Arma Reforger, Battle.net, Battlefield, Blue Archive, Call of Duty, Company of Heroes 2, Darktide, Dead by Daylight, EA / Origin, Epic Games / Fortnite, Fallout 76, Gears of War, Goose Goose Duck, League of Legends, Magic: The Gathering Arena, Minecraft, Mortal Kombat, Photon Engine, Riot Games / Valorant, Roblox, Steam, Street Fighter 6, Ubisoft / Rainbow Six Siege, VRChat, WARDOGS, Warframe и Wuthering Waves.
 
 ## Автоматизация
 
@@ -55,7 +55,8 @@ Apex Legends / Rocket League, Arknights, Arma Reforger, Battle.net, Battlefield,
 - Battle.net — Blizzard AS57976;
 - Wuthering Waves — официальный launcher manifest;
 - Warframe, MTG Arena, Blue Archive, Arknights и Street Fighter 6 — консервативный first-party discovery/verification;
-- Call of Duty — first-party Demonware AS60229 + curated Activision/CoD domains.
+- Call of Duty — first-party Demonware AS60229 + curated Activision/CoD domains;
+- Company of Heroes 2 — официальный Relic support page: RelicLink domains + опубликованный Battle Server /32.
 
 После обновления `scripts/rebuild_aggregates.py` детерминированно пересобирает глобальные агрегаты. Широкие shared/regional AWS-профили Cloudflare_AWS, Darktide и Fallout76_AWS не попадают в глобальный IP-агрегат.
 
@@ -120,3 +121,17 @@ AWS-часть обновляется ежедневно из официальн
 `games/CallOfDuty.txt` содержит first-party Call of Duty/Activision/Demonware domains и автоматически обновляемые текущие prefixes Demonware `AS60229 / AS-DEMONWARE`. Это backend/control-plane инфраструктура Call of Duty, а не попытка перечислить все возможные third-party dedicated server hosting ranges.
 
 Методика и источники для обоих профилей: `evidence/street-fighter-6-call-of-duty.md`.
+
+## Company of Heroes 2
+
+`games/CompanyOfHeroes2.txt` содержит CoH2-specific RelicLink/Relic Account endpoints и точный Battle Server IP, который публикует сама Relic. Managed-updater читает актуальную статью поддержки Relic и автоматически заменяет только этот `/32`, если адрес изменится.
+
+Широкие AWS/EC2 ranges не импортируются, хотя текущий Battle Server размещён в Amazon EC2.
+
+Методика и источники: `evidence/company-of-heroes-2.md`.
+
+## Company of Heroes 2
+
+`games/CompanyOfHeroes2.txt` is a moderately broad runtime profile: current/legacy RelicLink endpoints, the in-game Company of Heroes web surface, SEGA telemetry observed directly in CoH2 logs, Relic account integration, and the exact Battle Server IP published by Relic. Broad AWS/Relic/SEGA provider roots are still excluded.
+
+Methodology and sources: `evidence/company-of-heroes-2.md`.

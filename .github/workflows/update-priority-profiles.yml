@@ -16,6 +16,7 @@ on:
       - "games/Arknights.txt"
       - "games/StreetFighter6.txt"
       - "games/CallOfDuty.txt"
+      - "games/CompanyOfHeroes2.txt"
       - "scripts/update_priority_profiles.py"
       - "scripts/rebuild_aggregates.py"
       - "scripts/updaters/**"
@@ -73,6 +74,7 @@ jobs:
             games/Arknights.txt
             games/StreetFighter6.txt
             games/CallOfDuty.txt
+            games/CompanyOfHeroes2.txt
             medvedeff-game-list-all.txt
             medvedeff-game-ipset.txt
 
@@ -93,6 +95,7 @@ jobs:
             games/Arknights.txt \
             games/StreetFighter6.txt \
             games/CallOfDuty.txt \
+            games/CompanyOfHeroes2.txt \
             medvedeff-game-list-all.txt \
             medvedeff-game-ipset.txt
 

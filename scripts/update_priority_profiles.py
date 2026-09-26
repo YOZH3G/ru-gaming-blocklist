@@ -1,6 +1,8 @@
 from __future__ import annotations
 
+import ipaddress
 import json
+import re
 from pathlib import Path
 
 from updaters.common import (
@@ -109,6 +111,17 @@ SF6_ALLOWED = {
     "www.streetfighter.com",
 }
 
+COH2_SUPPORT_API = "https://help.relic.com/api/v2/help_center/en-us/articles/36080656057363.json"
+COH2_STATIC_DOMAINS = {
+    "coh2-api.reliclink.com",
+    "coh2-lobby.reliclink.com",
+    "coh2.lobby.reliclink.com",
+    "companyofheroes.com",
+    "garry.sgaas.net",
+    "ingame.companyofheroes.com",
+    "sso.relic.com",
+}
+
 
 def update_cloudflare_aws() -> str:
     path = ROOT / "games" / "Cloudflare_AWS.txt"
@@ -179,6 +192,47 @@ def update_wuthering_waves() -> str:
     domains = WUWA_STATIC | discovered
     changed = write_mixed(path, domains, [])
     return f"WutheringWaves: {len(domains)} manifest-derived/stable domains ({'changed' if changed else 'current'})"
+
+
+def update_company_of_heroes_2() -> str:
+    path = ROOT / "games" / "CompanyOfHeroes2.txt"
+    payload = fetch_json(COH2_SUPPORT_API, timeout=20)
+    article = payload.get("article") or {}
+    text = article.get("body") or ""
+
+    if not text:
+        raise RuntimeError("Relic Help Center API returned no CoH2 article body")
+
+    # Strip HTML tags/whitespace so the check is resilient to Zendesk markup.
+    text = re.sub(r"<[^>]+>", " ", text)
+    text = re.sub(r"\s+", " ", text)
+
+    match = re.search(
+        r"BattleServer\s+IP[^0-9]*((?:\d{1,3}\.){3}\d{1,3})",
+        text,
+        flags=re.IGNORECASE,
+    )
+    if not match:
+        raise RuntimeError("Relic support page did not expose a CoH2 BattleServer IP")
+
+    ip = match.group(1)
+    try:
+        address = ipaddress.ip_address(ip)
+    except ValueError as exc:
+        raise RuntimeError(f"Invalid CoH2 BattleServer IP from Relic support: {ip}") from exc
+
+    if address.version != 4 or not address.is_global:
+        raise RuntimeError(f"Unsafe CoH2 BattleServer IP from Relic support: {ip}")
+
+    if "coh2-lobby.reliclink.com" not in text:
+        raise RuntimeError("Relic support page no longer references coh2-lobby.reliclink.com")
+
+    networks = {f"{ip}/32"}
+    changed = write_mixed(path, COH2_STATIC_DOMAINS, networks)
+    return (
+        f"CompanyOfHeroes2: {len(COH2_STATIC_DOMAINS)} domains + "
+        f"{len(networks)} Relic-published BattleServer IP ({'changed' if changed else 'current'})"
+    )
 
 
 def update_conservative_domains(
@@ -278,6 +332,10 @@ def main() -> int:
     # Call of Duty: Demonware is Activision's first-party online backend.
     # Keep curated CoD domains and replace the dynamic IP portion with current AS60229 routes.
     status.append(update_asn_profile("CallOfDuty.txt", 60229))
+
+    # Company of Heroes 2: official Relic support publishes a mutable BattleServer IP.
+    # Refresh exactly that /32 and keep only first-party RelicLink/Relic Account domains.
+    status.append(update_company_of_heroes_2())
 
     print("\n".join(status))
     return 0

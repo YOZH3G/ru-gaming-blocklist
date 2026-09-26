@@ -171,6 +171,11 @@
       "cod",
       "warzone",
       "black ops"
+    ],
+    "CompanyOfHeroes2": [
+      "company of heroes 2",
+      "companyofheroes2",
+      "coh2"
     ]
   },
   "domain_game_hints": {
@@ -301,6 +306,16 @@
       "demonware.net",
       "prod.demonware.net",
       "cod-assets.cdn.callofduty.com"
+    ],
+    "CompanyOfHeroes2": [
+      "coh2-api.reliclink.com",
+      "coh2-lobby.reliclink.com",
+      "reliclink.com",
+      "sso.relic.com",
+      "coh2.lobby.reliclink.com",
+      "companyofheroes.com",
+      "ingame.companyofheroes.com",
+      "garry.sgaas.net"
     ]
   },
   "issue_search_terms": [
@@ -360,7 +375,13 @@
     "callofduty",
     "warzone",
     "demonware",
-    "as60229"
+    "as60229",
+    "company of heroes 2",
+    "companyofheroes2",
+    "coh2",
+    "reliclink",
+    "ingame.companyofheroes.com",
+    "garry.sgaas.net"
   ],
   "repositories": [
     {
@@ -474,7 +495,11 @@
       "sf6",
       "callofduty",
       "demonware",
-      "warzone"
+      "warzone",
+      "companyofheroes",
+      "coh2",
+      "reliclink",
+      "sgaas"
     ]
   }
 }
