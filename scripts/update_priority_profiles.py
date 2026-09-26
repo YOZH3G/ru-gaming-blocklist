@@ -117,6 +117,8 @@ COH2_STATIC_DOMAINS = {
     "coh2-lobby.reliclink.com",
     "coh2.lobby.reliclink.com",
     "companyofheroes.com",
+    "compute-1.amazonaws.com",
+    "eu-central-1.compute.amazonaws.com",
     "garry.sgaas.net",
     "ingame.companyofheroes.com",
     "sso.relic.com",
