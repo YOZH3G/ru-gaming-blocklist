@@ -125,8 +125,8 @@ COH2_STATIC_DOMAINS = {
     "sso.relic.com",
 }
 
-COH2_BROAD_EXTRA_DOMAINS = {"amazonaws.com"}
-COH2_BROAD_EXTRA_NETWORKS = {
+COH2_COMMUNITY_EXTRA_DOMAINS = {"amazonaws.com"}
+COH2_COMMUNITY_EXTRA_NETWORKS = {
     "3.70.251.0/24",
     "3.73.152.0/24",
     "3.91.171.0/24",
@@ -259,17 +259,13 @@ def update_company_of_heroes_2() -> str:
     if "coh2-lobby.reliclink.com" not in text:
         raise RuntimeError("Relic support page no longer references coh2-lobby.reliclink.com")
 
-    networks = {f"{ip}/32"}
-    changed = write_mixed(path, COH2_STATIC_DOMAINS, networks)
-    broad_changed = write_mixed(
-        ROOT / "games" / "CompanyOfHeroes2_Broad.txt",
-        COH2_STATIC_DOMAINS | COH2_BROAD_EXTRA_DOMAINS,
-        networks | COH2_BROAD_EXTRA_NETWORKS,
-    )
+    domains = COH2_STATIC_DOMAINS | COH2_COMMUNITY_EXTRA_DOMAINS
+    networks = {f"{ip}/32"} | COH2_COMMUNITY_EXTRA_NETWORKS
+    changed = write_mixed(path, domains, networks)
     return (
-        f"CompanyOfHeroes2: {len(COH2_STATIC_DOMAINS)} domains + "
-        f"{len(networks)} Relic-published BattleServer IP ({'changed' if changed else 'current'}); "
-        f"broad profile {'changed' if broad_changed else 'current'}"
+        f"CompanyOfHeroes2: {len(domains)} domains + {len(networks)} networks, "
+        f"including Relic-published BattleServer IP and community routing additions "
+        f"({'changed' if changed else 'current'})"
     )
 
 
@@ -432,8 +428,8 @@ def main() -> int:
     # Keep curated CoD domains and replace the dynamic IP portion with current AS60229 routes.
     status.append(update_asn_profile("CallOfDuty.txt", 60229))
 
-    # Company of Heroes 2: official Relic support publishes a mutable BattleServer IP.
-    # Refresh exactly that /32 and keep only first-party RelicLink/Relic Account domains.
+    # Company of Heroes 2: refresh the mutable Relic BattleServer /32 while retaining
+    # the documented community routing additions in the same game profile.
     status.append(update_company_of_heroes_2())
 
     # WARDOGS: retain narrow observed server endpoints.
