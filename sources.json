@@ -311,7 +311,11 @@
       "coh2-api.reliclink.com",
       "coh2-lobby.reliclink.com",
       "reliclink.com",
-      "sso.relic.com"
+      "sso.relic.com",
+      "coh2.lobby.reliclink.com",
+      "companyofheroes.com",
+      "ingame.companyofheroes.com",
+      "garry.sgaas.net"
     ]
   },
   "issue_search_terms": [
@@ -375,7 +379,9 @@
     "company of heroes 2",
     "companyofheroes2",
     "coh2",
-    "reliclink"
+    "reliclink",
+    "ingame.companyofheroes.com",
+    "garry.sgaas.net"
   ],
   "repositories": [
     {
@@ -492,7 +498,8 @@
       "warzone",
       "companyofheroes",
       "coh2",
-      "reliclink"
+      "reliclink",
+      "sgaas"
     ]
   }
 }
