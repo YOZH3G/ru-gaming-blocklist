@@ -4,10 +4,14 @@
 
 ## Production entries
 
-Static first-party domains:
+Static game/runtime domains:
 
 - `coh2-api.reliclink.com`
 - `coh2-lobby.reliclink.com`
+- `coh2.lobby.reliclink.com`
+- `companyofheroes.com`
+- `ingame.companyofheroes.com`
+- `garry.sgaas.net`
 - `sso.relic.com`
 
 Dynamic Battle Server:
@@ -81,3 +85,66 @@ It is not duplicated wholesale into `CompanyOfHeroes2.txt`.
 The three CoH2-specific domains are eligible for `medvedeff-game-list-all.txt`.
 
 The exact Relic-published Battle Server `/32` is eligible for `medvedeff-game-ipset.txt` because it is an explicitly identified game server, not a broad shared-cloud range.
+
+## Broader runtime coverage
+
+The profile was widened after the initial pass with four additional evidence-backed endpoints:
+
+### `coh2.lobby.reliclink.com`
+
+An older real CoH2 client log records the WorldwideLoginService using:
+
+- `coh2.lobby.reliclink.com:8443`
+
+Source:
+
+- https://steamcommunity.com/app/231430/discussions/0/864977564662767884/
+
+This is retained as a legacy RelicLink alias alongside the current official `coh2-lobby.reliclink.com`.
+
+### `ingame.companyofheroes.com`
+
+CoH2 runtime logs show the game constructing in-game web URLs under:
+
+- `https://ingame.companyofheroes.com/twitch/home`
+- `https://ingame.companyofheroes.com/promotions/home`
+
+Source:
+
+- https://www.coh2.org/topic/104725/game-crashes-3-9-games-with-warning-text-file-attached
+
+The same host also appears in reconstructed RelicLink configuration used by current CoH2 preservation tooling:
+
+- https://github.com/koteykaby/comrade/blob/main/config/reliclink.json
+
+### `companyofheroes.com`
+
+This root is game/franchise-specific rather than a generic publisher domain and is included so suffix-based consumers cover the in-game Company of Heroes web surface without promoting the much broader `relic.com` or SEGA roots.
+
+### `garry.sgaas.net`
+
+Multiple CoH2 runtime logs show successful telemetry/event calls to:
+
+- `https://garry.sgaas.net:443/event`
+
+Sources:
+
+- https://steamcommunity.com/app/231430/discussions/0/1729828401694931612/
+- https://www.coh2.org/topic/104725/game-crashes-3-9-games-with-warning-text-file-attached
+- https://steamcommunity.com/app/231430/discussions/3/1652169858534739260/
+
+This is shared SEGA analytics infrastructure, but the exact hostname is directly observed in the CoH2 client and is sufficiently narrow for the game profile.
+
+## Candidates intentionally not promoted
+
+The broader pass still rejects:
+
+- `relic.com` as a generic publisher root;
+- `reliclink.com` as a backend root shared across multiple Relic titles;
+- `sega.com` / broad SEGA infrastructure;
+- historical ELB hostnames such as `reliclink0-coh2-569330339.us-east-1.elb.amazonaws.com`;
+- `test-build-data.reliclink.com`, which appears in preservation/reconstructed configuration but lacks strong enough current production evidence;
+- historical Battle Server addresses observed in old logs, such as `3.81.245.57`;
+- the enclosing AWS EC2 region or Amazon ASN.
+
+This keeps the profile meaningfully wider without turning it into a shared-provider list.
