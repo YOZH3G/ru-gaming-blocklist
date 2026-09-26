@@ -178,3 +178,23 @@ To widen practical coverage without adding the entire AWS namespace, the product
 The generic root `amazonaws.com` is intentionally not promoted because it would match unrelated AWS services and regions globally.
 
 The same evidence is not sufficient to import all EC2 CIDRs for `us-east-1` and `eu-central-1`: the profile therefore keeps the exact Relic-published Battle Server `/32` as its only IP entry.
+
+## Optional broad community profile — 2026-09-27
+
+`games/CompanyOfHeroes2_Broad.txt` is a standalone opt-in profile. It contains all entries from `CompanyOfHeroes2.txt` plus nine distinct IPv4 `/24` networks and the generic `amazonaws.com` suffix supplied in a user report as a configuration said to help CoH2 connectivity:
+
+- `3.70.251.0/24`
+- `3.73.152.0/24`
+- `3.91.171.0/24`
+- `3.227.250.0/24`
+- `3.230.230.0/24`
+- `18.207.66.0/24`
+- `44.220.67.0/24`
+- `54.237.64.0/24`
+- `146.66.152.0/24`
+
+The supplied list repeated `3.230.230.0/24` and `18.207.66.0/24`; each appears once. `146.66.152.0/24` is already present in the Steam profile and is retained here so the optional CoH2 file works on its own.
+
+A public [CoH2 Steam discussion](https://steamcommunity.com/app/231430/discussions/0/600777026050236308/) lists `3.91.171.0/24` and `3.227.250.0/24` in a working Zapret configuration, but also contains reports that the same approach did not work for other players. The remaining ranges have not been independently tied to CoH2 endpoints. AWS `/24` ranges are shared and may change occupants.
+
+The report used `*.amazonaws.com`. This repository stores bare suffixes, so the profile uses `amazonaws.com`; suffix-matching consumers will match all its subdomains. This can affect unrelated AWS traffic. Exact-match consumers need their own wildcard syntax. Both domains and networks from this optional profile are excluded from global aggregates.
