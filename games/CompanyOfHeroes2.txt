@@ -1,4 +1,8 @@
 coh2-api.reliclink.com
 coh2-lobby.reliclink.com
+coh2.lobby.reliclink.com
+companyofheroes.com
+garry.sgaas.net
+ingame.companyofheroes.com
 sso.relic.com
 54.209.64.161/32
