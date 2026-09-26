@@ -111,7 +111,7 @@ SF6_ALLOWED = {
     "www.streetfighter.com",
 }
 
-COH2_SUPPORT_URL = "https://help.relic.com/hc/en-us/articles/36080656057363-CoH-2-Network-Connection-Troubleshooting"
+COH2_SUPPORT_API = "https://help.relic.com/api/v2/help_center/en-us/articles/36080656057363.json"
 COH2_STATIC_DOMAINS = {
     "coh2-api.reliclink.com",
     "coh2-lobby.reliclink.com",
@@ -192,7 +192,16 @@ def update_wuthering_waves() -> str:
 
 def update_company_of_heroes_2() -> str:
     path = ROOT / "games" / "CompanyOfHeroes2.txt"
-    text = fetch_text(COH2_SUPPORT_URL, timeout=20)
+    payload = fetch_json(COH2_SUPPORT_API, timeout=20)
+    article = payload.get("article") or {}
+    text = article.get("body") or ""
+
+    if not text:
+        raise RuntimeError("Relic Help Center API returned no CoH2 article body")
+
+    # Strip HTML tags/whitespace so the check is resilient to Zendesk markup.
+    text = re.sub(r"<[^>]+>", " ", text)
+    text = re.sub(r"\s+", " ", text)
 
     match = re.search(
         r"BattleServer\s+IP[^0-9]*((?:\d{1,3}\.){3}\d{1,3})",
