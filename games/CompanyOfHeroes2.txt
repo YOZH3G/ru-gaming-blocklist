@@ -1,0 +1,4 @@
+coh2-api.reliclink.com
+coh2-lobby.reliclink.com
+sso.relic.com
+54.209.64.161/32
