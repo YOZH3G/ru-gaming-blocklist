@@ -125,6 +125,19 @@ COH2_STATIC_DOMAINS = {
     "sso.relic.com",
 }
 
+COH2_BROAD_EXTRA_DOMAINS = {"amazonaws.com"}
+COH2_BROAD_EXTRA_NETWORKS = {
+    "3.70.251.0/24",
+    "3.73.152.0/24",
+    "3.91.171.0/24",
+    "3.227.250.0/24",
+    "3.230.230.0/24",
+    "18.207.66.0/24",
+    "44.220.67.0/24",
+    "54.237.64.0/24",
+    "146.66.152.0/24",
+}
+
 WARDOGS_OBSERVED_AWS_EU_WEST_1 = {
     "52.50.63.173",
     "52.209.230.193",
@@ -248,9 +261,15 @@ def update_company_of_heroes_2() -> str:
 
     networks = {f"{ip}/32"}
     changed = write_mixed(path, COH2_STATIC_DOMAINS, networks)
+    broad_changed = write_mixed(
+        ROOT / "games" / "CompanyOfHeroes2_Broad.txt",
+        COH2_STATIC_DOMAINS | COH2_BROAD_EXTRA_DOMAINS,
+        networks | COH2_BROAD_EXTRA_NETWORKS,
+    )
     return (
         f"CompanyOfHeroes2: {len(COH2_STATIC_DOMAINS)} domains + "
-        f"{len(networks)} Relic-published BattleServer IP ({'changed' if changed else 'current'})"
+        f"{len(networks)} Relic-published BattleServer IP ({'changed' if changed else 'current'}); "
+        f"broad profile {'changed' if broad_changed else 'current'}"
     )
 
 
