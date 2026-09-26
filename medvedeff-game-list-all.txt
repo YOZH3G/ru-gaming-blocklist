@@ -265,6 +265,8 @@ cms-cache.ubisoft.com
 cms-cdn.bistudio.com
 cod-assets.cdn.callofduty.com
 codm.activision.com
+coh2-api.reliclink.com
+coh2-lobby.reliclink.com
 communities.epicgames.com
 community.cloudflare.steamstatic.com
 community.fastly.steamstatic.com
@@ -949,6 +951,7 @@ social-ban-public-service-prod.ol.epicgames.com
 social.cdn.ubisoft.com
 social.ea.com
 ssl-lvlt.cdn.ea.com
+sso.relic.com
 start.ui.xboxlive.com
 static-assets-prod.epicgames.com
 static-assets-prod.unrealengine.com
