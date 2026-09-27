@@ -751,6 +751,14 @@ Title: [Проблема] очень странное поведение инт�
 Found domains:
 zapret.installer
 
+## Flowseal/zapret-discord-youtube #9727
+
+Source: https://github.com/Flowseal/zapret-discord-youtube/issues/9727
+Title: [Проблема] не грузятся иконки с workshop в Brick Rigs
+
+Found domains:
+akamaihd.net
+
 ## Flowseal/zapret-discord-youtube #9799
 
 Source: https://github.com/Flowseal/zapret-discord-youtube/issues/9799
@@ -1799,6 +1807,30 @@ gist.github.com
 
 Source: https://github.com/Flowseal/zapret-discord-youtube/issues/17523
 Title: [Проблема] Массовая неработица батников
+
+Found domains:
+gist.github.com
+
+## Flowseal/zapret-discord-youtube #17716
+
+Source: https://github.com/Flowseal/zapret-discord-youtube/issues/17716
+Title: [Проблема] не работает валорант с запретом
+
+Found domains:
+gist.github.com
+
+## Flowseal/zapret-discord-youtube #17736
+
+Source: https://github.com/Flowseal/zapret-discord-youtube/issues/17736
+Title: [Проблема]
+
+Found domains:
+gist.github.com
+
+## Flowseal/zapret-discord-youtube #17751
+
+Source: https://github.com/Flowseal/zapret-discord-youtube/issues/17751
+Title: [Проблема] Не работает игры с запущены ZAPRET
 
 Found domains:
 gist.github.com
