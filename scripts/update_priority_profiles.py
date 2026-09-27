@@ -238,10 +238,10 @@ def update_company_of_heroes_2() -> str:
 
     # Strip HTML tags/whitespace so the check is resilient to Zendesk markup.
     text = re.sub(r"<[^>]+>", " ", text)
-    text = re.sub(r"\\s+", " ", text)
+    text = re.sub(r"\s+", " ", text)
 
     match = re.search(
-        r"BattleServer\\s+IP[^0-9]*((?:\\d{1,3}\\.){3}\\d{1,3})",
+        r"BattleServer\s+IP[^0-9]*((?:\d{1,3}\.){3}\d{1,3})",
         text,
         flags=re.IGNORECASE,
     )
