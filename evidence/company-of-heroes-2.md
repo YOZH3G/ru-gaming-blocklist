@@ -82,9 +82,9 @@ It is not duplicated wholesale into `CompanyOfHeroes2.txt`.
 
 ## Aggregate policy
 
-The three CoH2-specific domains are eligible for `medvedeff-game-list-all.txt`.
+Entries from the conservative `CompanyOfHeroes2.txt` profile are eligible for the global aggregates. The optional `CompanyOfHeroes2_Broad.txt` profile is excluded from both aggregates so its broad shared-cloud additions remain opt-in.
 
-The exact Relic-published Battle Server `/32` is eligible for `medvedeff-game-ipset.txt` because it is an explicitly identified game server, not a broad shared-cloud range.
+The exact Relic-published Battle Server `/32` in the conservative profile is eligible for `medvedeff-game-ipset.txt` because it is an explicitly identified game server, not a broad shared-cloud range.
 
 ## Broader runtime coverage
 
@@ -175,7 +175,7 @@ To widen practical coverage without adding the entire AWS namespace, the product
 - `compute-1.amazonaws.com`
 - `eu-central-1.compute.amazonaws.com`
 
-The generic root `amazonaws.com` is intentionally not promoted because it would match unrelated AWS services and regions globally.
+The generic root `amazonaws.com` is excluded from the conservative profile because it would match unrelated AWS services and regions globally; it appears only in the optional broad profile.
 
 The same evidence is not sufficient to import all EC2 CIDRs for `us-east-1` and `eu-central-1`: the profile therefore keeps the exact Relic-published Battle Server `/32` as its only IP entry.
 
@@ -197,4 +197,4 @@ The supplied list repeated `3.230.230.0/24` and `18.207.66.0/24`; each appears o
 
 A public [CoH2 Steam discussion](https://steamcommunity.com/app/231430/discussions/0/600777026050236308/) lists `3.91.171.0/24` and `3.227.250.0/24` in a working Zapret configuration, but also contains reports that the same approach did not work for other players. The remaining ranges have not been independently tied to CoH2 endpoints. AWS `/24` ranges are shared and may change occupants.
 
-The report used `*.amazonaws.com`. This repository stores bare suffixes, so the profile uses `amazonaws.com`; suffix-matching consumers will match all its subdomains. This can affect unrelated AWS traffic. Exact-match consumers need their own wildcard syntax. The the broad profile is excluded from global aggregates; the evidence-backed CoH2 domains and Relic-published Battle Server `/32` in the conservative profile remain eligible.
+The report used `*.amazonaws.com`. This repository stores bare suffixes, so the profile uses `amazonaws.com`; suffix-matching consumers will match all its subdomains. This can affect unrelated AWS traffic. Exact-match consumers need their own wildcard syntax. The broad profile is excluded from global aggregates; the evidence-backed CoH2 domains and Relic-published Battle Server `/32` in the conservative profile remain eligible.
