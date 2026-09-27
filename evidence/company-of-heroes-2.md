@@ -1,6 +1,6 @@
 # Company of Heroes 2 profile — 2026-09-26
 
-`games/CompanyOfHeroes2.txt` is a mixed domain + IP profile combining evidence-backed CoH2 endpoints with documented community routing additions.
+`games/CompanyOfHeroes2.txt` is the conservative mixed domain + IP profile. `games/CompanyOfHeroes2_Broad.txt` is an opt-in profile that adds documented community routing entries.
 
 ## Production entries
 
@@ -57,7 +57,7 @@ Unlike Darktide/Fallout 76, this profile does **not** import a complete AWS regi
 1. verifies that it still references `coh2-lobby.reliclink.com`;
 2. extracts the IPv4 address published after the `BattleServer IP` label;
 3. validates that it is a global IPv4 address;
-4. writes exactly that address as a `/32` into `games/CompanyOfHeroes2.txt`.
+4. writes exactly that address as a `/32` into both `games/CompanyOfHeroes2.txt` and `games/CompanyOfHeroes2_Broad.txt`.
 
 If Relic removes or materially changes the published information, the updater fails closed rather than widening the profile.
 
@@ -181,7 +181,7 @@ The same evidence is not sufficient to import all EC2 CIDRs for `us-east-1` and 
 
 ## Optional broad community profile — 2026-09-27
 
-`games/CompanyOfHeroes2.txt` also contains nine distinct IPv4 `/24` networks and the generic `amazonaws.com` suffix supplied in a user report as a configuration said to help CoH2 connectivity:
+`games/CompanyOfHeroes2_Broad.txt` adds nine distinct IPv4 `/24` networks and the generic `amazonaws.com` suffix supplied in a user report as a configuration said to help CoH2 connectivity:
 
 - `3.70.251.0/24`
 - `3.73.152.0/24`
@@ -197,4 +197,4 @@ The supplied list repeated `3.230.230.0/24` and `18.207.66.0/24`; each appears o
 
 A public [CoH2 Steam discussion](https://steamcommunity.com/app/231430/discussions/0/600777026050236308/) lists `3.91.171.0/24` and `3.227.250.0/24` in a working Zapret configuration, but also contains reports that the same approach did not work for other players. The remaining ranges have not been independently tied to CoH2 endpoints. AWS `/24` ranges are shared and may change occupants.
 
-The report used `*.amazonaws.com`. This repository stores bare suffixes, so the profile uses `amazonaws.com`; suffix-matching consumers will match all its subdomains. This can affect unrelated AWS traffic. Exact-match consumers need their own wildcard syntax. The community-added `amazonaws.com` root and the nine community `/24` networks are excluded from global aggregates on a per-entry basis; the evidence-backed CoH2 domains and Relic-published Battle Server `/32` remain eligible.
+The report used `*.amazonaws.com`. This repository stores bare suffixes, so the profile uses `amazonaws.com`; suffix-matching consumers will match all its subdomains. This can affect unrelated AWS traffic. Exact-match consumers need their own wildcard syntax. The the broad profile is excluded from global aggregates; the evidence-backed CoH2 domains and Relic-published Battle Server `/32` in the conservative profile remain eligible.
