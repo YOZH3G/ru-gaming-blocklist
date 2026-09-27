@@ -125,8 +125,8 @@ COH2_STATIC_DOMAINS = {
     "sso.relic.com",
 }
 
-COH2_COMMUNITY_EXTRA_DOMAINS = {"amazonaws.com"}
-COH2_COMMUNITY_EXTRA_NETWORKS = {
+COH2_BROAD_EXTRA_DOMAINS = {"amazonaws.com"}
+COH2_BROAD_EXTRA_NETWORKS = {
     "3.70.251.0/24",
     "3.73.152.0/24",
     "3.91.171.0/24",
@@ -228,6 +228,7 @@ def update_wuthering_waves() -> str:
 
 def update_company_of_heroes_2() -> str:
     path = ROOT / "games" / "CompanyOfHeroes2.txt"
+    broad_path = ROOT / "games" / "CompanyOfHeroes2_Broad.txt"
     payload = fetch_json(COH2_SUPPORT_API, timeout=20)
     article = payload.get("article") or {}
     text = article.get("body") or ""
@@ -237,10 +238,10 @@ def update_company_of_heroes_2() -> str:
 
     # Strip HTML tags/whitespace so the check is resilient to Zendesk markup.
     text = re.sub(r"<[^>]+>", " ", text)
-    text = re.sub(r"\s+", " ", text)
+    text = re.sub(r"\\s+", " ", text)
 
     match = re.search(
-        r"BattleServer\s+IP[^0-9]*((?:\d{1,3}\.){3}\d{1,3})",
+        r"BattleServer\\s+IP[^0-9]*((?:\\d{1,3}\\.){3}\\d{1,3})",
         text,
         flags=re.IGNORECASE,
     )
@@ -259,13 +260,16 @@ def update_company_of_heroes_2() -> str:
     if "coh2-lobby.reliclink.com" not in text:
         raise RuntimeError("Relic support page no longer references coh2-lobby.reliclink.com")
 
-    domains = COH2_STATIC_DOMAINS | COH2_COMMUNITY_EXTRA_DOMAINS
-    networks = {f"{ip}/32"} | COH2_COMMUNITY_EXTRA_NETWORKS
-    changed = write_mixed(path, domains, networks)
+    relic_network = {f"{ip}/32"}
+    base_changed = write_mixed(path, COH2_STATIC_DOMAINS, relic_network)
+    broad_changed = write_mixed(
+        broad_path,
+        COH2_STATIC_DOMAINS | COH2_BROAD_EXTRA_DOMAINS,
+        relic_network | COH2_BROAD_EXTRA_NETWORKS,
+    )
     return (
-        f"CompanyOfHeroes2: {len(domains)} domains + {len(networks)} networks, "
-        f"including Relic-published BattleServer IP and community routing additions "
-        f"({'changed' if changed else 'current'})"
+        f"CompanyOfHeroes2: base + broad profiles; Relic BattleServer {ip}/32 "
+        f"({'changed' if base_changed or broad_changed else 'current'})"
     )
 
 
