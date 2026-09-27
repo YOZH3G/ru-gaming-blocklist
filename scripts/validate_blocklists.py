@@ -11,7 +11,7 @@ BAD_SUFFIXES = {
     ".exe", ".dll", ".sys", ".msc", ".bin", ".zip", ".rar", ".7z", ".log",
     ".ini", ".cfg", ".lua", ".php", ".aspx", ".js", ".dat", ".tmp",
 }
-GENERIC_ROOT_ALLOWED_FILES = {"Cloudflare_AWS.txt", "CompanyOfHeroes2.txt"}
+GENERIC_ROOT_ALLOWED_FILES = {"Cloudflare_AWS.txt", "CompanyOfHeroes2_Broad.txt"}
 BROAD_IP_ALLOWED_FILES = {
     "Cloudflare_AWS.txt",
     "Darktide.txt",
@@ -21,6 +21,7 @@ BROAD_IP_ALLOWED_FILES = {
     "BattleNet.txt",
     "LeagueOfLegends.txt",
     "RiotGames_Valorant.txt",
+    "CompanyOfHeroes2_Broad.txt",
 }
 
 GENERIC_ROOTS = {
