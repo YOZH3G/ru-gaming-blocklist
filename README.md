@@ -21,7 +21,7 @@ Production-списки больше не пополняются напряму�
 
 Голые общие корни и чрезмерно широкие сети AWS, Cloudflare, Google, Akamai и других провайдеров не добавляются в обычные игровые production-списки: они затрагивают слишком много постороннего трафика. Конкретный игровой hostname внутри общей CDN допускается.
 
-Исключение — явно помеченные **широкие профили**. `games/Cloudflare_AWS.txt` является общим opt-in auxiliary-профилем, а `games/Darktide.txt` и `games/Fallout76_AWS.txt` — широкими игровыми профилями из-за динамической AWS-инфраструктуры. `games/CompanyOfHeroes2.txt` также содержит community-AWS дополнения, но они точечно исключаются из глобальных агрегатов.
+Исключение — явно помеченные **широкие профили**. `games/Cloudflare_AWS.txt` является общим opt-in auxiliary-профилем, а `games/Darktide.txt` и `games/Fallout76_AWS.txt` — широкими игровыми профилями из-за динамической AWS-инфраструктуры. `games/CompanyOfHeroes2_Broad.txt` — отдельный opt-in профиль CoH2 с community-AWS дополнениями; они точечно исключены из глобальных агрегатов.
 
 ## Файлы
 
@@ -56,7 +56,7 @@ Apex Legends / Rocket League, Arknights, Arma Reforger, Battle.net, Battlefield,
 - Wuthering Waves — официальный launcher manifest;
 - Warframe, MTG Arena, Blue Archive, Arknights и Street Fighter 6 — консервативный first-party discovery/verification;
 - Call of Duty — first-party Demonware AS60229 + curated Activision/CoD domains;
-- Company of Heroes 2 — официальный Relic support page: RelicLink domains + опубликованный Battle Server /32.
+- Company of Heroes 2 — официальный Relic support page: RelicLink domains + опубликованный Battle Server /32, который updater синхронизирует в обычный и широкий CoH2-профили.
 
 После обновления `scripts/rebuild_aggregates.py` детерминированно пересобирает глобальные агрегаты. Широкие IP-профили Cloudflare_AWS, Darktide и Fallout76_AWS не попадают в глобальный IP-агрегат. Для Company of Heroes 2 community-AWS CIDR и общий корень `amazonaws.com` точечно исключаются из глобальных агрегатов, при этом подтверждённые CoH2-записи продолжают агрегироваться.
 
@@ -128,8 +128,8 @@ AWS-часть обновляется ежедневно из официальн
 
 ## Company of Heroes 2
 
-`games/CompanyOfHeroes2.txt` теперь является единым CoH2-профилем. В нём находятся подтверждённые RelicLink/Relic Account endpoints, наблюдавшиеся EC2-суффиксы, точный Battle Server IP из статьи Relic, а также девять community-AWS `/24` и `amazonaws.com` из сообщения об успешном обходе.
+`games/CompanyOfHeroes2.txt` содержит подтверждённые RelicLink/Relic Account endpoints, наблюдавшиеся EC2-суффиксы и точный Battle Server IP из статьи Relic. Для пользователей, которым нужен более широкий охват, отдельный opt-in файл `games/CompanyOfHeroes2_Broad.txt` добавляет девять community-AWS `/24` и `amazonaws.com` из сообщения о рабочей конфигурации.
 
-Managed-updater обновляет опубликованный Relic Battle Server `/32`, сохраняя community-добавки. В потребителях с сопоставлением по суффиксу `amazonaws.com` соответствует `*.amazonaws.com`; это может затронуть сторонние AWS-сервисы.
+Ежедневный managed-updater обновляет опубликованный Relic Battle Server `/32` в обоих CoH2-файлах; broad-профиль сохраняет community-добавки. В потребителях с сопоставлением по суффиксу `amazonaws.com` соответствует `*.amazonaws.com`; это может затронуть сторонние AWS-сервисы.
 
 Community-AWS CIDR и `amazonaws.com` точечно исключены из глобальных агрегатов, поэтому объединение профиля не расширяет глобальные списки. Два повторявшихся в исходном сообщении диапазона сохранены по одному разу. Источник сообщения и ограничения проверки описаны в `evidence/company-of-heroes-2.md`.
