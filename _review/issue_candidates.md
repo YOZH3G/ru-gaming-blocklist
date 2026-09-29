@@ -1819,6 +1819,14 @@ Title: [Проблема] не работает валорант с запрет
 Found domains:
 gist.github.com
 
+## Flowseal/zapret-discord-youtube #17732
+
+Source: https://github.com/Flowseal/zapret-discord-youtube/issues/17732
+Title: [Проблема] Невалинк(СПБ). Подключение к RTC
+
+Found domains:
+gist.github.com
+
 ## Flowseal/zapret-discord-youtube #17736
 
 Source: https://github.com/Flowseal/zapret-discord-youtube/issues/17736
@@ -1831,6 +1839,22 @@ gist.github.com
 
 Source: https://github.com/Flowseal/zapret-discord-youtube/issues/17751
 Title: [Проблема] Не работает игры с запущены ZAPRET
+
+Found domains:
+gist.github.com
+
+## Flowseal/zapret-discord-youtube #17770
+
+Source: https://github.com/Flowseal/zapret-discord-youtube/issues/17770
+Title: [Проблема]
+
+Found domains:
+gist.github.com
+
+## Flowseal/zapret-discord-youtube #17783
+
+Source: https://github.com/Flowseal/zapret-discord-youtube/issues/17783
+Title: [Проблема] Не работает часть добавленные dns адреса в list и host
 
 Found domains:
 gist.github.com
