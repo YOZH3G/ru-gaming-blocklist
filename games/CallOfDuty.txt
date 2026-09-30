@@ -6,5 +6,6 @@ datax.activision.com
 demonware.net
 prod.demonware.net
 s.activision.com
+185.34.106.0/23
 185.34.106.0/24
 185.34.107.0/24
