@@ -667,7 +667,6 @@ cdn.services.gearboxsoftware.com
 ## Flowseal/zapret-discord-youtube #8966
 
 Source: https://github.com/Flowseal/zapret-discord-youtube/issues/8966
-Title: Мортал комбат 1 не работает
 
 Found domains:
 account.wbgames.com
@@ -1855,6 +1854,14 @@ gist.github.com
 
 Source: https://github.com/Flowseal/zapret-discord-youtube/issues/17783
 Title: [Проблема] Не работает часть добавленные dns адреса в list и host
+
+Found domains:
+gist.github.com
+
+## Flowseal/zapret-discord-youtube #17809
+
+Source: https://github.com/Flowseal/zapret-discord-youtube/issues/17809
+Title: [Проблема] Не подключается к RTC в Discord
 
 Found domains:
 gist.github.com
