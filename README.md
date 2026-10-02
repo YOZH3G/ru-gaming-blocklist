@@ -80,6 +80,12 @@ CI отклоняет, среди прочего:
 
 Методика и источники: `evidence/cloudflare-aws.md`.
 
+## Mortal Kombat 11
+
+`games/MortalKombat11.txt` — экспериментальный **IP-only** профиль из пяти точных `/32`. Два AWS-адреса имеют прямое историческое наблюдение в сетевом трафике MK11; ещё три Edgecast/Cloudflare/GoDaddy endpoint добавлены для полевого теста, поскольку они наблюдались рядом с MK11 как certificate/OCSP traffic.
+
+Широкие AWS `us-east-1`, Cloudflare и Edgecast диапазоны не добавляются. Подробная градация уверенности и источники: `evidence/mortal-kombat-11.md`.
+
 ## WARDOGS
 
 `games/Wardogs.txt` переведён в **IP-only** режим по результатам пользовательских тестов: профиль с одними IP/CIDR работает стабильнее, чем смешанный список с доменами.
