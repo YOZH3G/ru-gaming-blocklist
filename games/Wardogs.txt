@@ -1,16 +1,3 @@
-account.wardogs.com
-anybrain.gg
-api.epicgames.dev
-bulkhead.com
-community.wardogs.com
-elytra.ac
-firstlook.gg
-live.wardogs.bulkhead.pragmaengine.com
-player.gg
-pragmaengine.com
-team17.com
-vivox.com
-wardogs.com
 52.50.63.173/32
 52.209.230.193/32
 52.215.132.236/32
