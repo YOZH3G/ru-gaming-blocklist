@@ -96,8 +96,8 @@
       "mineplex"
     ],
     "MortalKombat1": [
-      "mortal kombat",
-      "mortalkombat",
+      "mortal kombat 1",
+      "mortalkombat1",
       "mk1"
     ],
     "PhotonEngine": [
@@ -176,6 +176,11 @@
       "company of heroes 2",
       "companyofheroes2",
       "coh2"
+    ],
+    "MortalKombat11": [
+      "mortal kombat 11",
+      "mortalkombat11",
+      "mk11"
     ]
   },
   "domain_game_hints": {
@@ -385,7 +390,10 @@
     "ingame.companyofheroes.com",
     "garry.sgaas.net",
     "compute-1.amazonaws.com",
-    "eu-central-1.compute.amazonaws.com"
+    "eu-central-1.compute.amazonaws.com",
+    "mortal kombat 11",
+    "mortalkombat11",
+    "mk11"
   ],
   "repositories": [
     {
