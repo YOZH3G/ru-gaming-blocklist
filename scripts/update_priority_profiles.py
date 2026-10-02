@@ -3,7 +3,6 @@ from __future__ import annotations
 import ipaddress
 import json
 import re
-import socket
 from pathlib import Path
 
 from updaters.common import (
@@ -152,7 +151,10 @@ WARDOGS_STATIC_NETWORKS = {
     "54.115.0.0/16",
     "85.236.96.0/21",
 }
-WARDOGS_CLOUDFLARE_HOST = "api.epicgames.dev"
+WARDOGS_CLOUDFLARE_NETWORKS = {
+    "104.18.124.108/32",
+    "104.18.125.108/32",
+}
 
 
 def update_cloudflare_aws() -> str:
@@ -271,8 +273,9 @@ def update_company_of_heroes_2() -> str:
 
 def update_wardogs() -> str:
     path = ROOT / "games" / "Wardogs.txt"
-    domains, _ = split_entries(path)
 
+    # WARDOGS is intentionally IP-only. These exact entries were field-tested
+    # by users and are kept stable instead of being replaced from DNS.
     aws = fetch_json(AWS_RANGES)
     aws_prefixes = [
         ipaddress.ip_network(item["ip_prefix"], strict=False)
@@ -281,7 +284,6 @@ def update_wardogs() -> str:
         and item.get("region") == "eu-west-1"
         and item.get("ip_prefix")
     ]
-
     if not aws_prefixes:
         raise RuntimeError("AWS feed returned no eu-west-1 EC2 prefixes for WARDOGS validation")
 
@@ -298,37 +300,19 @@ def update_wardogs() -> str:
         ipaddress.ip_network(value, strict=False)
         for value in fetch_text(CF_V4).split()
     ]
-
-    resolved = {
-        item[4][0]
-        for item in socket.getaddrinfo(
-            WARDOGS_CLOUDFLARE_HOST,
-            443,
-            family=socket.AF_INET,
-            type=socket.SOCK_STREAM,
-        )
-    }
-    if not resolved:
-        raise RuntimeError(f"DNS returned no IPv4 addresses for {WARDOGS_CLOUDFLARE_HOST}")
-
-    cloudflare_networks = set()
-    for value in resolved:
-        address = ipaddress.ip_address(value)
-        if not address.is_global or not any(address in prefix for prefix in cf_prefixes):
+    for value in sorted(WARDOGS_CLOUDFLARE_NETWORKS):
+        address = ipaddress.ip_network(value, strict=False).network_address
+        if not any(address in prefix for prefix in cf_prefixes):
             raise RuntimeError(
-                f"{WARDOGS_CLOUDFLARE_HOST} resolved outside official Cloudflare IPv4 space: {value}"
+                f"Pinned WARDOGS Cloudflare endpoint left official Cloudflare space: {value}"
             )
-        cloudflare_networks.add(f"{value}/32")
 
-    networks = WARDOGS_STATIC_NETWORKS | observed_networks | cloudflare_networks
-    changed = write_mixed(path, domains, networks)
+    networks = WARDOGS_STATIC_NETWORKS | observed_networks | WARDOGS_CLOUDFLARE_NETWORKS
+    changed = write_mixed(path, [], networks)
     return (
-        f"Wardogs: {len(domains)} domains + {len(networks)} networks "
-        f"({len(observed_networks)} observed AWS eu-west-1 /32 + "
-        f"{len(cloudflare_networks)} live Epic API Cloudflare /32) "
+        f"Wardogs: IP-only profile with {len(networks)} pinned networks "
         f"({'changed' if changed else 'current'})"
     )
-
 
 def update_conservative_domains(
     filename: str,
@@ -432,9 +416,8 @@ def main() -> int:
     # the documented community routing additions in the same game profile.
     status.append(update_company_of_heroes_2())
 
-    # WARDOGS: retain narrow observed server endpoints.
-    # Validate reported AWS addresses against the official eu-west-1 EC2 feed and
-    # refresh api.epicgames.dev's current Cloudflare A records daily.
+    # WARDOGS: field-tested IP-only profile.
+    # Keep the exact pinned set stable while validating AWS/Cloudflare ownership.
     status.append(update_wardogs())
 
     print("\n".join(status))
