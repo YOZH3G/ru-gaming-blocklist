@@ -11,7 +11,7 @@ BAD_SUFFIXES = {
     ".exe", ".dll", ".sys", ".msc", ".bin", ".zip", ".rar", ".7z", ".log",
     ".ini", ".cfg", ".lua", ".php", ".aspx", ".js", ".dat", ".tmp",
 }
-GENERIC_ROOT_ALLOWED_FILES = {"Cloudflare_AWS.txt", "CompanyOfHeroes2.txt"}
+GENERIC_ROOT_ALLOWED_FILES = {"Cloudflare_AWS.txt", "CompanyOfHeroes2.txt", "OutlastTrials.txt"}
 BROAD_IP_ALLOWED_FILES = {
     "Cloudflare_AWS.txt",
     "Darktide.txt",
@@ -21,6 +21,7 @@ BROAD_IP_ALLOWED_FILES = {
     "BattleNet.txt",
     "LeagueOfLegends.txt",
     "RiotGames_Valorant.txt",
+    "OutlastTrials.txt",
 }
 
 GENERIC_ROOTS = {
@@ -28,7 +29,7 @@ GENERIC_ROOTS = {
     "github.com", "githubusercontent.com",
     "cloudflare.com", "cloudflare.net", "cloudfront.net",
     "amazonaws.com", "s3.amazonaws.com",
-    "akamaihd.net", "akamaized.net",
+    "akamaihd.net", "akamaized.net", "akamaitechnologies.com",
     "discord.com", "discord.gg", "discord.media", "discordapp.com", "discordapp.net",
     "one.one", "windows.net", "blob.core.windows.net", "azureedge.net", "azurefd.net",
 }

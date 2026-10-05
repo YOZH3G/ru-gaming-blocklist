@@ -5,8 +5,8 @@ from pathlib import Path
 from updaters.common import ROOT, split_entries
 
 GAMES = ROOT / "games"
-DOMAIN_AUX_EXCLUDE = {"Cloudflare_AWS.txt"}
-IP_AGGREGATE_EXCLUDE = {"Cloudflare_AWS.txt", "Darktide.txt", "Fallout76_AWS.txt"}
+DOMAIN_AUX_EXCLUDE = {"Cloudflare_AWS.txt", "OutlastTrials.txt"}
+IP_AGGREGATE_EXCLUDE = {"Cloudflare_AWS.txt", "Darktide.txt", "Fallout76_AWS.txt", "OutlastTrials.txt"}
 COH2_DOMAIN_AGGREGATE_EXCLUDE = {"amazonaws.com"}
 COH2_IP_AGGREGATE_EXCLUDE = {
     "3.70.251.0/24",

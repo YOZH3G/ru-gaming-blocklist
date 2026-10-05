@@ -80,6 +80,16 @@ CI отклоняет, среди прочего:
 
 Методика и источники: `evidence/cloudflare-aws.md`.
 
+## The Outlast Trials
+
+`games/OutlastTrials.txt` — широкий **opt-in** профиль для The Outlast Trials. Red Barrels публично подтверждала использование AWS для серверной инфраструктуры игры; community-тесты также указывают на необходимость нескольких AWS-регионов для нормальной работы.
+
+Профиль содержит переданный набор AWS CIDR, а также `rbg-services.com`, `cloudfront.net`, `amazonaws.com`, `akamaitechnologies.com`, Cloudflare `104.16.0.0/12` и Akamai `92.122.0.0/16`. Точный дубликат `3.120.0.0/14` сохранён один раз.
+
+Из-за ширины диапазонов и общих cloud/CDN-корней профиль **целиком исключён из глобальных агрегатов** `medvedeff-game-list-all.txt` и `medvedeff-game-ipset.txt`. Использовать его следует только как отдельный игровой профиль.
+
+Методика и ограничения: `evidence/outlast-trials.md`.
+
 ## Mortal Kombat 11
 
 `games/MortalKombat11.txt` — экспериментальный **IP-only** профиль из пяти точных `/32`. Два AWS-адреса имеют прямое историческое наблюдение в сетевом трафике MK11; ещё три Edgecast/Cloudflare/GoDaddy endpoint добавлены для полевого теста, поскольку они наблюдались рядом с MK11 как certificate/OCSP traffic.
