@@ -181,6 +181,11 @@
       "mortal kombat 11",
       "mortalkombat11",
       "mk11"
+    ],
+    "OutlastTrials": [
+      "the outlast trials",
+      "outlast trials",
+      "outlasttrials"
     ]
   },
   "domain_game_hints": {
@@ -323,6 +328,10 @@
       "garry.sgaas.net",
       "compute-1.amazonaws.com",
       "eu-central-1.compute.amazonaws.com"
+    ],
+    "OutlastTrials": [
+      "rbg-services.com",
+      "outlast"
     ]
   },
   "issue_search_terms": [
@@ -393,7 +402,11 @@
     "eu-central-1.compute.amazonaws.com",
     "mortal kombat 11",
     "mortalkombat11",
-    "mk11"
+    "mk11",
+    "the outlast trials",
+    "outlast trials",
+    "outlasttrials",
+    "rbg-services"
   ],
   "repositories": [
     {
@@ -511,7 +524,10 @@
       "companyofheroes",
       "coh2",
       "reliclink",
-      "sgaas"
+      "sgaas",
+      "outlast",
+      "outlasttrials",
+      "rbg-services"
     ]
   }
 }
