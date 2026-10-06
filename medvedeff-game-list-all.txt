@@ -74,6 +74,7 @@ api.uplay.com
 api.vrchat.cloud
 api.vrchat.com
 api.warframe.com
+api.wbgames.com
 api1.origin.com
 api2.origin.com
 api3.origin.com
@@ -225,6 +226,7 @@ cdn.steamstatic.com
 cdn.steamusercontent.com
 cdn.ubi.com
 cdn.vrchat.com
+cdn.wbgames.com
 cdn1.epicgames.com
 cdn1.unrealengine.com
 cdn2.epicgames.com
@@ -486,6 +488,7 @@ euw4.chat.si.riotgames.com
 euw5.chat.si.riotgames.com
 event-log-api-data-platform-data-lake-prod.gryphline.com
 event-log-api-ipv6.gryphline.com
+event.wbinsights.com
 eventlog.gryphline.com
 events-public-service-live.ol.epicgames.com
 events.roblox.com
@@ -603,6 +606,7 @@ images.steamusercontent.com
 imagesak.roblox.com
 infrastructure.roblox.com
 ingame.companyofheroes.com
+int-api.wbagora.com
 interactions-service-prod.ol.epicgames.com
 internal.unity3d.com
 inventory.api.roblox.com
@@ -712,6 +716,8 @@ minecraftforge.net
 minecraftservices.com
 mineplex.com
 misc.roblox.com
+mk11-api.wbagora.com
+mk11.mortalkombat.com
 mobile.warframe.com
 moderation.roblox.com
 modloaders.forgecdn.net
@@ -728,6 +734,7 @@ native-log-collect.gryphline.com
 neoforged.net
 news.roblox.com
 nexon.com
+next-api.wbagora.com
 nl.roblox.com
 notification.gryphline.com
 notifications.roblox.com
@@ -1065,6 +1072,7 @@ telemetry.prod.dm.origin.com
 telemetry.roblox.com
 telemetry.sgp.pvp.net
 telemetry.vg.ac.pvp.net
+telemetry.wbgames.com
 term-ams1.roblox.com
 term-ash1.roblox.com
 term-fra4.roblox.com
@@ -1162,6 +1170,7 @@ uplaypc-s-ubisoft-ww.cdn.ubi.com
 uplaypc-s-ubisoft.cdn.ubi.com
 upload.crashes.roblox.com
 uploads.roblox.com
+us-east-1-mk11-realtime-1.wbagora.com
 us-east1.rbxcdn.com
 us.actual.battle.net
 us.cdn.blizzard.com
@@ -1206,6 +1215,11 @@ vrcpm.vrchat.cloud
 vxc.roblox.com
 warframe-web-assets.nyc3.cdn.digitaloceanspaces.com
 warframe.com
+warnerbrosgames.com
+wb-hydra.wbgames.com
+wbagora.com
+wbgames.com
+wbinsights.com
 web-static.hg-cdn.com
 web.roblox.com
 web102.p1t.roblox.com
