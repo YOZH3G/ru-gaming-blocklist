@@ -332,6 +332,19 @@
     "OutlastTrials": [
       "rbg-services.com",
       "outlast"
+    ],
+    "MortalKombat11": [
+      "mk11-api.wbagora.com",
+      "us-east-1-mk11-realtime-1.wbagora.com",
+      "event.wbinsights.com",
+      "int-api.wbagora.com",
+      "next-api.wbagora.com",
+      "prod-network-api.wbagora.com",
+      "account.wbgames.com",
+      "wbagora.com",
+      "wbinsights.com",
+      "wbgames.com",
+      "mortalkombat.com"
     ]
   },
   "issue_search_terms": [
@@ -406,7 +419,11 @@
     "the outlast trials",
     "outlast trials",
     "outlasttrials",
-    "rbg-services"
+    "rbg-services",
+    "mk11-api.wbagora.com",
+    "us-east-1-mk11-realtime-1.wbagora.com",
+    "event.wbinsights.com",
+    "prod-network-api.wbagora.com"
   ],
   "repositories": [
     {
