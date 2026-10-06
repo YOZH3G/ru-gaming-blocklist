@@ -18,6 +18,7 @@ on:
       - "games/CallOfDuty.txt"
       - "games/CompanyOfHeroes2.txt"
       - "games/Wardogs.txt"
+      - "games/MortalKombat11.txt"
       - "scripts/update_priority_profiles.py"
       - "scripts/rebuild_aggregates.py"
       - "scripts/updaters/**"
@@ -77,6 +78,7 @@ jobs:
             games/CallOfDuty.txt
             games/CompanyOfHeroes2.txt
             games/Wardogs.txt
+            games/MortalKombat11.txt
             medvedeff-game-list-all.txt
             medvedeff-game-ipset.txt
 
@@ -99,6 +101,7 @@ jobs:
             games/CallOfDuty.txt \
             games/CompanyOfHeroes2.txt \
             games/Wardogs.txt \
+            games/MortalKombat11.txt \
             medvedeff-game-list-all.txt \
             medvedeff-game-ipset.txt
 

@@ -92,9 +92,11 @@ CI отклоняет, среди прочего:
 
 ## Mortal Kombat 11
 
-`games/MortalKombat11.txt` — экспериментальный **IP-only** профиль из пяти точных `/32`. Два AWS-адреса имеют прямое историческое наблюдение в сетевом трафике MK11; ещё три Edgecast/Cloudflare/GoDaddy endpoint добавлены для полевого теста, поскольку они наблюдались рядом с MK11 как certificate/OCSP traffic.
+`games/MortalKombat11.txt` переведён из экспериментального IP-only режима в **mixed domain + IP** профиль. Причина — пользовательские тесты показали, что пяти исторических `/32` недостаточно: MK11 зависит от WB Agora/Hydra/Insights по hostname, а cloud-IP этих сервисов могут меняться.
 
-Широкие AWS `us-east-1`, Cloudflare и Edgecast диапазоны не добавляются. Подробная градация уверенности и источники: `evidence/mortal-kombat-11.md`.
+В профиле закреплены MK11/WB backend domains (`mk11-api.wbagora.com`, realtime, WB Insights, account/control-plane), пять исторических `/32` и текущие IPv4 A-records ключевых backend-hosts. Managed-updater ежедневно резолвит только подтверждённые WB/MK11 endpoints и добавляет их как точные `/32`.
+
+Весь AWS `us-east-1`, Cloudflare и другие общие provider ranges по-прежнему не добавляются. Методика, источники и отдельное замечание про проблемы Windows certificate store: `evidence/mortal-kombat-11.md`.
 
 ## WARDOGS
 

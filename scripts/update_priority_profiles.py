@@ -3,6 +3,7 @@ from __future__ import annotations
 import ipaddress
 import json
 import re
+import socket
 from pathlib import Path
 
 from updaters.common import (
@@ -154,6 +155,41 @@ WARDOGS_STATIC_NETWORKS = {
 WARDOGS_CLOUDFLARE_NETWORKS = {
     "104.18.124.108/32",
     "104.18.125.108/32",
+}
+
+MK11_DOMAINS = {
+    "account.wbgames.com",
+    "api.wbgames.com",
+    "cdn.wbgames.com",
+    "event.wbinsights.com",
+    "int-api.wbagora.com",
+    "mk11-api.wbagora.com",
+    "mk11.mortalkombat.com",
+    "mortalkombat.com",
+    "next-api.wbagora.com",
+    "prod-network-api.wbagora.com",
+    "telemetry.wbgames.com",
+    "us-east-1-mk11-realtime-1.wbagora.com",
+    "warnerbrosgames.com",
+    "wb-hydra.wbgames.com",
+    "wbagora.com",
+    "wbgames.com",
+    "wbinsights.com",
+}
+MK11_RESOLVE_HOSTS = {
+    "event.wbinsights.com",
+    "int-api.wbagora.com",
+    "mk11-api.wbagora.com",
+    "next-api.wbagora.com",
+    "prod-network-api.wbagora.com",
+    "us-east-1-mk11-realtime-1.wbagora.com",
+}
+MK11_STATIC_NETWORKS = {
+    "35.170.104.108/32",
+    "52.216.163.77/32",
+    "72.21.91.29/32",
+    "104.18.20.226/32",
+    "188.121.36.239/32",
 }
 
 
@@ -314,6 +350,55 @@ def update_wardogs() -> str:
         f"({'changed' if changed else 'current'})"
     )
 
+
+def update_mortal_kombat_11() -> str:
+    path = ROOT / "games" / "MortalKombat11.txt"
+
+    # The static /32 set is historical and incomplete. MK11 relies on WB Agora /
+    # Insights hostnames whose cloud addresses can rotate, so refresh the current
+    # IPv4 A records for the strongly evidenced backend hosts on every managed run.
+    resolved_networks = set()
+    resolved_hosts = 0
+    for host in sorted(MK11_RESOLVE_HOSTS):
+        try:
+            values = {
+                item[4][0]
+                for item in socket.getaddrinfo(
+                    host,
+                    443,
+                    family=socket.AF_INET,
+                    type=socket.SOCK_STREAM,
+                )
+            }
+        except socket.gaierror as exc:
+            print(f"WARN: MortalKombat11 DNS failed for {host}: {exc}")
+            continue
+
+        valid = set()
+        for value in values:
+            address = ipaddress.ip_address(value)
+            if address.version == 4 and address.is_global:
+                valid.add(f"{value}/32")
+
+        if valid:
+            resolved_hosts += 1
+            resolved_networks |= valid
+            print(
+                f"INFO: MortalKombat11 DNS {host}: "
+                + ", ".join(sorted(valid, key=lambda value: int(ipaddress.ip_network(value).network_address)))
+            )
+
+    if resolved_hosts == 0:
+        raise RuntimeError("MortalKombat11: DNS returned no usable backend IPv4 addresses")
+
+    networks = MK11_STATIC_NETWORKS | resolved_networks
+    changed = write_mixed(path, MK11_DOMAINS, networks)
+    return (
+        f"MortalKombat11: {len(MK11_DOMAINS)} domains + {len(networks)} networks "
+        f"({resolved_hosts}/{len(MK11_RESOLVE_HOSTS)} backend hosts resolved) "
+        f"({'changed' if changed else 'current'})"
+    )
+
 def update_conservative_domains(
     filename: str,
     urls: tuple[str, ...],
@@ -419,6 +504,10 @@ def main() -> int:
     # WARDOGS: field-tested IP-only profile.
     # Keep the exact pinned set stable while validating AWS/Cloudflare ownership.
     status.append(update_wardogs())
+
+    # Mortal Kombat 11: keep the known WB backend domains and refresh exact
+    # current IPv4 addresses for the cloud-hosted core services.
+    status.append(update_mortal_kombat_11())
 
     print("\n".join(status))
     return 0
