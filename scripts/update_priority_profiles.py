@@ -384,6 +384,10 @@ def update_mortal_kombat_11() -> str:
         if valid:
             resolved_hosts += 1
             resolved_networks |= valid
+            print(
+                f"INFO: MortalKombat11 DNS {host}: "
+                + ", ".join(sorted(valid, key=lambda value: int(ipaddress.ip_network(value).network_address)))
+            )
 
     if resolved_hosts == 0:
         raise RuntimeError("MortalKombat11: DNS returned no usable backend IPv4 addresses")
