@@ -177,7 +177,6 @@ MK11_DOMAINS = {
     "wbinsights.com",
 }
 MK11_RESOLVE_HOSTS = {
-    "account.wbgames.com",
     "event.wbinsights.com",
     "int-api.wbagora.com",
     "mk11-api.wbagora.com",
