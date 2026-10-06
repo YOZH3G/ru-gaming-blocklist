@@ -75,7 +75,6 @@ For MK11 this strengthens the older observation that `event.wbinsights.com` shou
 
 The updater resolves these exact hosts daily:
 
-- `account.wbgames.com`
 - `event.wbinsights.com`
 - `int-api.wbagora.com`
 - `mk11-api.wbagora.com`
@@ -84,6 +83,17 @@ The updater resolves these exact hosts daily:
 - `us-east-1-mk11-realtime-1.wbagora.com`
 
 Only global IPv4 A records are accepted and written as exact `/32` entries.
+
+`account.wbgames.com` is deliberately **domain-only**: repeated CI runs returned different CloudFront edge pools (`18.238.109.*` and then `13.226.251.*`). Pinning those shared CDN A-records would create noisy churn and route unrelated CloudFront traffic.
+
+The six managed backend hosts were stable across repeated test runs. On 2026-10-06 they resolved to:
+
+- `event.wbinsights.com` → `35.169.33.137/32`, `44.213.188.14/32`, `100.51.63.52/32`
+- `int-api.wbagora.com` → `52.207.74.15/32`, `98.88.126.132/32`
+- `mk11-api.wbagora.com` → `54.237.169.75/32`, `100.49.182.94/32`
+- `next-api.wbagora.com` → `98.85.83.96/32`, `98.91.61.235/32`
+- `prod-network-api.wbagora.com` → `32.196.168.103/32`, `184.195.76.76/32`
+- `us-east-1-mk11-realtime-1.wbagora.com` → `18.205.98.8/32`
 
 DNS failure for one hostname is tolerated because individual WB hosts may be retired or temporarily unavailable. The updater fails closed only if none of the managed hosts resolves.
 
