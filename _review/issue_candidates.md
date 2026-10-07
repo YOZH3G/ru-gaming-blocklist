@@ -144,7 +144,6 @@ global.bat.zip
 ## Flowseal/zapret-discord-youtube #2888
 
 Source: https://github.com/Flowseal/zapret-discord-youtube/issues/2888
-Title: [Проблема] Path of Exile 2 пустой магазин
 
 Found domains:
 winws.exe
@@ -1862,6 +1861,27 @@ gist.github.com
 
 Source: https://github.com/Flowseal/zapret-discord-youtube/issues/17809
 Title: [Проблема] Не подключается к RTC в Discord
+
+Found domains:
+gist.github.com
+
+## Flowseal/zapret-discord-youtube #17917
+
+Source: https://github.com/Flowseal/zapret-discord-youtube/issues/17917
+Title: [Проблема] Видео YouTube не загружается, хотя сайт и превью открываются
+
+Found domains:
+gist.github.com
+googlevideo.com
+googlevideos.com
+
+Found IP/CIDR:
+8.8.8.8
+
+## Flowseal/zapret-discord-youtube #17934
+
+Source: https://github.com/Flowseal/zapret-discord-youtube/issues/17934
+Title: [Проблема] Плохо и нестабильно работает почти всё
 
 Found domains:
 gist.github.com
