@@ -1885,3 +1885,11 @@ Title: [Проблема] Плохо и нестабильно работает 
 
 Found domains:
 gist.github.com
+
+## Flowseal/zapret-discord-youtube #17983
+
+Source: https://github.com/Flowseal/zapret-discord-youtube/issues/17983
+Title: [Проблема] The Crew Motorfest
+
+Found domains:
+gist.github.com
