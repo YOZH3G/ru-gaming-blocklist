@@ -1491,7 +1491,6 @@ help.soundcloud.com
 ## Flowseal/zapret-discord-youtube #15821
 
 Source: https://github.com/Flowseal/zapret-discord-youtube/issues/15821
-Title: [ФИКС] фикс на дбд после баг фикса от бхвр
 
 Found domains:
 cloudfront.net
@@ -1588,7 +1587,6 @@ winws.exe
 ## Flowseal/zapret-discord-youtube #16670
 
 Source: https://github.com/Flowseal/zapret-discord-youtube/issues/16670
-Title: [Решение] Простой инструмент чтобы брать все хосты к которым обращается сайт
 
 Found domains:
 har.py
@@ -1890,6 +1888,14 @@ gist.github.com
 
 Source: https://github.com/Flowseal/zapret-discord-youtube/issues/17983
 Title: [Проблема] The Crew Motorfest
+
+Found domains:
+gist.github.com
+
+## Flowseal/zapret-discord-youtube #18142
+
+Source: https://github.com/Flowseal/zapret-discord-youtube/issues/18142
+Title: [Проблема] Лагает\Фризит пк
 
 Found domains:
 gist.github.com
