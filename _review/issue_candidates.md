@@ -1899,3 +1899,11 @@ Title: [Проблема] Лагает\Фризит пк
 
 Found domains:
 gist.github.com
+
+## Flowseal/zapret-discord-youtube #18162
+
+Source: https://github.com/Flowseal/zapret-discord-youtube/issues/18162
+Title: [Проблема] Ютуб сильно заболел
+
+Found domains:
+gist.github.com
