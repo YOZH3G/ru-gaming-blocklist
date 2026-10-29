@@ -1924,3 +1924,11 @@ Title: [Проблема]
 
 Found domains:
 gist.github.com
+
+## Flowseal/zapret-discord-youtube #18422
+
+Source: https://github.com/Flowseal/zapret-discord-youtube/issues/18422
+Title: [Проблема] Faceit EU отвалился
+
+Found domains:
+gist.github.com
