@@ -1543,7 +1543,6 @@ Found IP/CIDR:
 ## Flowseal/zapret-discord-youtube #16112
 
 Source: https://github.com/Flowseal/zapret-discord-youtube/issues/16112
-Title: EAC убивает Zapret
 
 Found domains:
 winws.exe
@@ -1929,6 +1928,14 @@ gist.github.com
 
 Source: https://github.com/Flowseal/zapret-discord-youtube/issues/18422
 Title: [Проблема] Faceit EU отвалился
+
+Found domains:
+gist.github.com
+
+## Flowseal/zapret-discord-youtube #18488
+
+Source: https://github.com/Flowseal/zapret-discord-youtube/issues/18488
+Title: [Проблема] Вылетает Запрет при диагностике и постоянно отваливается
 
 Found domains:
 gist.github.com
