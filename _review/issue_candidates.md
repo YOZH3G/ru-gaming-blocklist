@@ -1939,3 +1939,20 @@ Title: [Проблема] Вылетает Запрет при диагност�
 
 Found domains:
 gist.github.com
+
+## Flowseal/zapret-discord-youtube #18533
+
+Source: https://github.com/Flowseal/zapret-discord-youtube/issues/18533
+Title: [Проблема] не работает ютуб
+
+Found domains:
+gist.github.com
+dom.ru
+
+## Flowseal/zapret-discord-youtube #18549
+
+Source: https://github.com/Flowseal/zapret-discord-youtube/issues/18549
+Title: [Проблема] сломался стим
+
+Found domains:
+gist.github.com
