@@ -411,7 +411,6 @@ ac-client-ws.faceit.com
 ## Flowseal/zapret-discord-youtube #8405
 
 Source: https://github.com/Flowseal/zapret-discord-youtube/issues/8405
-Title: Zapret: Пошаговая установка и конфигурирование
 
 Found domains:
 wifiman.com
@@ -1953,6 +1952,14 @@ dom.ru
 
 Source: https://github.com/Flowseal/zapret-discord-youtube/issues/18549
 Title: [Проблема] сломался стим
+
+Found domains:
+gist.github.com
+
+## Flowseal/zapret-discord-youtube #18587
+
+Source: https://github.com/Flowseal/zapret-discord-youtube/issues/18587
+Title: [Проблема] SkyNet СПб
 
 Found domains:
 gist.github.com
