@@ -1963,3 +1963,11 @@ Title: [Проблема] SkyNet СПб
 
 Found domains:
 gist.github.com
+
+## Flowseal/zapret-discord-youtube #18644
+
+Source: https://github.com/Flowseal/zapret-discord-youtube/issues/18644
+Title: [Проблема] Пропадает интернет с запретом
+
+Found domains:
+gist.github.com
