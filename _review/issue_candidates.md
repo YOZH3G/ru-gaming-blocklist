@@ -1971,3 +1971,35 @@ Title: [Проблема] Пропадает интернет с запрето�
 
 Found domains:
 gist.github.com
+
+## Flowseal/zapret-discord-youtube #18679
+
+Source: https://github.com/Flowseal/zapret-discord-youtube/issues/18679
+Title: [Проблема]
+
+Found domains:
+gist.github.com
+
+## Flowseal/zapret-discord-youtube #18681
+
+Source: https://github.com/Flowseal/zapret-discord-youtube/issues/18681
+Title: [Проблема] Отключение от Co-op игр.
+
+Found domains:
+gist.github.com
+
+## Flowseal/zapret-discord-youtube #18683
+
+Source: https://github.com/Flowseal/zapret-discord-youtube/issues/18683
+Title: [Проблема] Не работает, всё перепробовал
+
+Found domains:
+gist.github.com
+
+## Flowseal/zapret-discord-youtube #18688
+
+Source: https://github.com/Flowseal/zapret-discord-youtube/issues/18688
+Title: [Проблема] все конфиги горят красными и ничего не работает
+
+Found domains:
+gist.github.com
