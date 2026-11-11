@@ -2003,3 +2003,11 @@ Title: [Проблема] все конфиги горят красными и �
 
 Found domains:
 gist.github.com
+
+## Flowseal/zapret-discord-youtube #18705
+
+Source: https://github.com/Flowseal/zapret-discord-youtube/issues/18705
+Title: [Проблема] Не работает youtube, но
+
+Found domains:
+gist.github.com
