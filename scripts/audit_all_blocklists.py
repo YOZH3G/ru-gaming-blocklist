@@ -28,6 +28,7 @@ MANAGED = {
     "Roblox", "BattleNet", "WutheringWaves", "Warframe",
     "MagicTheGathering", "BlueArchive", "Arknights", "StreetFighter6",
     "CallOfDuty", "CompanyOfHeroes2", "Wardogs", "MortalKombat11",
+    "Darktide", "Fallout76_AWS",
 }
 
 
@@ -103,7 +104,7 @@ def main() -> int:
         "# Full gaming blocklist audit", "",
         f"Generated UTC: {datetime.now(timezone.utc).isoformat()}", "",
         f"Game files: **{len(files)}**; game_map: **{len(mapped)}**",
-        f"Source-managed profiles: **{len(present & MANAGED)}**",
+        f"Automatically maintained profiles: **{len(present & MANAGED)}**",
         f"Evidence-reviewed profiles: **{len(review_only)}**",
         f"All game-file entries: **{total_domains}** domains and **{total_ips}** IP/CIDR (across profiles)",
         f"Expected global aggregate: **{len(all_domains)}** domains and **{len(all_ips)}** IP/CIDR",
