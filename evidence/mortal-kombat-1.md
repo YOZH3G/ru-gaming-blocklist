@@ -81,6 +81,7 @@ On the initial November 12 GitHub Actions run, their A records were:
 
 The two `prod-network-api` addresses also appear in the contemporaneous MK11 backend resolution; they are shared WB infrastructure, not necessarily exclusive MK1 match servers.
 
-Only public IPv4 A records of these exact backend hosts can be promoted automatically. Fail closed if neither hostname yields addresses. The updater deliberately does **not** resolve CDN-fronted `account.wbgames.com` into pinned cloud edge IPs or add `us-east-1-k1-realtime-*` ranges, which could disrupt PvP routing.
+Only public IPv4 A records of these exact backend hosts can be promoted automatically. Fail closed unless every configured hostname yields public IPv4 addresses; preserve the previous file on partial failures. The updater deliberately does **not** resolve CDN-fronted `account.wbgames.com` into pinned cloud edge IPs or add `us-east-1-k1-realtime-*` ranges, which could disrupt PvP routing.
 
 This addresses the older static-IP snapshot becoming stale without importing all AWS EC2 `us-east-1`.
+

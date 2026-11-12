@@ -88,3 +88,53 @@ See also:
 - `evidence/mortal-kombat-11.md`
 - `scripts/audit_all_blocklists.py`
 - `.github/workflows/audit-all-blocklists.yml`
+
+
+## Independent review and updater safety correction
+
+Reviewed all 32 profiles again against PR commit `91b001f8737ee67e7a8b367179ba7d3cfa784b51` on 2026-11-12. The production validator and exact aggregate audit passed locally: 1,285 global domains and 380 global IP/CIDR entries. Live-source run 43163953911 was independently checked: it completed at 05:50 UTC with an unchanged generated snapshot; MK1 resolved 2/2 and MK11 6/6 configured hosts. This is a point-in-time source check, not an in-game connectivity test.
+
+Found a destructive partial-DNS case in both WB updaters: a single successful hostname previously allowed replacement of the whole IP set. Both now require every configured hostname to return public IPv4 addresses before writing. Failure preserves the previous file and raises an error. Regression coverage includes complete, partial, empty, private-only, and totally failed DNS responses for both games (10 scenarios).
+
+All CIDRs are canonical. Containment exists in BattleNet (43 entries), CallOfDuty (2), OutlastTrials (1), and Roblox (68). These are redundant more-specific routes, not syntax errors; they are retained to preserve authoritative BGP snapshots and curated profile provenance. Overlap across separate game profiles is allowed.
+
+### Comparison with upstream
+
+Source: `medvedeff-true/ru-gaming-blocklist` tree `66d4da2caa73a1abcddff99b82428b44576fbb3a`. Exact line-set comparison of every matching game file follows. Counts are differences, not approved candidates or new upstream changes. The upstream contains known scraper noise (e.g. `winws.exe`, `services.msc`, private networks, unrelated services, broad cloud ranges); its extra lines were not promoted automatically. Profiles without an upstream counterpart require their own evidence. No claim is made that every upstream-only entry is invalid.
+
+| Profile | Upstream-only entries | Fork-only entries |
+| --- | ---: | ---: |
+| ApexLegends_RocketLeague.txt | 220 | 0 |
+| Arknights.txt | 81 | 3 |
+| ArmaReforger.txt | 118 | 0 |
+| BattleNet.txt | 121 | 181 |
+| Battlefield6.txt | 182 | 0 |
+| BlueArchive.txt | 405 | 3 |
+| CallOfDuty.txt | no counterpart | — |
+| Cloudflare_AWS.txt | 696 | 433 |
+| CompanyOfHeroes2.txt | no counterpart | — |
+| Darktide.txt | no counterpart | — |
+| DeadByDaylight.txt | 248 | 0 |
+| EA_Origin.txt | 130 | 1 |
+| EpicGames_Fortnite.txt | 251 | 0 |
+| Fallout76_AWS.txt | no counterpart | — |
+| GearsOfWar.txt | no counterpart | — |
+| GooseGooseDuck.txt | 1 | 1 |
+| LeagueOfLegends.txt | 1081 | 6 |
+| MagicTheGathering.txt | no counterpart | — |
+| Minecraft_Extra.txt | 196 | 0 |
+| MortalKombat1.txt | 0 | 12 |
+| MortalKombat11.txt | no counterpart | — |
+| OutlastTrials.txt | no counterpart | — |
+| PhotonEngine.txt | 8 | 0 |
+| RiotGames_Valorant.txt | 328 | 0 |
+| Roblox.txt | 408 | 35 |
+| Steam.txt | 791 | 64 |
+| StreetFighter6.txt | no counterpart | — |
+| Ubisoft_Rainbow_Six_Siege.txt | 334 | 0 |
+| VRChat.txt | 63 | 0 |
+| Wardogs.txt | no counterpart | — |
+| Warframe.txt | 13738 | 9 |
+| WutheringWaves.txt | 71 | 9 |
+
+The 13 review-only profiles remain structurally audited, but their complete live endpoint coverage is unverified without fresh game traffic captures. Provider ownership and successful DNS alone do not prove a Russian ISP blocks an endpoint or that the endpoint serves a particular game.

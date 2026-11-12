@@ -400,8 +400,8 @@ def update_mortal_kombat_1() -> str:
             networks.update(current)
             print(f"INFO: MortalKombat1 DNS {host}: " + ", ".join(sorted(current)))
 
-    if resolved_hosts == 0:
-        raise RuntimeError("MortalKombat1: no verified backend IPv4 A records")
+    if resolved_hosts != len(MK1_RESOLVE_HOSTS):
+        raise RuntimeError("MortalKombat1: incomplete DNS snapshot; keeping previous list")
 
     changed = write_mixed(path, MK1_DOMAINS, networks)
     return (
@@ -448,8 +448,8 @@ def update_mortal_kombat_11() -> str:
                 + ", ".join(sorted(valid, key=lambda value: int(ipaddress.ip_network(value).network_address)))
             )
 
-    if resolved_hosts == 0:
-        raise RuntimeError("MortalKombat11: DNS returned no usable backend IPv4 addresses")
+    if resolved_hosts != len(MK11_RESOLVE_HOSTS):
+        raise RuntimeError("MortalKombat11: incomplete DNS snapshot; keeping previous list")
 
     networks = MK11_STATIC_NETWORKS | resolved_networks
     changed = write_mixed(path, MK11_DOMAINS, networks)
