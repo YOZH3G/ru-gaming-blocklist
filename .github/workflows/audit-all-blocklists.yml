@@ -1,0 +1,61 @@
+name: Audit all gaming blocklists
+
+on:
+  pull_request:
+    paths:
+      - "games/**"
+      - "sources.json"
+      - "medvedeff-game-list-all.txt"
+      - "medvedeff-game-ipset.txt"
+      - "scripts/audit_all_blocklists.py"
+      - "scripts/rebuild_aggregates.py"
+      - "scripts/validate_blocklists.py"
+      - "scripts/update_priority_profiles.py"
+      - "tests/**"
+      - ".github/workflows/audit-all-blocklists.yml"
+  schedule:
+    - cron: "17 8 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v5
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+
+      - name: Test backend refresh failure handling
+        run: python -m unittest discover -s tests -v
+
+      - name: Audit every game and exact aggregate coverage
+        run: python scripts/audit_all_blocklists.py --report audit-report.md
+
+      - name: Validate production syntax and safety
+        if: always()
+        run: python scripts/validate_blocklists.py
+
+      - name: Add audit report to job summary
+        if: always()
+        run: |
+          if test -f audit-report.md; then
+            cat audit-report.md >> "$GITHUB_STEP_SUMMARY"
+          fi
+
+      - name: Upload full audit
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: complete-blocklist-audit
+          path: audit-report.md
+          if-no-files-found: warn
+          retention-days: 14
+

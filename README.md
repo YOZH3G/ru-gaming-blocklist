@@ -33,6 +33,7 @@ Production-списки больше не пополняются напряму�
 - `games/Fallout76_AWS.txt` — единый обновляемый Fallout 76-профиль: Bethesda/p76prod domains + AWS EC2 EU ranges;
 - `_review/` — непроверенные автоматические кандидаты;
 - `scripts/validate_blocklists.py` — CI-проверка production-списков;
+- `scripts/audit_all_blocklists.py` — полный аудит ВСЕХ игровых списков, game_map и точного соответствия глобальным агрегатам;
 - `scripts/update_priority_profiles.py` — authoritative/manifest/conservative updater для приоритетных профилей;
 - `scripts/rebuild_aggregates.py` — пересборка глобальных domain/IP агрегатов;
 - `evidence/shared-endpoints.json` — provenance для спорной/shared-инфраструктуры;
@@ -62,7 +63,7 @@ Apex Legends / Rocket League, Arknights, Arma Reforger, Battle.net, Battlefield,
 
 Методика и источники: `evidence/managed-updaters-2026-09-25.md`.
 
-Перед любым автоматическим коммитом запускается валидатор.
+Перед любым автоматическим коммитом запускается валидатор. Дополнительно `.github/workflows/audit-all-blocklists.yml` ежедневно и при PR проверяет все игровые файлы (в том числе без собственного managed-updater) и прикладывает полный Markdown-отчёт. Аудит не добавляет неподтверждённые записи. Внеочередная сверка 12.11.2026: `evidence/full-audit-2026-11-12.md`.
 
 CI отклоняет, среди прочего:
 
@@ -153,3 +154,9 @@ AWS-часть обновляется ежедневно из официальн
 Managed-updater обновляет опубликованный Relic Battle Server `/32`, сохраняя community-добавки. В потребителях с сопоставлением по суффиксу `amazonaws.com` соответствует `*.amazonaws.com`; это может затронуть сторонние AWS-сервисы.
 
 Community-AWS CIDR и `amazonaws.com` точечно исключены из глобальных агрегатов, поэтому объединение профиля не расширяет глобальные списки. Два повторявшихся в исходном сообщении диапазона сохранены по одному разу. Источник сообщения и ограничения проверки описаны в `evidence/company-of-heroes-2.md`.
+
+## Mortal Kombat 1
+
+`games/MortalKombat1.txt` сохраняет четыре узких исторических WB backend /32 и обновляет текущие IPv4 A-записи ровно двух проверенных серверных доменов: `k1-api.wbagora.com` и `prod-network-api.wbagora.com`. Домены аккаунта остаются domain-only, широкие EC2 `us-east-1` и realtime PvP hostname в автоматическую IP-генерацию не добавляются.
+
+Подробности: `evidence/mortal-kombat-1.md`.

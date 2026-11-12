@@ -66,3 +66,22 @@ The four CIDRs are intentionally conservative:
 - no claim that the set is exhaustive.
 
 Future field reports or packet captures can justify additional exact addresses or a managed dynamic strategy if the backend rotation becomes broad enough to require one.
+
+## Managed backend DNS refresh — 2026-11-12
+
+The historical four WB backend /32 observations remain in the game file for provenance and coverage. A live updater now also resolves **only** the two evidenced MK1 backend hostnames:
+
+- `k1-api.wbagora.com` — the game-specific K1 API;
+- `prod-network-api.wbagora.com` — the shared WB network backend explicitly linked to MK1.
+
+On the initial November 12 GitHub Actions run, their A records were:
+
+- `k1-api.wbagora.com` → `3.218.246.218/32`, `44.197.89.18/32`;
+- `prod-network-api.wbagora.com` → `32.197.3.85/32`, `100.28.158.17/32`.
+
+The two `prod-network-api` addresses also appear in the contemporaneous MK11 backend resolution; they are shared WB infrastructure, not necessarily exclusive MK1 match servers.
+
+Only public IPv4 A records of these exact backend hosts can be promoted automatically. Fail closed unless every configured hostname yields public IPv4 addresses; preserve the previous file on partial failures. The updater deliberately does **not** resolve CDN-fronted `account.wbgames.com` into pinned cloud edge IPs or add `us-east-1-k1-realtime-*` ranges, which could disrupt PvP routing.
+
+This addresses the older static-IP snapshot becoming stale without importing all AWS EC2 `us-east-1`.
+
