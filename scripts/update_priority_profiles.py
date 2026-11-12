@@ -157,6 +157,27 @@ WARDOGS_CLOUDFLARE_NETWORKS = {
     "104.18.125.108/32",
 }
 
+MK1_DOMAINS = {
+    "account.wbgames.com",
+    "datarouter.apps.netherrealm.com",
+    "k1-api.wbagora.com",
+    "mortalkombat.com",
+    "prod-network-api.wbagora.com",
+}
+MK1_RESOLVE_HOSTS = {
+    "k1-api.wbagora.com",
+    "prod-network-api.wbagora.com",
+}
+# Explicit historical observations from evidence/mortal-kombat-1.md.
+# Do not promote unobserved CloudFront or realtime matchmaker ranges.
+MK1_STATIC_NETWORKS = {
+    "18.205.184.40/32",
+    "23.23.22.141/32",
+    "44.214.204.133/32",
+    "98.88.245.30/32",
+}
+
+
 MK11_DOMAINS = {
     "account.wbgames.com",
     "api.wbgames.com",
@@ -351,6 +372,45 @@ def update_wardogs() -> str:
     )
 
 
+def update_mortal_kombat_1() -> str:
+    path = ROOT / "games" / "MortalKombat1.txt"
+    networks = set(MK1_STATIC_NETWORKS)
+    resolved_hosts = 0
+
+    for host in sorted(MK1_RESOLVE_HOSTS):
+        try:
+            addresses = {
+                item[4][0]
+                for item in socket.getaddrinfo(
+                    host, 443, family=socket.AF_INET, type=socket.SOCK_STREAM
+                )
+            }
+        except socket.gaierror as exc:
+            print(f"WARN: MortalKombat1 DNS failed for {host}: {exc}")
+            continue
+
+        current = set()
+        for value in addresses:
+            address = ipaddress.ip_address(value)
+            if address.version == 4 and address.is_global:
+                current.add(f"{value}/32")
+
+        if current:
+            resolved_hosts += 1
+            networks.update(current)
+            print(f"INFO: MortalKombat1 DNS {host}: " + ", ".join(sorted(current)))
+
+    if resolved_hosts == 0:
+        raise RuntimeError("MortalKombat1: no verified backend IPv4 A records")
+
+    changed = write_mixed(path, MK1_DOMAINS, networks)
+    return (
+        f"MortalKombat1: {len(MK1_DOMAINS)} domains + {len(networks)} IPv4 entries, "
+        f"{resolved_hosts}/{len(MK1_RESOLVE_HOSTS)} verified hosts "
+        f"({'changed' if changed else 'current'})"
+    )
+
+
 def update_mortal_kombat_11() -> str:
     path = ROOT / "games" / "MortalKombat11.txt"
 
@@ -504,6 +564,10 @@ def main() -> int:
     # WARDOGS: field-tested IP-only profile.
     # Keep the exact pinned set stable while validating AWS/Cloudflare ownership.
     status.append(update_wardogs())
+
+    # Mortal Kombat 1: refresh only first-party MK1/WB Agora backend A-records;
+    # retain exact historically observed addresses, no shared EC2 region or realtime IP pools.
+    status.append(update_mortal_kombat_1())
 
     # Mortal Kombat 11: keep the known WB backend domains and refresh exact
     # current IPv4 addresses for the cloud-hosted core services.
