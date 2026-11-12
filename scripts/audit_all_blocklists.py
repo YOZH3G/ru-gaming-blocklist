@@ -28,7 +28,7 @@ MANAGED = {
     "Roblox", "BattleNet", "WutheringWaves", "Warframe",
     "MagicTheGathering", "BlueArchive", "Arknights", "StreetFighter6",
     "CallOfDuty", "CompanyOfHeroes2", "Wardogs", "MortalKombat11",
-    "Darktide", "Fallout76_AWS",
+    "Darktide", "Fallout76_AWS", "MortalKombat1",
 }
 
 
