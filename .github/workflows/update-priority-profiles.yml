@@ -20,6 +20,8 @@ on:
       - "games/Wardogs.txt"
       - "games/MortalKombat11.txt"
       - "scripts/update_priority_profiles.py"
+      - "scripts/audit_all_blocklists.py"
+      - ".github/workflows/audit-all-blocklists.yml"
       - "scripts/rebuild_aggregates.py"
       - "scripts/updaters/**"
       - ".github/workflows/update-priority-profiles.yml"
