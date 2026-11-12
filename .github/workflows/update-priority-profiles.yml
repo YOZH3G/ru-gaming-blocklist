@@ -19,6 +19,7 @@ on:
       - "games/CompanyOfHeroes2.txt"
       - "games/Wardogs.txt"
       - "games/MortalKombat11.txt"
+      - "games/MortalKombat1.txt"
       - "scripts/update_priority_profiles.py"
       - "scripts/audit_all_blocklists.py"
       - ".github/workflows/audit-all-blocklists.yml"
@@ -81,6 +82,7 @@ jobs:
             games/CompanyOfHeroes2.txt
             games/Wardogs.txt
             games/MortalKombat11.txt
+            games/MortalKombat1.txt
             medvedeff-game-list-all.txt
             medvedeff-game-ipset.txt
 
@@ -104,6 +106,7 @@ jobs:
             games/CompanyOfHeroes2.txt \
             games/Wardogs.txt \
             games/MortalKombat11.txt \
+            games/MortalKombat1.txt \
             medvedeff-game-list-all.txt \
             medvedeff-game-ipset.txt
 
