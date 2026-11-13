@@ -1139,7 +1139,6 @@ downdetector.com
 ## Flowseal/zapret-discord-youtube #13814
 
 Source: https://github.com/Flowseal/zapret-discord-youtube/issues/13814
-Title: [РЕШЕНИЕ(?)] Deep Core Galactic: Rogue Core. Как Подключиться к другу при включеном запрете
 
 Found IP/CIDR:
 162.254.192.0/21
@@ -2008,6 +2007,30 @@ gist.github.com
 
 Source: https://github.com/Flowseal/zapret-discord-youtube/issues/18705
 Title: [Проблема] Не работает youtube, но
+
+Found domains:
+gist.github.com
+
+## Flowseal/zapret-discord-youtube #18767
+
+Source: https://github.com/Flowseal/zapret-discord-youtube/issues/18767
+Title: [Проблема] с zapret-ом и инетом
+
+Found domains:
+gist.github.com
+
+## Flowseal/zapret-discord-youtube #18779
+
+Source: https://github.com/Flowseal/zapret-discord-youtube/issues/18779
+Title: [Проблема] Скачет пинг в играх, высокий джиттер сети.
+
+Found domains:
+gist.github.com
+
+## Flowseal/zapret-discord-youtube #18811
+
+Source: https://github.com/Flowseal/zapret-discord-youtube/issues/18811
+Title: [Проблема] проблемы со Spotify
 
 Found domains:
 gist.github.com
