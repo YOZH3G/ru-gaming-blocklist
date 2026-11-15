@@ -272,6 +272,18 @@ pathofexile.com
 overwolf.com
 poecdn.com
 
+## Flowseal/zapret-discord-youtube #5175
+
+Source: https://github.com/Flowseal/zapret-discord-youtube/issues/5175
+Title: Не грузит видеопакеты на некоторых видео с ютуба
+
+Found domains:
+googlevideo.com
+jquery.mb.ytplayer
+
+Found IP/CIDR:
+140.0.0.0
+
 ## Flowseal/zapret-discord-youtube #5826
 
 Source: https://github.com/Flowseal/zapret-discord-youtube/issues/5826
@@ -2030,7 +2042,14 @@ gist.github.com
 ## Flowseal/zapret-discord-youtube #18811
 
 Source: https://github.com/Flowseal/zapret-discord-youtube/issues/18811
-Title: [Проблема] проблемы со Spotify
+
+Found domains:
+gist.github.com
+
+## Flowseal/zapret-discord-youtube #18834
+
+Source: https://github.com/Flowseal/zapret-discord-youtube/issues/18834
+Title: [Проблема] Можете закрывать модеры, нормальных аргументов я не получил к сожалению, и не думаю что есть смысл общаться с людьми в комментариях.
 
 Found domains:
 gist.github.com
