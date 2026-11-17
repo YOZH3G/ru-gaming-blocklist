@@ -2046,10 +2046,27 @@ Source: https://github.com/Flowseal/zapret-discord-youtube/issues/18811
 Found domains:
 gist.github.com
 
+## Flowseal/zapret-discord-youtube #18821
+
+Source: https://github.com/Flowseal/zapret-discord-youtube/issues/18821
+Title: [Проблема (спорно)] Перестало соединять с release-assets.githubusercontent.com
+
+Found domains:
+release-assets.githubusercontent.com
+gist.github.com
+
 ## Flowseal/zapret-discord-youtube #18834
 
 Source: https://github.com/Flowseal/zapret-discord-youtube/issues/18834
 Title: [Проблема] Можете закрывать модеры, нормальных аргументов я не получил к сожалению, и не думаю что есть смысл общаться с людьми в комментариях.
+
+Found domains:
+gist.github.com
+
+## Flowseal/zapret-discord-youtube #18937
+
+Source: https://github.com/Flowseal/zapret-discord-youtube/issues/18937
+Title: [Проблема] Стим робит, но не весь
 
 Found domains:
 gist.github.com
