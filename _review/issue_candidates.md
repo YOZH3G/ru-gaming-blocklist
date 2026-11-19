@@ -2070,3 +2070,45 @@ Title: [Проблема] Стим робит, но не весь
 
 Found domains:
 gist.github.com
+
+## Flowseal/zapret-discord-youtube #18965
+
+Source: https://github.com/Flowseal/zapret-discord-youtube/issues/18965
+Title: [Проблема] Пинг, падение соединения при включенном запрете
+
+Found domains:
+gist.github.com
+
+## Flowseal/zapret-discord-youtube #18978
+
+Source: https://github.com/Flowseal/zapret-discord-youtube/issues/18978
+Title: [Проблема] Крайне высокий пинг на Европейских серверах при включенном ipset (Дальний Восток)
+
+Found domains:
+gist.github.com
+
+## Flowseal/zapret-discord-youtube #18982
+
+Source: https://github.com/Flowseal/zapret-discord-youtube/issues/18982
+Title: [Проблема] Стал подводить запрет
+
+Found domains:
+gist.github.com
+
+## Flowseal/zapret-discord-youtube #18989
+
+Source: https://github.com/Flowseal/zapret-discord-youtube/issues/18989
+Title: [Проблема] Перестал работать ют, дс пашет но слабо
+
+Found domains:
+gist.github.com
+
+## Flowseal/zapret-discord-youtube #18993
+
+Source: https://github.com/Flowseal/zapret-discord-youtube/issues/18993
+Title: [Проблема] Голос Discord висит на «Подключении»: не проходит TCP на портах 2053–8443 к discord.media
+
+Found domains:
+discord.media
+gist.github.com
+stun2.bin
