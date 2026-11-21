@@ -2112,3 +2112,11 @@ Found domains:
 discord.media
 gist.github.com
 stun2.bin
+
+## Flowseal/zapret-discord-youtube #19050
+
+Source: https://github.com/Flowseal/zapret-discord-youtube/issues/19050
+Title: [Проблема] картинки в мастерской стим не грузятся
+
+Found domains:
+gist.github.com
