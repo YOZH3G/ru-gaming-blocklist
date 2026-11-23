@@ -2120,3 +2120,139 @@ Title: [Проблема] картинки в мастерской стим не
 
 Found domains:
 gist.github.com
+
+## Flowseal/zapret-discord-youtube #19079
+
+Source: https://github.com/Flowseal/zapret-discord-youtube/issues/19079
+Title: [Проблема]
+
+Found domains:
+gist.github.com
+
+## Flowseal/zapret-discord-youtube #19108
+
+Source: https://github.com/Flowseal/zapret-discord-youtube/issues/19108
+Title: [Проблема] интернет
+
+Found domains:
+gist.github.com
+dns.google
+dns.quad9.net
+dns.nextdns.io
+doh.opendns.com
+doh.cleanbrowsing.org
+freedns.controld.com
+wikimedia-dns.org
+encryptedsni.com
+cloudfront.net
+dis.gd
+discord-attachments-uploads-prd.storage.googleapis.com
+discord.app
+discord.co
+discord.design
+discord.dev
+discord.gift
+discord.gifts
+discord.media
+discord.new
+discord.store
+discord.status
+discord-activities.com
+discordactivities.com
+discordapp.com
+discordapp.net
+discordcdn.com
+discordmerch.com
+discordpartygames.com
+discordsays.com
+discordsez.com
+discordstatus.com
+zendesk.com
+frankerfacez.com
+ffzap.com
+betterttv.net
+7tv.app
+7tv.io
+localizeapi.com
+klipy.com
+live-video.net
+i1.sndcdn.com
+i2.sndcdn.com
+sndcdn.com
+api-v2.soundcloud.com
+cf-hls-media.sndcdn.com
+cf-media.sndcdn.com
+media.sndcdn.com
+soundcloud.com
+i.scdn.co
+mosaic.scdn.co
+image-cdn-ak.spotifycdn.com
+scdn.co
+audio-ak-spotify-com.akamaized.net
+audio-fa.scdn.co
+spclient.wg.spotify.com
+api.spotify.com
+ap.spotify.com
+spotify.com
+is1-ssl.mzstatic.com
+is2-ssl.mzstatic.com
+is3-ssl.mzstatic.com
+is4-ssl.mzstatic.com
+mzstatic.com
+music.apple.com
+play.itunes.apple.com
+audio-ssl.itunes.apple.com
+itunes.apple.com
+e-cdns-images.dzcdn.net
+cdns-images.dzcdn.net
+dzcdn.net
+deezer.com
+i.ytimg.com
+ytimg.com
+ggpht.com
+googlevideo.com
+youtubei.googleapis.com
+uplay.com
+one.one.one.one
+help.every1dns.net
+discord-api.com
+discord-api-types.com
+discord.community
+discord.events
+discord.help
+discord.live
+discord.services
+discord.tools
+discord.tickets
+discord.wiki
+discordblog.com
+discordbox.com
+discordbrowser.com
+discordcollectors.com
+discordhq.com
+discordia.me
+discordinc.com
+discordmail.com
+discordplus.com
+discordrichpresence.com
+discordsim.com
+discordsupport.com
+discordtr.com
+discordvpn.com
+discordwallet.com
+watchdiscord.com
+storage.googleapis.com
+storage.cloud.google.com
+www.googleapis.com
+
+Found IP/CIDR:
+1.1.1.1
+1.0.0.1
+
+## Flowseal/zapret-discord-youtube #19140
+
+Source: https://github.com/Flowseal/zapret-discord-youtube/issues/19140
+Title: [Проблема] стим не робит
+
+Found domains:
+gist.github.com
