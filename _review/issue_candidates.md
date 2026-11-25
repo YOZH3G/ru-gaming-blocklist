@@ -2256,3 +2256,12 @@ Title: [Проблема] стим не робит
 
 Found domains:
 gist.github.com
+
+## Flowseal/zapret-discord-youtube #19166
+
+Source: https://github.com/Flowseal/zapret-discord-youtube/issues/19166
+Title: [Проблема] Северный кавказ
+
+Found domains:
+gist.github.com
+akamaihd.net
