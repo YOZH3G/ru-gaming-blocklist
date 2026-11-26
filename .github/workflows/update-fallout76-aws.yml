@@ -3,6 +3,7 @@ name: Update Fallout 76 AWS ranges
 on:
   pull_request:
     paths:
+      - "scripts/updaters/common.py"
       - "games/Fallout76_AWS.txt"
       - "scripts/update_fallout76_aws.py"
       - ".github/workflows/update-fallout76-aws.yml"

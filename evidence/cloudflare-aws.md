@@ -22,19 +22,7 @@ It also includes provider/service domains used by Cloudflare DNS, WARP, R2, Stre
 
 ### AWS
 
-AWS ranges are based on the official AWS feed:
-
-- https://ip-ranges.amazonaws.com/ip-ranges.json
-- feed createDate at review time: `2026-09-24-02-07-06`
-
-The profile does **not** import all `AMAZON` or `EC2` prefixes. That would effectively route a very large fraction of unrelated Internet services.
-
-Instead it includes:
-
-- CloudFront global edge ranges from the official CloudFront list:
-  https://d7uri8nf7uskq.cloudfront.net/tools/list-cloudfront-ips
-- selected `GLOBALACCELERATOR` ranges whose region is `GLOBAL`;
-- common AWS service domains relevant to game backends and downloads, including S3, EC2 DNS, ELB, API Gateway, Global Accelerator and GameLift.
+The updater imports IPv4 and IPv6 prefixes tagged `CLOUDFRONT`, `GLOBALACCELERATOR` or `EC2` from the [official AWS feed](https://ip-ranges.amazonaws.com/ip-ranges.json). EC2 is included across all listed regions. Subdomain masks cover selected AWS and Cloudflare service zones. This opt-in profile can route unrelated customer traffic on those providers.
 
 ## Explicitly excluded from the old file
 

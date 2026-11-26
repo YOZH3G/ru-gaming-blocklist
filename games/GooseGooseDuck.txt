@@ -1,1 +1,2 @@
+*.gaggle.fun
 gaggle.fun

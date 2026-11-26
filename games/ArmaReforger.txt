@@ -1,3 +1,6 @@
+*.armaplatform.com
+*.armareforgerplatform.com
+*.bistudio.com
 1611202461.rsc.cdn77.org
 2a.bistudio.com
 api-ar-game.bistudio.com

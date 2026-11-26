@@ -46,13 +46,13 @@ Because the exact current Bethesda fleet configuration is not published directly
 
 ## Selected regions
 
-The PC log linked above records latency probes in Frankfurt, Ireland, Northern Virginia and Sydney, plus global backend gateways in Ohio. The aggressive profile covers the EC2 IPv4 prefixes for all five regions. The Ohio evidence concerns backend services. A region-wide match can also route unrelated AWS tenants.
+The PC log linked above records latency probes in Frankfurt, Ireland, Northern Virginia and Sydney, plus global backend gateways in Ohio. The aggressive profile covers the EC2 IPv4 and IPv6 prefixes for all five regions. The Ohio evidence concerns backend services. A region-wide match can also route unrelated AWS tenants.
 
 ## Generation rule
 
-The daily updater selects IPv4 entries with service `EC2` in `ap-southeast-2`, `eu-central-1`, `eu-west-1`, `us-east-1` and `us-east-2` from the [AWS feed](https://ip-ranges.amazonaws.com/ip-ranges.json). The workflow verifies the committed profile against that feed on pull requests.
+The daily updater selects IPv4 and IPv6 entries with service `EC2` in `ap-southeast-2`, `eu-central-1`, `eu-west-1`, `us-east-1` and `us-east-2` from the [AWS feed](https://ip-ranges.amazonaws.com/ip-ranges.json). The workflow verifies the committed profile against that feed on pull requests.
 
-The domain section retains the Bethesda and p76prod entries and includes the four latency probe names and three global backend names verbatim from the log for exact-name consumers. This historical capture establishes client usage at the time. A current in-game session from an affected network is needed to verify recovery.
+The domain section retains the Bethesda and p76prod entries and includes the four latency probe names and three global backend names verbatim from the log for exact-name consumers, plus subdomain masks for the Bethesda and p76prod zones. This historical capture establishes client usage at the time. A current in-game session from an affected network is needed to verify recovery.
 
 ## Aggregates
 

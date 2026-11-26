@@ -671,6 +671,7 @@ links-public-service-live.ol.epicgames.com
 lion.secure.dyn.riotcdn.net
 live-feed.cdn.ubisoft.com
 live.patcher.ubisoft.com
+live.wardogs.bulkhead.pragmaengine.com
 lms.roblox.com
 lobby.ubisoft.com
 locale.roblox.com
@@ -1220,6 +1221,7 @@ vrchat.net
 vrchatassets.com
 vrcpm.vrchat.cloud
 vxc.roblox.com
+wardogs.com
 warframe-web-assets.nyc3.cdn.digitaloceanspaces.com
 warframe.com
 warnerbrosgames.com

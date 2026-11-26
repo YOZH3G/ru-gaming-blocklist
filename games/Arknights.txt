@@ -1,3 +1,6 @@
+*.biligame.com
+*.gryphline.com
+*.hg-cdn.com
 ak.hypergryph.com
 as.gryphline.com
 asia.cschannel.anticheatexpert.com

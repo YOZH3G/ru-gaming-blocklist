@@ -1,3 +1,8 @@
+*.steamcommunity.com
+*.steamcontent.com
+*.steampowered.com
+*.steamserver.net
+*.steamstatic.com
 akamai.steamstatic.com
 api.steampowered.com
 avatars.fastly.steamstatic.com

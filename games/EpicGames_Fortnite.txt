@@ -1,3 +1,8 @@
+*.epicgames.com
+*.epicgames.dev
+*.epicgames.net
+*.epicgamescdn.com
+*.fortnite.com
 account-public-service-prod.ol.epicgames.com
 account-public-service-prod03.ol.epicgames.com
 account.epicgames.com

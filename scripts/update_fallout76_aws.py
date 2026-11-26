@@ -3,7 +3,7 @@ from __future__ import annotations
 import ipaddress
 import json
 import urllib.request
-from pathlib import Path
+from updaters.common import ROOT, profile_domains
 
 AWS_IP_RANGES_URL = "https://ip-ranges.amazonaws.com/ip-ranges.json"
 TARGET_REGIONS = {"ap-southeast-2", "eu-central-1", "eu-west-1", "us-east-1", "us-east-2"}
@@ -22,7 +22,6 @@ STATIC_DOMAINS = [
     "us-east-2-prod-prodpc01-glb-bps-pushy.p76prod.systems",
 ]
 
-ROOT = Path(__file__).resolve().parents[1]
 OUTPUT = ROOT / "games" / "Fallout76_AWS.txt"
 
 
@@ -59,7 +58,14 @@ def build_list(payload: dict) -> tuple[list[str], str | None]:
     if missing:
         raise ValueError(f"Missing EC2 prefixes for regions: {sorted(missing)}")
 
-    return STATIC_DOMAINS + sort_networks(networks), payload.get("createDate")
+    networks.update(
+        item["ipv6_prefix"]
+        for item in payload.get("ipv6_prefixes", [])
+        if item.get("region") in TARGET_REGIONS
+        and item.get("service") == TARGET_SERVICE
+        and item.get("ipv6_prefix")
+    )
+    return profile_domains(OUTPUT, STATIC_DOMAINS) + sort_networks(networks), payload.get("createDate")
 
 
 def main() -> int:
@@ -67,9 +73,10 @@ def main() -> int:
     entries, create_date = build_list(payload)
     OUTPUT.write_text("\n".join(entries) + "\n", encoding="utf-8")
 
+    domain_count = len(profile_domains(OUTPUT, STATIC_DOMAINS))
     print(
         f"Updated {OUTPUT.relative_to(ROOT)}: "
-        f"{len(STATIC_DOMAINS)} domains + {len(entries) - len(STATIC_DOMAINS)} CIDRs "
+        f"{domain_count} domains + {len(entries) - domain_count} CIDRs "
         f"(AWS createDate={create_date or 'unknown'})"
     )
     return 0

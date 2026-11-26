@@ -1,3 +1,7 @@
+*.playvalorant.com
+*.valorant.com
+*.valorant.scd.riotcdn.net
+*.valorant.secure.dyn.riotcdn.net
 a.pvp.net
 api.account.riotgames.com
 api.account.riotgames.com.cdn.cloudflare.net

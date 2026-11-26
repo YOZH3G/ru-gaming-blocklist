@@ -1,3 +1,6 @@
+*.digitalextremes.com
+*.warframe.com
+*.wrfr.me
 api-and.warframe.com
 api-mob.warframe.com
 api-ps4.warframe.com

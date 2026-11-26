@@ -1,3 +1,5 @@
+*.ea.com
+*.origin.com
 ac.ea.com
 accounts.cdn.origin.com
 accounts.ea.com

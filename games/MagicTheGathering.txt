@@ -1,3 +1,6 @@
+*.magic-the-gathering-arena.com
+*.mtgarena.com
+*.mtgarena.downloads.wizards.com
 api.platform.wizards.com
 magic-the-gathering-arena.com
 magic.wizards.com

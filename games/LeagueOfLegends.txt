@@ -1,3 +1,6 @@
+*.leagueoflegends.com
+*.lolesports.com
+*.lolstatic.com
 api.account.riotgames.com
 auth.riotgames.com
 authenticate.riotgames.com

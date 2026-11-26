@@ -1,3 +1,6 @@
+*.apexlegends.com
+*.ea.com
+*.playapex.com
 accounts.ea.com
 activity.ea.com
 apex.dm.origin.com
