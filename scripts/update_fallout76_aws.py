@@ -6,13 +6,20 @@ import urllib.request
 from pathlib import Path
 
 AWS_IP_RANGES_URL = "https://ip-ranges.amazonaws.com/ip-ranges.json"
-TARGET_REGIONS = {"eu-central-1", "eu-west-1"}
+TARGET_REGIONS = {"ap-southeast-2", "eu-central-1", "eu-west-1", "us-east-1", "us-east-2"}
 TARGET_SERVICE = "EC2"
 STATIC_DOMAINS = [
     "api.bethesda.net",
     "bethesda.net",
     "fallout.bethesda.net",
     "p76prod.systems",
+    "ap-southeast-2-prod-prodpc01-reg-httpping.p76prod.systems",
+    "eu-central-1-prod-prodpc01-reg-httpping.p76prod.systems",
+    "eu-west-1-prod-prodpc01-reg-httpping.p76prod.systems",
+    "us-east-1-prod-prodpc01-reg-httpping.p76prod.systems",
+    "us-east-2-prod-prodpc01-glb-bps-bigateway.p76prod.systems",
+    "us-east-2-prod-prodpc01-glb-bps-gateway.p76prod.systems",
+    "us-east-2-prod-prodpc01-glb-bps-pushy.p76prod.systems",
 ]
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -40,16 +47,17 @@ def fetch_aws_ranges() -> dict:
 
 
 def build_list(payload: dict) -> tuple[list[str], str | None]:
-    networks = {
-        item["ip_prefix"]
-        for item in payload.get("prefixes", [])
-        if item.get("region") in TARGET_REGIONS
-        and item.get("service") == TARGET_SERVICE
-        and item.get("ip_prefix")
-    }
+    networks = set()
+    regions = set()
+    for item in payload.get("prefixes", []):
+        region = item.get("region")
+        if region in TARGET_REGIONS and item.get("service") == TARGET_SERVICE and item.get("ip_prefix"):
+            networks.add(item["ip_prefix"])
+            regions.add(region)
 
-    if not networks:
-        raise RuntimeError("AWS feed returned no matching Fallout 76 EC2 prefixes")
+    missing = TARGET_REGIONS - regions
+    if missing:
+        raise ValueError(f"Missing EC2 prefixes for regions: {sorted(missing)}")
 
     return STATIC_DOMAINS + sort_networks(networks), payload.get("createDate")
 

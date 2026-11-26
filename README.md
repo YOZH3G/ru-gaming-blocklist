@@ -29,8 +29,8 @@ Production-списки больше не пополняются напряму�
 - `medvedeff-game-ipset.txt` — проверенные IP/CIDR;
 - `games/` — списки по играм и сервисам;
 - `games/Cloudflare_AWS.txt` — широкий opt-in профиль Cloudflare/AWS;
-- `games/Darktide.txt` — единый обновляемый Darktide-профиль: first-party domains + AWS EC2 EU ranges;
-- `games/Fallout76_AWS.txt` — единый обновляемый Fallout 76-профиль: Bethesda/p76prod domains + AWS EC2 EU ranges;
+- `games/Darktide.txt` — единый обновляемый Darktide-профиль: first-party domains + IPv4-сети EC2 пяти регионов AWS;
+- `games/Fallout76_AWS.txt` — единый обновляемый Fallout 76-профиль: Bethesda/p76prod domains + IPv4-сети EC2 пяти регионов AWS;
 - `_review/` — непроверенные автоматические кандидаты;
 - `scripts/validate_blocklists.py` — CI-проверка production-списков;
 - `scripts/audit_all_blocklists.py` — полный аудит ВСЕХ игровых списков, game_map и точного соответствия глобальным агрегатам;
@@ -131,9 +131,9 @@ AWS-часть обновляется ежедневно из официальн
 
 `games/Fallout76_AWS.txt` теперь поддерживается по той же модели, что и Darktide: стабильные Bethesda/Fallout backend-домены плюс динамически обновляемые AWS EC2 CIDR.
 
-Для Fallout 76 используются не Darktide-регионы, а регионы, непосредственно наблюдавшиеся в production client logs: Frankfurt (`eu-central-1`) и Ireland (`eu-west-1`). AWS-часть ежедневно пересобирается скриптом `scripts/update_fallout76_aws.py` из официального `ip-ranges.json`.
+Профиль включает четыре региона проверки задержки из лога PC-клиента (Франкфурт, Ирландия, Северная Вирджиния и Сидней) и регион глобальных шлюзов (Огайо). В список внесены полные имена семи узлов для клиентов с точным сопоставлением доменов. Скрипт `scripts/update_fallout76_aws.py` ежедневно обновляет IPv4-сети EC2 по официальному списку AWS.
 
-Широкие AWS CIDR Fallout 76 не добавляются в `medvedeff-game-ipset.txt`.
+Для полного покрытия подключите игровой профиль `games/Fallout76_AWS.txt` с обработкой доменов и CIDR. Общий `medvedeff-game-ipset.txt` исключает сети этого профиля. При маршрутизации по игровому профилю через выбранный маршрут может пойти трафик других клиентов AWS в этих пяти регионах.
 
 Методика и источники: `evidence/fallout76-aws.md`.
 

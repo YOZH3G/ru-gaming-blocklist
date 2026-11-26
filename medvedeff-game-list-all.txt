@@ -37,6 +37,7 @@ akamaized.epicgames.com
 altdevforum.roblox.com
 analytic-1-0-13.live.virginia.dbd.bhvronline.com
 anticheat.epicgames.com
+ap-southeast-2-prod-prodpc01-reg-httpping.p76prod.systems
 ap.e4mc.link
 apac.rbxcdn.com
 apex.dm.origin.com
@@ -465,7 +466,9 @@ epicgames.org
 epicgamescdn.com
 essential.gg
 et.epicgames.com
+eu-central-1-prod-prodpc01-reg-httpping.p76prod.systems
 eu-central-1.compute.amazonaws.com
+eu-west-1-prod-prodpc01-reg-httpping.p76prod.systems
 eu.actual.battle.net
 eu.cdn.blizzard.com
 eu.e4mc.link
@@ -1171,6 +1174,10 @@ uplaypc-s-ubisoft.cdn.ubi.com
 upload.crashes.roblox.com
 uploads.roblox.com
 us-east-1-mk11-realtime-1.wbagora.com
+us-east-1-prod-prodpc01-reg-httpping.p76prod.systems
+us-east-2-prod-prodpc01-glb-bps-bigateway.p76prod.systems
+us-east-2-prod-prodpc01-glb-bps-gateway.p76prod.systems
+us-east-2-prod-prodpc01-glb-bps-pushy.p76prod.systems
 us-east1.rbxcdn.com
 us.actual.battle.net
 us.cdn.blizzard.com
