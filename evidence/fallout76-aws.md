@@ -1,4 +1,4 @@
-# Fallout 76 AWS profile — 2026-09-25
+# Fallout 76 AWS profile — 2026-11-26
 
 `games/Fallout76_AWS.txt` is maintained as a single mixed domain + CIDR profile.
 
@@ -46,42 +46,14 @@ Because the exact current Bethesda fleet configuration is not published directly
 
 ## Selected regions
 
-For the RU/EU routing profile, the automatically generated CIDR section uses the two Europe regions directly observed in Fallout 76 production client logs:
-
-- `eu-central-1` — Frankfurt
-- `eu-west-1` — Ireland
-
-This intentionally differs from Darktide. Darktide uses Frankfurt/Stockholm/London; copying those regions to Fallout 76 would not match the evidence.
+The PC log linked above records latency probes in Frankfurt, Ireland, Northern Virginia and Sydney, plus global backend gateways in Ohio. The aggressive profile covers the EC2 IPv4 prefixes for all five regions. The Ohio evidence concerns backend services. A region-wide match can also route unrelated AWS tenants.
 
 ## Generation rule
 
-Authoritative source:
+The daily updater selects IPv4 entries with service `EC2` in `ap-southeast-2`, `eu-central-1`, `eu-west-1`, `us-east-1` and `us-east-2` from the [AWS feed](https://ip-ranges.amazonaws.com/ip-ranges.json). The workflow verifies the committed profile against that feed on pull requests.
 
-https://ip-ranges.amazonaws.com/ip-ranges.json
-
-Filter:
-
-- `service == EC2`
-- `region in {eu-central-1, eu-west-1}`
-
-Updater:
-
-- `scripts/update_fallout76_aws.py`
-- `.github/workflows/update-fallout76-aws.yml`
-
-Initial snapshot from AWS `createDate=2026-09-25-03-57-06`: **172 EC2 CIDRs**.\n\nThe workflow runs daily and also verifies pull-request snapshots against the live AWS feed.
-
-## Static domains
-
-The updater preserves:
-
-- `api.bethesda.net`
-- `bethesda.net`
-- `fallout.bethesda.net`
-- `p76prod.systems`
+The domain section retains the Bethesda and p76prod entries and includes the four latency probe names and three global backend names verbatim from the log for exact-name consumers. This historical capture establishes client usage at the time. A current in-game session from an affected network is needed to verify recovery.
 
 ## Aggregates
 
-The broad regional EC2 ranges are not copied to `medvedeff-game-ipset.txt`.
-
-Game-specific domains may remain in `medvedeff-game-list-all.txt`.
+Game domains are included in the global domain list. Regional EC2 ranges from this profile are excluded from the global IP aggregate.
