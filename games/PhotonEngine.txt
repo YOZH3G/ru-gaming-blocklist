@@ -1,3 +1,5 @@
+*.exitgames.com
+*.photonengine.io
 doc.photonengine.com
 exitgames.com
 gcams1160.exitgames.com

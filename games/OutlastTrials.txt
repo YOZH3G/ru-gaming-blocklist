@@ -1,7 +1,8 @@
-rbg-services.com
-cloudfront.net
-amazonaws.com
+*.rbg-services.com
 akamaitechnologies.com
+amazonaws.com
+cloudfront.net
+rbg-services.com
 3.24.0.0/14
 3.38.0.0/15
 3.80.0.0/12

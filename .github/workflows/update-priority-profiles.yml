@@ -3,6 +3,7 @@ name: Update prioritized gaming profiles
 on:
   pull_request:
     paths:
+      - "scripts/updaters/common.py"
       - "games/Cloudflare_AWS.txt"
       - "games/Steam.txt"
       - "games/RiotGames_Valorant.txt"

@@ -1,3 +1,5 @@
+*.gearsofwar.com
+*.xboxlive.com
 gearsofwar.com
 xbox.com
 xboxlive.com

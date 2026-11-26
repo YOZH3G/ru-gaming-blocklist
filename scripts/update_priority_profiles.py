@@ -221,10 +221,10 @@ def update_cloudflare_aws() -> str:
     networks = set(fetch_text(CF_V4).split()) | set(fetch_text(CF_V6).split())
     aws = fetch_json(AWS_RANGES)
     for item in aws.get("prefixes", []):
-        if item.get("service") in {"CLOUDFRONT", "GLOBALACCELERATOR"} and item.get("ip_prefix"):
+        if item.get("service") in {"CLOUDFRONT", "GLOBALACCELERATOR", "EC2"} and item.get("ip_prefix"):
             networks.add(item["ip_prefix"])
     for item in aws.get("ipv6_prefixes", []):
-        if item.get("service") in {"CLOUDFRONT", "GLOBALACCELERATOR"} and item.get("ipv6_prefix"):
+        if item.get("service") in {"CLOUDFRONT", "GLOBALACCELERATOR", "EC2"} and item.get("ipv6_prefix"):
             networks.add(item["ipv6_prefix"])
 
     changed = write_mixed(path, domains, networks)
@@ -331,8 +331,7 @@ def update_company_of_heroes_2() -> str:
 def update_wardogs() -> str:
     path = ROOT / "games" / "Wardogs.txt"
 
-    # WARDOGS is intentionally IP-only. These exact entries were field-tested
-    # by users and are kept stable instead of being replaced from DNS.
+    # Keep the field-tested IPs alongside the known game and backend domains.
     aws = fetch_json(AWS_RANGES)
     aws_prefixes = [
         ipaddress.ip_network(item["ip_prefix"], strict=False)
@@ -365,9 +364,10 @@ def update_wardogs() -> str:
             )
 
     networks = WARDOGS_STATIC_NETWORKS | observed_networks | WARDOGS_CLOUDFLARE_NETWORKS
-    changed = write_mixed(path, [], networks)
+    domains = {"wardogs.com", "live.wardogs.bulkhead.pragmaengine.com"}
+    changed = write_mixed(path, domains, networks)
     return (
-        f"Wardogs: IP-only profile with {len(networks)} pinned networks "
+        f"Wardogs: {len(domains)} base domains and {len(networks)} pinned networks "
         f"({'changed' if changed else 'current'})"
     )
 

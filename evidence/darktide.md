@@ -65,3 +65,4 @@ https://www.fatshark.se/privacy-policy
 - its regional AWS EC2 CIDRs are **not** copied to `medvedeff-game-ipset.txt`.
 
 This keeps the global IP set precision-oriented while still exposing the complete unified Darktide profile to z2k through `sources.json -> game_map -> Darktide`.
+The regional EC2 profile now includes IPv4 and IPv6 prefixes and subdomain masks for `fatshark.se` and `playdarktide.com`.

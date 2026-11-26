@@ -3,14 +3,13 @@ from __future__ import annotations
 import ipaddress
 import json
 import urllib.request
-from pathlib import Path
+from updaters.common import ROOT, profile_domains
 
 AWS_IP_RANGES_URL = "https://ip-ranges.amazonaws.com/ip-ranges.json"
 TARGET_REGIONS = {"eu-central-1", "eu-north-1", "eu-west-2"}
 TARGET_SERVICE = "EC2"
 STATIC_DOMAINS = ["fatshark.se", "playdarktide.com"]
 
-ROOT = Path(__file__).resolve().parents[1]
 OUTPUT = ROOT / "games" / "Darktide.txt"
 
 
@@ -46,7 +45,14 @@ def build_list(payload: dict) -> tuple[list[str], str | None]:
     if not networks:
         raise RuntimeError("AWS feed returned no matching Darktide EC2 prefixes")
 
-    return STATIC_DOMAINS + sort_networks(networks), payload.get("createDate")
+    networks.update(
+        item["ipv6_prefix"]
+        for item in payload.get("ipv6_prefixes", [])
+        if item.get("region") in TARGET_REGIONS
+        and item.get("service") == TARGET_SERVICE
+        and item.get("ipv6_prefix")
+    )
+    return profile_domains(OUTPUT, STATIC_DOMAINS) + sort_networks(networks), payload.get("createDate")
 
 
 def main() -> int:
@@ -54,9 +60,10 @@ def main() -> int:
     entries, create_date = build_list(payload)
     OUTPUT.write_text("\n".join(entries) + "\n", encoding="utf-8")
 
+    domain_count = len(profile_domains(OUTPUT, STATIC_DOMAINS))
     print(
         f"Updated {OUTPUT.relative_to(ROOT)}: "
-        f"{len(STATIC_DOMAINS)} domains + {len(entries) - len(STATIC_DOMAINS)} CIDRs "
+        f"{domain_count} domains + {len(entries) - domain_count} CIDRs "
         f"(AWS createDate={create_date or 'unknown'})"
     )
     return 0

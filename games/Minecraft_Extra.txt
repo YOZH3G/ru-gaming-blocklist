@@ -1,3 +1,7 @@
+*.hypixel.net
+*.minecraft.net
+*.minecraftservices.com
+*.mojang.com
 aadcdn.msauth.net
 account.mojang.com
 ap.e4mc.link

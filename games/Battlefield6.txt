@@ -1,3 +1,6 @@
+*.battlefield.com
+*.dice.se
+*.ea.com
 ac.ea.com
 accounts.ea.com
 battlefield.com

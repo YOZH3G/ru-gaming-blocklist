@@ -1,3 +1,8 @@
+*.vrcdn.cloud
+*.vrchat.cloud
+*.vrchat.com
+*.vrchat.net
+*.vrchatassets.com
 api.vrchat.cloud
 api.vrchat.com
 ask.vrchat.com

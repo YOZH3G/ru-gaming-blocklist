@@ -1,3 +1,5 @@
+*.kurogame-service.com
+*.kurogames.com
 hw-pcdownload-akamai.aki-game.net
 hw-pcdownload-aliyun.aki-game.net
 hw-pcdownload-aws.aki-game.net

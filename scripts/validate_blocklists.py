@@ -83,7 +83,8 @@ def validate_file(path: Path, kind: str) -> list[str]:
             continue
         seen.add(value)
 
-        domain_error = validate_domain(value, allow_generic_root=allow_generic_root)
+        domain = value.removeprefix("*.") if kind == "mixed" else value
+        domain_error = validate_domain(domain, allow_generic_root=allow_generic_root)
         ip_error = validate_ip(value, allow_broad=allow_broad_ip)
 
         if kind == "domains":

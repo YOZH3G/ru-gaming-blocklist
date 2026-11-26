@@ -1,3 +1,6 @@
+*.mortalkombat.com
+*.wbagora.com
+*.wbinsights.com
 account.wbgames.com
 api.wbgames.com
 cdn.wbgames.com

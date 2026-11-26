@@ -31,7 +31,7 @@ def main() -> int:
             file_domains = set(file_domains) - COH2_DOMAIN_AGGREGATE_EXCLUDE
             file_networks = set(file_networks) - COH2_IP_AGGREGATE_EXCLUDE
         if path.name not in DOMAIN_AUX_EXCLUDE:
-            domains.update(file_domains)
+            domains.update(domain for domain in file_domains if not domain.startswith("*."))
         if path.name not in IP_AGGREGATE_EXCLUDE:
             networks.update(file_networks)
 

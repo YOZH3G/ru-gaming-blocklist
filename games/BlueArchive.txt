@@ -1,3 +1,6 @@
+*.bluearchive.com
+*.bluearchive.jp
+*.nexon.com
 bluearchive.com
 bluearchive.jp
 bluearchive.nexon.com

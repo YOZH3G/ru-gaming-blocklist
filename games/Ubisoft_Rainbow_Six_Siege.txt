@@ -1,3 +1,8 @@
+*.r6s.com
+*.rainbow6.com
+*.ubi.com
+*.ubisoft.com
+*.uplay.com
 account.ubisoft.com
 accounts.ubisoft.com
 api-ubiservices.ubi.com

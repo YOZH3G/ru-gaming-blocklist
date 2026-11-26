@@ -14,6 +14,43 @@ ROOT = Path(__file__).resolve().parents[2]
 UA = "ru-gaming-blocklist-updater/1.0"
 
 
+# Reviewed zones and backend names whose descendants belong in each profile.
+WILDCARD_ZONES = {
+    "ApexLegends_RocketLeague": "apexlegends.com playapex.com ea.com rocketleague.com",
+    "Arknights": "gryphline.com hg-cdn.com biligame.com",
+    "ArmaReforger": "armaplatform.com armareforgerplatform.com bistudio.com",
+    "BattleNet": "battle.net battlenet.com blizzard.com blizzard.cn blzstatic.cn",
+    "Battlefield6": "battlefield.com battlefield6.com ea.com dice.se",
+    "BlueArchive": "bluearchive.com bluearchive.jp nexon.com",
+    "CallOfDuty": "callofduty.com demonware.net activision.com",
+    "Cloudflare_AWS": "amazonaws.com amazonaws.cn awsglobalaccelerator.com cloudfront.net elasticloadbalancing.com on.aws cloudflare.com cloudflare.net cloudflareclient.com trycloudflare.com workers.dev pages.dev",
+    "CompanyOfHeroes2": "companyofheroes.com",
+    "Darktide": "fatshark.se playdarktide.com",
+    "DeadByDaylight": "bhvrdbd.com bhvrdbd.net deadbydaylight.com",
+    "EA_Origin": "ea.app ea.com origin.com",
+    "EpicGames_Fortnite": "epicgames.com epicgames.dev epicgames.net epicgamescdn.com fortnite.com",
+    "Fallout76_AWS": "bethesda.net p76prod.systems",
+    "GearsOfWar": "gearsofwar.com xboxlive.com",
+    "GooseGooseDuck": "gaggle.fun",
+    "LeagueOfLegends": "leagueoflegends.com lolesports.com lolstatic.com",
+    "MagicTheGathering": "mtgarena.com magic-the-gathering-arena.com mtgarena.downloads.wizards.com",
+    "Minecraft_Extra": "minecraft.net minecraftservices.com mojang.com hypixel.net",
+    "MortalKombat1": "mortalkombat.com",
+    "MortalKombat11": "mortalkombat.com wbagora.com wbinsights.com",
+    "OutlastTrials": "rbg-services.com",
+    "PhotonEngine": "photonengine.io exitgames.com",
+    "RiotGames_Valorant": "playvalorant.com valorant.com valorant.scd.riotcdn.net valorant.secure.dyn.riotcdn.net",
+    "Roblox": "roblox.com rbxcdn.com rbxinfra.net robloxcdn.com",
+    "Steam": "steamcommunity.com steamcontent.com steampowered.com steamserver.net steamstatic.com",
+    "StreetFighter6": "streetfighter.com",
+    "Ubisoft_Rainbow_Six_Siege": "rainbow6.com r6s.com ubisoft.com ubi.com uplay.com",
+    "VRChat": "vrchat.com vrchat.net vrchat.cloud vrchatassets.com vrcdn.cloud",
+    "Wardogs": "wardogs.com live.wardogs.bulkhead.pragmaengine.com",
+    "Warframe": "warframe.com digitalextremes.com wrfr.me",
+    "WutheringWaves": "kurogame-service.com kurogames.com",
+}
+
+
 def fetch_bytes(url: str, timeout: int = 45) -> bytes:
     req = urllib.request.Request(url, headers={"User-Agent": UA})
     with urllib.request.urlopen(req, timeout=timeout) as response:
@@ -56,8 +93,14 @@ def network_sort_key(value: str):
     return (net.version, int(net.network_address), net.prefixlen)
 
 
+def profile_domains(path: Path, domains) -> list[str]:
+    exact = {domain for domain in domains if not domain.startswith("*.")}
+    zones = set(WILDCARD_ZONES.get(path.stem, "").split())
+    return sorted(exact | {f"*.{domain}" for domain in exact & zones})
+
+
 def write_mixed(path: Path, domains, networks) -> bool:
-    values = sorted(set(domains)) + sorted(set(networks), key=network_sort_key)
+    values = profile_domains(path, domains) + sorted(set(networks), key=network_sort_key)
     content = "\n".join(values) + "\n"
     old = path.read_text(encoding="utf-8") if path.exists() else ""
     if old == content:

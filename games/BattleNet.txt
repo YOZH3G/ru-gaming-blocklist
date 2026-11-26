@@ -1,3 +1,8 @@
+*.battle.net
+*.battlenet.com
+*.blizzard.cn
+*.blizzard.com
+*.blzstatic.cn
 account.battle.net
 activisionblizzard.com
 actual.battle.net

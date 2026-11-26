@@ -3,6 +3,7 @@ name: Update Darktide AWS ranges
 on:
   pull_request:
     paths:
+      - "scripts/updaters/common.py"
       - "games/Darktide.txt"
       - "scripts/update_darktide_aws.py"
       - ".github/workflows/update-darktide-aws.yml"

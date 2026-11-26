@@ -1,3 +1,4 @@
+*.companyofheroes.com
 amazonaws.com
 coh2-api.reliclink.com
 coh2-lobby.reliclink.com

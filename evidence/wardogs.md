@@ -2,11 +2,9 @@
 
 Game: **WARDOGS** (BULKHEAD / Team17, Steam AppID 1867240).
 
-## Current production policy: IP-only
+## Production profile
 
-As of 2026-10-02, `games/Wardogs.txt` is intentionally an **IP-only** profile.
-
-Maintainer feedback from users showed that the mixed domain + IP profile was unreliable in practice, while routing with the tested IP set worked more consistently. For that reason the production game file now contains exactly the field-tested IP/CIDR set and no domains.
+The profile retains the IP-only set that users previously found reliable and adds `wardogs.com` and `live.wardogs.bulkhead.pragmaengine.com` with subdomain masks. The updater verifies pinned IP ownership without replacing the addresses from DNS.
 
 Current production entries:
 
@@ -101,7 +99,6 @@ Source:
 
 The following domains remain useful as provenance and troubleshooting references, but are **not part of the current WARDOGS production profile**:
 
-- `wardogs.com`
 - `account.wardogs.com`
 - `community.wardogs.com`
 - `bulkhead.com`
@@ -111,7 +108,6 @@ The following domains remain useful as provenance and troubleshooting references
 - `player.gg`
 - `anybrain.gg`
 - `vivox.com`
-- `live.wardogs.bulkhead.pragmaengine.com`
 - `api.epicgames.dev`
 - `elytra.ac`
 

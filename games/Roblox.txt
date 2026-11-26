@@ -1,3 +1,7 @@
+*.rbxcdn.com
+*.rbxinfra.net
+*.roblox.com
+*.robloxcdn.com
 abtesting.roblox.com
 accountinformation.roblox.com
 accountsettings.roblox.com

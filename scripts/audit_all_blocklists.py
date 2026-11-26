@@ -83,7 +83,7 @@ def main() -> int:
             domains = set(domains) - COH2_DOMAIN_AGGREGATE_EXCLUDE
             ips = set(ips) - COH2_IP_AGGREGATE_EXCLUDE
         if path.name not in DOMAIN_AUX_EXCLUDE:
-            all_domains.update(domains)
+            all_domains.update(domain for domain in domains if not domain.startswith("*."))
         if path.name not in IP_AGGREGATE_EXCLUDE:
             all_ips.update(ips)
 
