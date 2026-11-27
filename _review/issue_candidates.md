@@ -2265,3 +2265,11 @@ Title: [Проблема] Северный кавказ
 Found domains:
 gist.github.com
 akamaihd.net
+
+## Flowseal/zapret-discord-youtube #19228
+
+Source: https://github.com/Flowseal/zapret-discord-youtube/issues/19228
+Title: [Проблема] Стал хуже грузиться стим
+
+Found domains:
+gist.github.com
